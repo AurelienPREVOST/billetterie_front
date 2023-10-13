@@ -1,0 +1,45 @@
+/* ////// */
+
+.b-form {
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  border: 2px solid #FFBD2F;
+  border-radius: 12px;
+  padding: 10px 2% 20px 2%;
+}
+
+.b-form input, .b-form select  {
+  font-family: 'Fjalla One', cursive;
+  display: block;
+  width: 87%;
+  margin: auto;
+  margin-top: 10px;
+  height: 32px;
+  border-radius: 12px;
+  border: 1px solid #c4c3c2;
+  padding-left: 3%;
+  outline: none;
+}
+
+.b-form textarea {
+  font-family: 'Fjalla One', cursive;
+  display: block;
+  width: 87%;
+  margin: auto;
+  margin-top: 10px;
+  min-height: 70px;
+  border-radius: 12px;
+  border: 1px solid #c4c3c2;
+  padding-left: 3%;
+  outline: none;
+}
+
+.b-form input[type="submit"] {
+  background-color: #FFBD2F;
+  width: 35%;
+  color: white;
+  text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
+}
+

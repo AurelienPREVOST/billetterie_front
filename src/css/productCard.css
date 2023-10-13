@@ -1,0 +1,38 @@
+.eventCard {
+  border-radius: 4px;
+  box-shadow: 0px 0px 2px 2px rgb(224, 223, 223);
+  padding: 10px;
+  margin: 50px 30px;
+  background: rgb(211, 150, 211);
+  text-align: left;
+  width: 150px;
+  height: 410px;
+  transition:250ms;
+}
+
+.eventCard:hover {
+  box-shadow: 0px 10px 2px 2px rgb(207, 207, 207);
+  transform: translateY(-10px) scale(1.02);
+}
+
+.eventCard img {
+  height: 225px;
+  width: 150px;
+  transform: translate(-20px, -20px);
+}
+
+.eventCard h3 {
+  height:60px;
+}
+
+.eventCard p:nth-child(2),
+.eventCard p:nth-child(3) {
+  height: 20px;
+  margin-top: 10px;
+}
+
+.eventCard p:nth-child(4) {
+  height:40px;
+  font-size: 1.2rem;
+  margin-top:25px;
+}

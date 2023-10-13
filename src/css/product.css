@@ -1,0 +1,30 @@
+.rangeFilterContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.cityAndSortFilterContainer {
+  display:flex;
+  justify-content: center;
+}
+
+.cityAndSortFilterContainer select {
+  margin:0.5rem;
+}
+
+.productType h1 {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.productType label {
+  display:block;
+  text-align: center;
+  margin:0.5rem;
+}
+
+.productType section:first-of-type {
+  background:rgba(77, 24, 97, 0.916);
+  padding:0.5rem;
+  color:white;
+}

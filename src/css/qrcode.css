@@ -1,0 +1,60 @@
+/* ///QRCODE */
+
+.QRCODEAREA{
+  background:rgb(113, 86, 122);
+  margin: 0 auto;
+  width:95%;
+}
+
+#flash {
+
+}
+
+.green {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background: rgba(0,255,0,0.6);
+}
+
+.red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background: rgba(255,0,0,0.6);
+}
+
+.yellow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background: rgba(255,255,0,0.6);
+}
+
+.QRCODEAREA h1 {
+  text-align: center;
+  font-size: 28px;
+  color:black;
+  padding:0.5rem;
+}
+
+.reportContainer {
+  height:60px;
+  width:100%;
+}
+
+.QRCODEAREA h2 {
+  text-align: center;
+  font-size: 40px;
+  color:white;
+  padding:0.5rem;
+}

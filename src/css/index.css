@@ -1,0 +1,54 @@
+@import './header.css';
+@import './footer.css';
+@import './detail.css';
+@import './basket.css';
+@import './home.css';
+@import './qrcode.css';
+@import './admin.css';
+@import './profil.css';
+@import './productCard.css';
+@import './formulaire.css';
+@import './product.css';
+
+
+/* HTML OR ANYWHERE */
+
+* {
+  font-size: 18px;
+  margin:0;
+  padding:0;
+}
+
+
+
+#root {
+  font-family: 'Gilroy', sans-serif;
+  padding-top: 6vh;
+  min-height: 90vh;
+}
+
+.hidden {
+  display:none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer
+}
+
+
+@media screen and (min-width: 719px) {
+  * {
+    font-size: 24px
+  }
+}
+
+@media screen and (min-width: 949px) {
+  * {
+    font-size: 14px
+  }
+
+  #app {
+    margin: 0 5vw;
+  }
+}

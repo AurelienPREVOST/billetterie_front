@@ -1,0 +1,53 @@
+/* /////////// */
+/* //profil// */
+/* //////////: */
+
+
+.logoutHref {
+  display: flex;
+  justify-content: end;
+  margin: 1rem;
+  height:50px;
+}
+
+.my-ticket{
+  line-height: 24px;
+  min-width: 200px;
+  max-width:200px;
+  height: 320px;
+  padding:1rem;
+  margin:2.5rem;
+  border-style: dashed;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px grey;
+}
+
+.my-ticket p {
+  margin:0.2rem;
+}
+
+.my-ticket h3 {
+  color:rgb(0, 0, 0);
+  font:bolder;
+}
+
+.my-ticket-passed {
+  text-decoration: line-through;
+  line-height: 24px;
+  min-width: 200px;
+  max-width:200px;
+  height: 320px;
+  padding:1rem;
+  margin:2.5rem;
+  border-style: dashed;
+  text-align: center;
+  background: #626262;
+  box-shadow: 0px 0px 4px grey;
+}
+
+.my-ticket-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}

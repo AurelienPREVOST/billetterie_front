@@ -1,0 +1,108 @@
+.reinsurrance {
+  background: white;
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reinsurrance figure {
+  width:auto;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5%;
+}
+
+.reinsurrance figure img {
+  width: 25vw;
+  padding:5%;
+}
+
+.reinsurrance figure figcaption {
+  color:black;
+  font-style: italic;
+  font-size: 12px;
+}
+
+
+footer {
+  padding:0 0 5% 0;
+  margin:5% 0 0 0;
+  width: 100%;
+  background:black;
+  text-align: center;
+  color:white;
+}
+
+footer a {
+  display: block;
+  color:white;
+  text-decoration: none;
+  margin:4% auto;
+}
+
+footer a:hover {
+  color:grey;
+  text-decoration:wavy;
+}
+
+footer form {
+  display: flex;
+  flex-direction: column;
+  margin:0 25%;
+  padding:2% 0;
+}
+
+footer form label {
+  margin:4% auto;
+}
+
+footer input[type="text"] {
+  font-size:1.5rem
+}
+
+footer input[type="submit"] {
+  margin:5%;
+}
+
+@media screen and (min-width: 719px) {
+  .reinsurrance figure {
+    padding: 3%;
+  }
+  .reinsurrance figure img {
+    width: 15vw;
+    padding: 3%;
+  }
+
+  footer {
+    display:flex;
+    flex-wrap: wrap;
+  }
+
+  footer a {
+    width: 18%;
+    margin: 0 auto;
+  }
+
+  footer form {
+    margin: auto 28%;
+    width: 44%;
+  }
+}
+
+
+@media screen and (min-width: 949px) {
+
+  .reinsurrance {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .reinsurrance figure img {
+    width:10vw
+  }
+
+  /* footer {
+    transform: translateX(-10vw);
+    width:99vw;
+  } */
+}
