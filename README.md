@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -75,3 +76,7 @@ L'idée serait de les stocké dans table ordersdetails dans une colonne "seats"
 grace a ca on pourrait ensuite croisé les id avec la table place et recupéré le code associé
 
 dès lors on peut editer le QRCODE en base 64 et l'envoyer par mail en confirmation de commande.
+=======
+# billetterie_front
+webApp made with a front built in react 18 and a backend built in node JS - db is in SQL and hosted on phpmyadmin. Fonctionne conjointement à billetterie_back
+>>>>>>> 32258708e6fb00db00d62d91ed77f85a3babae91
