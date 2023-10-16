@@ -14,7 +14,7 @@
 /* HTML OR ANYWHERE */
 
 * {
-  font-size: 18px;
+  /* font-size: 18px; */
   margin:0;
   padding:0;
 }
@@ -39,16 +39,17 @@ a {
 
 @media screen and (min-width: 719px) {
   * {
-    font-size: 24px
+    /* font-size: 24px */
   }
 }
 
 @media screen and (min-width: 949px) {
   * {
-    font-size: 14px
+    /* font-size: 14px */
   }
 
   #app {
+    /* font-size: 16px; */
     margin: 0 5vw;
   }
 }

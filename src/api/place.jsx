@@ -11,20 +11,8 @@ export function getAllPlaces(id){
   })
 }
 
-
-///////ON COMMENTE POUR ESSAYER UNE AUTRE VERSION MAIS CELLE CI MARCHE
-// export function updateStatusSeat(id) {
-//   return axios.put(`${config.api_url}/place/updateseat/${id}`)
-//     .then((res) => {
-//       return res.data;
-//     })
-//     .catch((err) => {
-//       return err;
-//     });
-// }
-
-export function updateStatusSeat(placeId, clientId) {
-  return axios.put(`${config.api_url}/place/updateseat/${placeId}`, { clientId })
+export function updateStatusSeat(placeId, clientId, numOrder) {
+  return axios.put(`${config.api_url}/place/updateseat/${placeId}`, { clientId, numOrder })
     .then((res) => {
       return res.data;
     })

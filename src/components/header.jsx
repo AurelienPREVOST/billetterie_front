@@ -79,8 +79,8 @@ const Header = () => {
 
   return (
     <header>
-      <Link to="/"><img src={iconHome} alt="home" /></Link>
-      <img src={iconSearch} onClick={toggleDisplaySearchBar} alt="loupeClickable"/>
+      <Link to="/"><img src={iconHome} alt="home" aria-label="Accueil" /></Link>
+        <img src={iconSearch} onClick={toggleDisplaySearchBar} alt="loupeClickable" aria-label="Rechercher" />
       <div id="searchBarDiv" className="initialTopPositon">
         <input
           id="inputSearch"
@@ -104,7 +104,7 @@ const Header = () => {
                     <Link to={`/detail/${sr.id}`} onClick={() => {
                       toggleDisplaySearchBar();
                       onClickResultOrCloseSearchBar();
-                    }}>
+                    }} aria-label={`Détails de ${sr.name}`}>
                       {sr.name}
                     </Link>
                     </td>
@@ -123,17 +123,17 @@ const Header = () => {
           )
         ) : null}
       </div>
-      <Link to="/basket"><img src={iconBasket} alt="basket" /></Link>
+      <Link to="/basket"><img src={iconBasket} alt="basket" aria-label="Panier" /></Link>
       {user.isLogged ? (
         <>
           {user.infos.role === 'admin' ? (
-            <Link to="/admin"><img src={iconAdmin} alt="admin" /></Link>
+            <Link to="/admin"><img src={iconAdmin} alt="admin" aria-label="portail admin" /></Link>
           ) : (
-            <Link to="/profil"><img src={iconProfil} alt="profil" /></Link>
+            <Link to="/profil"><img src={iconProfil} alt="profil" aria-label="portail utilisateur"/></Link>
           )}
         </>
       ) : (
-        <Link to="/login"><img id="profil" src={iconLogin} alt="profil" /></Link>
+        <Link to="/login"><img id="profil" src={iconLogin} alt="profil" aria-label="Se connecter" /></Link>
       )}
       <div id="screenCoveringFilter" className="hidden"></div>
     </header>

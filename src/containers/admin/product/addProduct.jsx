@@ -37,33 +37,6 @@ const AddProduct = (props)=>{
         }
     }
 
-
-// /////////////////////////////////////////
-//     const generateCode = () => {
-//       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-//       let code = ''
-//       for (let i = 0; i < 8; i++) {
-//         const randomIndex = Math.floor(Math.random() * characters.length)
-//         code += characters.charAt(randomIndex)
-//       }
-//       return code;
-//     }
-// /////////////////////////////////////////
-//     const buildCodedPlaces = (quantity) => {
-//       let codedPlaces = {};
-//       for (let i = 1; i <= quantity; i++) {
-//         const seatCode = generateCode();
-//         // Par défaut, chaque place est marquée comme "available"
-//         codedPlaces[i] = {
-//           code: seatCode,
-//           status: "available",
-//         };
-//         console.log("seatCode for each =>", seatCode)
-//       }
-//       return JSON.stringify(codedPlaces)
-//     }
-// /////////////////////////////////////////
-
     const saveCompleteProduct = ()=>{
         if(selectedFile === null){
             let datas = {
@@ -77,7 +50,6 @@ const AddProduct = (props)=>{
                 date: date,
                 price: price,
                 quantity: quantity,
-                // codedPlaces: buildCodedPlaces(quantity),
                 photo: "no-pict.jpg"
               }
             addProd(datas)

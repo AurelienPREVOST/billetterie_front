@@ -53,7 +53,7 @@
 .bannerDetail h2 {
   text-align: center;
   padding-top: 5%;
-  font-size:2rem;
+  /* font-size:2rem; */
 }
 
 .opera, .concert, .theatre, .sportevent, .onemanshow, .cabaret, .enfants {
@@ -200,7 +200,7 @@
 .theatreDetail p:nth-child(9) {
   color:purple;
   font-weight: bold;
-  font-size: larger;
+  /* font-size: larger; */
   margin: 1rem;
 }
 
@@ -225,12 +225,12 @@
   background:none;
   /* display:flex */
   text-align: center;
-  font-size: larger;
+  /* font-size: larger; */
 }
 
 .advertising {
   margin-top: 2rem;
-  font-size: 12px;
+  /* font-size: 12px; */
   font-style: oblique;
 }
 
@@ -262,9 +262,15 @@
   height:10%
 }
 
-.popUpBasketConfirmation button {
+.popUpBasketConfirmation a {
   padding:1rem;
   border-radius:20px;
+  border:1px solid grey;
+  border-radius:20px;
+  background:rgb(237, 237, 237);
+  margin-top:2rem;
+  padding:1.5rem;
+  cursor:pointer;
 }
 
 .closePopUp{
@@ -282,7 +288,7 @@
 
   .bannerDetail h2 {
     text-align: left;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     width: 45%;
     transform: translateX(115%);
     padding-top: 5%;
@@ -296,15 +302,7 @@
   /* .theatreDetail {
     font-size: 24px;
   } */
-  .popUpBasketConfirmation {
-    font-size: 2rem;
-  }
 
-  .popUpBasketConfirmation button {
-    font-size: 2rem;
-    margin-top:2rem;
-    padding:1.5rem;
-  }
 
   .popUpBasketConfirmation img:nth-child(1) {
     margin:2%;
@@ -315,7 +313,7 @@
   }
 
   .theatreDetail {
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
   }
 
   /* .bannerDetail h2 {
@@ -329,7 +327,7 @@
   } */
 
   .advertising {
-    font-size:1.8rem;
+    /* font-size:1.8rem; */
   }
 
   .spectacleSchema {
@@ -338,7 +336,7 @@
   }
 
   .spectacleSchema h2 {
-    font-size: 1.8rem
+    /* font-size: 1.8rem */
   }
 
   .theatreDetail h2 {
@@ -393,11 +391,11 @@
     }
 
     .spectacleSchema h2 {
-      font-size: 1.4rem;
+      /* font-size: 1.4rem; */
     }
 
     .advertising {
-      font-size: 1rem;
+      /* font-size: 1rem; */
     }
   }
 }

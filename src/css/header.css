@@ -61,7 +61,7 @@
     text-indent: 10%;
     width: 70vw;
     border:none;
-    font-size: 24px;
+    /* font-size: 24px; */
     height: 100%;
   }
 
@@ -83,7 +83,7 @@
     top:48px;
     left:0;
     width:70vw;
-    font-size: 24px;
+    /* font-size: 24px; */
     background: white;
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
