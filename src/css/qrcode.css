@@ -42,7 +42,7 @@
 
 .QRCODEAREA h1 {
   text-align: center;
-  font-size: 28px;
+  /* font-size: 28px; */
   color:black;
   padding:0.5rem;
 }
@@ -54,7 +54,25 @@
 
 .QRCODEAREA h2 {
   text-align: center;
-  font-size: 40px;
+  /* font-size: 40px; */
   color:white;
   padding:0.5rem;
+}
+
+
+#emailPlaces {
+  width:90vw;
+  margin:1rem auto;
+  text-align:center;
+  border: 4px dashed purple ;
+}
+
+#emailPlaces input {
+  width: 70%;
+  height: 5vh;
+}
+
+#QrCodeReadyFromEmailChecking {
+  margin:3rem 0;
+  width:70%;
 }

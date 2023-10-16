@@ -18,12 +18,11 @@
 
 
 
-.quickButtonMenu a:nth-child(1) button {
+.quickButtonMenu a:nth-child(1) {
   margin:2px 10px 0px 100px ;
 }
 
-.quickButtonMenu a button {
-  font-size: smaller;
+.quickButtonMenu a {
   min-width:120px;
   height:24px;
   border-radius:12px;
@@ -33,6 +32,9 @@
   box-shadow: 0 0 4px 0 grey;
   border: 2px solid rgba(138, 224, 135, 0.426);
   margin: 2px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mainEvent {
@@ -43,29 +45,18 @@
 
 
 @media screen and (min-width: 719px) {
-  .quickButtonMenu a button {
+  .quickButtonMenu a {
     min-width: 150px;
     height: 50px;
     border-radius: 30px;
     margin: 2px 30px;
   }
 
-  .quickButtonMenu a:nth-child(1) button {
+  .quickButtonMenu a:nth-child(1) {
     margin: 2px 30px 0px 100px;
   }
 
-  .eventCard {
-    border-radius: 6px;
-    min-width: 200px;
-    height: 510px;
-    padding: 12px
-  }
 
-  .eventCard img {
-    height: 280px;
-    width: 188px;
-    transform: translate(-25px, -25px);
-  }
 
   @media screen and (min-width: 949px) {
     .quickButtonMenu {
@@ -80,11 +71,6 @@
       justify-content: center;
       overflow: hidden;
     }
-
-    .eventCard {
-      margin: 20px
-    }
-
 
     .quickButtonMenu::-webkit-scrollbar {
       width: 12px;

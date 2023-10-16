@@ -13,8 +13,6 @@ const Payment = (props) => {
     const stripePromise = loadStripe("pk_test_51IzetcLJHwOB3xS8Z9ADczpOFPVzQjpcnZFrPUMb3Lcs1oRlAvtU9qUQTJaTTmP7nMF1F9d8gzaJ2COoyKcmxehH00lUA6H5EK")
     const user = useSelector(selectUser)
 
-console.log("L'ORDER ID AVEC LEQUEL JE PEUX POTENTIELLEMENT RECUPERER L'OBJET DATA", props.params.orderId)
-
     return (<section>
         <p className="buyingStep"> Etape 2 sur 2</p>
         <h3 className="buyingStepTitle">2. Paiement</h3>

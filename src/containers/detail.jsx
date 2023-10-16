@@ -231,23 +231,14 @@ const Detail = () => {
 
       {places ? (
       <div className="spectacleSchema" >
-      <h2>
-        {isfull ? "SPECTACLE COMPLET" : "PLACES DISPONIBLE"}
-      </h2>
-      {/* <p><i>
-        {isfull ? "" : "Pensez aux autres - Evitez de laisser une place seule au milieu"}
-      </i></p> */}
+      <h2>{isfull ? "SPECTACLE COMPLET" : "PLACES DISPONIBLE"}</h2>
         <img src={scene} style={{ width: '100%' }} />
         {places.result.map((place, index) => {
-          // Trouver le panier correspondant au produit actuel
           const currentProductBasket = basket.basket.find((item) => item.id === product.id);
-
-          // Accéder aux selectedSeatIds du panier correspondant
           const selectedSeatIds = currentProductBasket ? currentProductBasket.selectedSeatIds : [];
 
           return (
-          <div key={place.id}
-              className="seat-container">
+          <div key={place.id} className="seat-container">
             <img
               id={`seat-number-${index + 1}`}
               className="various-seat"
@@ -260,8 +251,14 @@ const Detail = () => {
               }
               alt={`Place ${place.id}`}
               onClick={() => handleSeatClick(place.id, index)}
+              tabIndex={0} // Rend l'image accessible via la touche TAB
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  handleSeatClick(place.id, index);
+                }
+              }}
             />
-            <p className="seat-label">{index}</p>
+            <p className="seat-label">{index + 1}</p>
           </div>
         );
         })}

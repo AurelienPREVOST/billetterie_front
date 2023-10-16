@@ -7,9 +7,7 @@ const quickButtonMenu = () => {
   return (
     <div className="quickButtonMenu">
     {buttonTypes.map((type, index) => (
-      <Link key={index} to={{ pathname: `/product/${type}` }}>
-        <button>{type.toUpperCase()}</button>
-      </Link>
+      <Link key={index} to={{ pathname: `/product/${type}` }}>{type.toUpperCase()}</Link>
     ))}
     </div>
   );

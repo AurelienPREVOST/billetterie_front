@@ -5,7 +5,8 @@
   margin: 50px 30px;
   background: rgb(211, 150, 211);
   text-align: left;
-  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
   height: 410px;
   transition:250ms;
 }
@@ -23,16 +24,43 @@
 
 .eventCard h3 {
   height:60px;
+  overflow: hidden;
 }
 
 .eventCard p:nth-child(2),
 .eventCard p:nth-child(3) {
   height: 20px;
   margin-top: 10px;
+  overflow: hidden;
 }
 
 .eventCard p:nth-child(4) {
   height:40px;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   margin-top:25px;
+  overflow: hidden;
+}
+
+
+@media screen and (min-width: 719px) {
+
+  .eventCard {
+    border-radius: 6px;
+    min-width: 200px;
+    height: 510px;
+    padding: 12px
+  }
+
+  .eventCard img {
+    height: 280px;
+    width: 188px;
+    transform: translate(-25px, -25px);
+  }
+}
+
+@media screen and (min-width: 949px) {
+
+  .eventCard {
+    margin: 20px
+  }
 }
