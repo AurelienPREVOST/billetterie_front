@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 
 import Home from "./containers/home"
@@ -25,19 +25,22 @@ import Mentions from './containers/mentions'
 import RequireDataAuth from "./helpers/require-data-auth"
 import QrCodeScanner from "./containers/QRcode/qrCodeScanner"
 import EmailPlaces from "./containers/QRcode/emailPlaces"
+import AccountValidate from "./containers/user/accountValidate"
+import ChangePassword from "./containers/user/changePassword"
+import ChangePasswordSuccess from "./containers/user/changePasswordSuccess"
 
 function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
     const currentPath = window.location.pathname;
-    const productIdPattern = /^\/detail\/\d+$/; // Expression régulière pour les URL de détail de produit
-    const productTypePattern = /^\/product\/(theatre|opera|concert|onemanshow|sportevent|enfants|cabaret)$/;
-    const emailPlacesPattern = /^\/emailPlaces\/code=[A-Za-z0-9]{8}$/; // Expression régulière pour les URL de type /emailPlaces/code= suivi de 8 caractères alphanumériques
+    const productIdPattern = /^\/detail\/\d+$/
+    const productTypePattern = /^\/product\/(theatre|opera|concert|onemanshow|sportevent|enfants|cabaret)$/
+    const emailPlacesPattern = /^\/emailPlaces\/code=[A-Za-z0-9]{8}$/
+    const resetPasswordPattern = /^\/user\/changePassword\/[A-Za-z0-9]+$/
 
     if (
       currentPath !== '/' &&
-      !productIdPattern.test(currentPath) && // Ne redirige pas si l'URL suit le format /detail/64
       currentPath !== '/register' &&
       currentPath !== '/login' &&
       currentPath !== '/forgot' &&
@@ -48,14 +51,18 @@ function App() {
       currentPath !== '/addProduct' &&
       currentPath !== '/editProduct' &&
       currentPath !== '/orderDetail' &&
-      !productTypePattern.test(currentPath) && // Ne redirige pas si l'URL suit le format /product/type
       currentPath !== '/payment' &&
       currentPath !== '/success' &&
       currentPath !== '/contact' &&
       currentPath !== '/faq' &&
       currentPath !== '/cgv' &&
-      currentPath !== '/mentions' && // Ajout de cette condition
-      !emailPlacesPattern.test(currentPath) // Ajout de cette condition
+      currentPath !== '/accountValidate' &&
+      currentPath !== '/mentions' &&
+      currentPath !== '/user/changePasswordSuccess' &&
+      !productIdPattern.test(currentPath) &&
+      !productTypePattern.test(currentPath) &&
+      !emailPlacesPattern.test(currentPath) &&
+      !resetPasswordPattern.test(currentPath)
     ) {
       navigate("/")
     }
@@ -143,6 +150,19 @@ function App() {
         <Route
           path="/mentions"
           element={<RequireDataAuth child={Mentions} auth={false} admin={false} />}
+        />
+        <Route
+          path="/accountValidate"
+          element={<RequireDataAuth child={AccountValidate} auth={false} admin={false} />}
+        />
+        <Route
+          path="/user/changePassword/:key_id"
+          element={<RequireDataAuth child={ChangePassword} auth={false} admin={false} />}
+          // ICI JE N'AI PAS ENCORE FAIT LE TEMPLATE CONTAINERS POUR CHANGER UN MDP, FORMULAIRE AVEC MDP ET CONFIRM MDP
+        />
+        <Route
+          path="/user/changePasswordSuccess"
+          element={<RequireDataAuth child={ChangePasswordSuccess} auth={false} admin={false} />}
         />
       </Routes>
     </div>

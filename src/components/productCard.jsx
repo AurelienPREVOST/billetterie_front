@@ -7,7 +7,7 @@ const ProductCard = ({product}) => {
     <article key={product.id} className="eventCard">
       <Link to={`/detail/${product.id}`} aria-label={`Détails de l'évenement : ${product.name}`}>
       <img src={config.pict_url + product.photo} alt={`Affiche d'illustration de l'évenement :  ${product.name}`} />
-        <h3>{product.name}</h3>
+        <h2>{product.name}</h2>
         <p><b>{new Date(product.date).toISOString().split("T")[0]}</b></p>
         <p>{product.lieu}</p>
         <p>{product.price} € TTC</p>

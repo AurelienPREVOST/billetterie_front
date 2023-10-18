@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { checkPayment, updateOrder } from '../api/order';
 import { updateStatusSeat } from '../api/place';
@@ -19,6 +19,10 @@ const CheckoutForm = (props) => {
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
+
+  useEffect(() => {
+    window.scrollTo(0, 0) // Remonte le scroll sinon on ne vois pas forcément la zone de paiement
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,7 +95,7 @@ const CheckoutForm = (props) => {
   }
 
   return (
-    <section className="minHeightFullpage">
+    <section>
       {error && <p className="error-message">{error}</p>}
       <form id="formtest" onSubmit={handleSubmit}>
         <CardElement
@@ -132,7 +136,7 @@ const CheckoutForm = (props) => {
 
           #formtest button {
             display:flex;
-            background-color: #007bff;
+            background-color: #004996;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -143,7 +147,7 @@ const CheckoutForm = (props) => {
           }
 
           #formtest button:hover {
-            background-color: #0056b3;
+            background-color: #042c5b;
           }
 
           .__PrivateStripeElement iframe {

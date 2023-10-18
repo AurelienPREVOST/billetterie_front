@@ -112,12 +112,12 @@ const AddProduct = (props)=>{
         return <Navigate to="/admin"/>
     }
     return(<section>
-        <h2>Ajouter un produit</h2>
         {error !== null && <p>{error}</p>}
         <form
             className="b-form"
             onSubmit={onSubmitForm}
         >
+        <h2>Ajouter un produit</h2>
             <input
                 type="text"
                 placeholder="Nom de la produit"

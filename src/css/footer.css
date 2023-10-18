@@ -1,5 +1,55 @@
-#accessibilityTitle{
+#newsletter, footer form input[type=submit]{
+  width:50vw;
+  padding:0.5rem;
+  font-size:1.7em;
+  border-radius: 40px;
+}
+
+#newsletter {
+  display: flex;
+  width: 70vw;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+footer form input[type=submit] {
+  transition: 150ms;
+  cursor:pointer;
+  width:40vw;
+  margin:1em auto;
+}
+
+
+
+#hiddenOrShowAccessibility {
+  position:fixed;
+  top:70vh;
+  width:100vw;
   background:rgb(128, 227, 128);
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  z-index: 1000;
+}
+
+#iconAccessDeploy {
+  position: absolute;
+  right: 2vw;
+  height: 70px;
+  font-size: 18.956px;
+  top: 35%;
+}
+
+.hiddenAccess {
+  transition:250ms;
+  right:0;
+}
+
+.displayAccess {
+  transition:250ms;
+  right:90vw;
+}
+
+#accessibilityTitle{
   padding-top:1rem;
   text-indent: 1rem;
 }
@@ -7,7 +57,6 @@
 #accessibilityArea {
   height:12vh;
   width:100%;
-  background:rgb(128, 227, 128);
   padding:1rem 0;
   display:flex;
   justify-content: space-around;
@@ -23,7 +72,6 @@
   border:none;
   cursor:pointer;
   box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2)
-
 }
 
 #accessibilityArea button img{
@@ -40,7 +88,7 @@
 }
 
 .reinsurrance figure {
-  width:auto;
+  width:30%;
   text-align: center;
   margin: 0 auto;
   padding: 5%;
@@ -56,7 +104,6 @@
   font-style: italic;
   /* font-size: 12px; */
 }
-
 
 footer {
   padding:0 0 5% 0;
@@ -82,16 +129,13 @@ footer a:hover {
 footer form {
   display: flex;
   flex-direction: column;
-  margin:0 25%;
   padding:2% 0;
+  width: 100%;
+  margin: 0 auto;
 }
 
 footer form label {
   margin:4% auto;
-}
-
-footer input[type="text"] {
-  /* font-size:1.5rem */
 }
 
 footer input[type="submit"] {
@@ -100,6 +144,7 @@ footer input[type="submit"] {
 
 @media screen and (min-width: 719px) {
   .reinsurrance figure {
+    width: 15%;
     padding: 3%;
   }
   .reinsurrance figure img {
@@ -118,8 +163,13 @@ footer input[type="submit"] {
   }
 
   footer form {
-    margin: auto 28%;
-    width: 44%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  footer form label {
+    margin:1em auto;
+    font-size: 1.7em;
   }
 }
 
@@ -134,8 +184,57 @@ footer input[type="submit"] {
     width:10vw
   }
 
-  /* footer {
-    transform: translateX(-10vw);
-    width:99vw;
-  } */
+  #hiddenOrShowAccessibility {
+    position:fixed;
+    top:70vh;
+    width:40vw;
+    background:rgb(128, 227, 128);
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    z-index: 1000;
+  }
+
+  #iconAccessDeploy {
+    position: absolute;
+    right: 2vw;
+    height: 50px;
+    font-size: 18.956px;
+    top: 35%;
+  }
+
+  .hiddenAccess {
+    transition:250ms;
+    left:-35vw;
+  }
+  .displayAccess {
+    transition:250ms;
+    left:0;
+  }
+  #accessibilityArea {
+    height:12vh;
+    width:100%;
+    padding:1rem 0;
+    display:flex;
+    justify-content: space-around;
+  }
+
+  footer form input[type=submit] {
+    transition: 150ms;
+    background:rgb(235, 235, 235);
+    width:15vw;
+  }
+
+  footer form input[type=submit]:hover {
+    transition: 150ms;
+    background:grey;
+    width:20vw;
+  }
+
+  #newsletter, footer form input[type=submit]{
+    font-size:1.2em;
+  }
+
+  #newsletter {
+    width: 30vw;
+  }
 }

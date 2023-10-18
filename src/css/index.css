@@ -9,11 +9,15 @@
 @import './productCard.css';
 @import './formulaire.css';
 @import './product.css';
-
+@import './contactForm.css';
+@import './cgv_faq.css';
+@import './success.css';
+@import '../assets/fonts/roboto.css';
 
 /* HTML OR ANYWHERE */
 
 * {
+  font-family: 'Roboto', sans-serif;
   /* font-size: 18px; */
   margin:0;
   padding:0;
@@ -34,6 +38,10 @@
 a {
   text-decoration: none;
   cursor: pointer
+}
+
+#app {
+  min-height: 75vh;
 }
 
 

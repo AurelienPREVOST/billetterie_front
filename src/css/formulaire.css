@@ -1,45 +1,63 @@
-/* ////// */
-
 .b-form {
-  flex-direction: column;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 50%;
-  margin: auto;
-  border: 2px solid #FFBD2F;
-  border-radius: 12px;
-  padding: 10px 2% 20px 2%;
+  max-width: 600px;
+  margin: 1em auto;
+  padding: 3rem 4em;
+  text-align: center;
 }
 
-.b-form input, .b-form select  {
-  font-family: 'Fjalla One', cursive;
+.formLink {
+  display:block;
+  margin:1rem;
+}
+
+.b-form input, .b-form select, .b-form button  {
   display: block;
-  width: 87%;
-  margin: auto;
-  margin-top: 10px;
-  height: 32px;
+  width: 100%;
+  margin: 1em auto;
+  height: 2.5em;
   border-radius: 12px;
   border: 1px solid #c4c3c2;
-  padding-left: 3%;
+  text-indent: 5%;
   outline: none;
 }
 
 .b-form textarea {
-  font-family: 'Fjalla One', cursive;
   display: block;
-  width: 87%;
-  margin: auto;
-  margin-top: 10px;
+  width: 100%;
+  margin: 1em auto;
   min-height: 70px;
   border-radius: 12px;
   border: 1px solid #c4c3c2;
-  padding-left: 3%;
+  text-indent: 5%;
   outline: none;
 }
 
-.b-form input[type="submit"] {
-  background-color: #FFBD2F;
+.b-form input[type="submit"], .b-form button {
+  cursor:pointer;
+  background-color: #007BFF;
   width: 35%;
   color: white;
   text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
 }
 
+.b-form input[type="submit"]:hover, .b-form button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (min-width: 719px) {
+  .b-form {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 949px) {
+  .b-form {
+    width: 30vw;
+  }
+}

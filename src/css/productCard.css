@@ -1,4 +1,5 @@
 .eventCard {
+  color:black;
   border-radius: 4px;
   box-shadow: 0px 0px 2px 2px rgb(224, 223, 223);
   padding: 10px;
@@ -7,7 +8,7 @@
   text-align: left;
   min-width: 150px;
   max-width: 150px;
-  height: 410px;
+  height: 500px;
   transition:250ms;
 }
 
@@ -22,23 +23,28 @@
   transform: translate(-20px, -20px);
 }
 
-.eventCard h3 {
-  height:60px;
-  overflow: hidden;
+.eventCard h2, .eventCard p {
+  color:black;
+  overflow-y: hidden;
+}
+
+.eventCard h2 {
+  height:90px;
+  overflow-y: hidden;
 }
 
 .eventCard p:nth-child(2),
 .eventCard p:nth-child(3) {
   height: 20px;
   margin-top: 10px;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .eventCard p:nth-child(4) {
   height:40px;
   /* font-size: 1.2rem; */
   margin-top:25px;
-  overflow: hidden;
+
 }
 
 

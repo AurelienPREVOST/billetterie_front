@@ -14,8 +14,8 @@ const Payment = (props) => {
     const user = useSelector(selectUser)
 
     return (<section>
-        <p className="buyingStep"> Etape 2 sur 2</p>
-        <h3 className="buyingStepTitle">2. Paiement</h3>
+        <h1 className="buyingStep"> Etape 2 sur 2</h1>
+        <h2 className="buyingStepTitle">2. Paiement</h2>
         <Elements stripe={stripePromise}>
             <CheckoutForm orderId={props.params.orderId} clientId={user.infos.id}/>
         </Elements>
