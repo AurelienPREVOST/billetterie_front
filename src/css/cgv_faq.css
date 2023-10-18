@@ -1,0 +1,52 @@
+/* Styles for the FAQ container */
+.cgv-container, .faq-container, .mentions-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 600px;
+  margin: 1em auto;
+  padding: 5rem;
+  text-align: left;
+}
+
+.cgv-container h1, .faq-container h1, .mentions-container h1{
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 2em;
+}
+
+.cgv-container li, .faq-container li{
+  list-style: decimal;
+  margin: 10px 0;
+}
+
+.cgv-container strong, .faq-container strong , .mentions-container strong{
+  font-weight: bold;
+}
+
+.cgv-container p, .faq-container p, .mentions-container p {
+  margin: 5px 0;
+}
+
+.faq-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.faq-item p {
+  font-size: 16px;
+  margin: 0;
+}

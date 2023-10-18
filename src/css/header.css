@@ -57,6 +57,10 @@
     background: rgb(184, 110, 184)
   }
 
+  #searchBarDiv label {
+    color:rgba(0,0,0,0)
+  }
+
   #searchBarDiv input {
     text-indent: 10%;
     width: 70vw;

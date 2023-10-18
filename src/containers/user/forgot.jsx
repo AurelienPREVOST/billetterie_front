@@ -23,49 +23,31 @@ const Forgot = () => {
       })
     }
     return (
-        <div>
-          {redirect && <Navigate to="/login" />}
-          <h1 className="">
-            JE SUIS  <span className="">DANS</span>
-            <span className="">FORGOT.JSX FRONT</span> <span>!</span>
-          </h1>
-          {error !== null && <p className="">{error}</p>}
-          <div className="">
-            <div className="">
-              <div className="">
-                <Link to="/login">Login :</Link>
-              </div>
-              <div className="">
-                <Link to="/register">Register :</Link>
-              </div>
-            </div>
-            <div>
-              <h3>Mot de passe oublié</h3>
-              <div className="">
-              <form
-                className=""
-                onSubmit={onSubmitForm}
-              >
-                <label>Email</label>
-                <input
-                  type="text"
-                  name="email"
-                  onChange={(e) => {
-                    setEmail(e.currentTarget.value);
-                  }}
-                />
-                <input
-                  className=""
-                  type="submit"
-                  value="Envoyer un nouveau mot de passe"
-                />
-              </form>
-            </div>
-            <div className="">
-            </div>
-        </div>
+      <div>
+      {redirect && <Navigate to="/login" />}
+      {error !== null && <p className="">{error}</p>}
+        <form
+        className="b-form"
+        onSubmit={onSubmitForm}
+        >
+          <h2>Mot de passe oublié</h2>
+          <label>Email</label>
+          <input
+          type="text"
+          name="email"
+          onChange={(e) => {
+          setEmail(e.currentTarget.value);
+          }}
+          />
+          <input
+          className=""
+          type="submit"
+          value="Reinitialisation"
+          />
+          <Link to="/login">Se connecter ?</Link>
+          <Link to="/register">Pas encore de compte?</Link>
+        </form>
       </div>
-    </div>
     );
 }
 

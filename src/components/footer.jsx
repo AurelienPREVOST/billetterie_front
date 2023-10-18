@@ -27,7 +27,7 @@ const Footer = () => {
     elements.forEach((element) => {
       const currentFontSize = window.getComputedStyle(element).getPropertyValue('font-size');
       const currentSize = parseFloat(currentFontSize);
-      const newSize = currentSize * 0.98;
+      const newSize = currentSize / 1.05;
       element.style.fontSize = newSize + 'px';
     });
   }
@@ -59,6 +59,11 @@ const Footer = () => {
       });
   };
 
+  const toggleDisplayAccessibility = () => {
+    const access = document.querySelector("#hiddenOrShowAccessibility")
+    access.classList.toggle("displayAccess")
+    access.classList.toggle("hiddenAccess")
+  }
 
   useEffect(() => {
     const increaseButton = document.getElementById('increase-font-size');
@@ -79,27 +84,48 @@ const Footer = () => {
 
   return (
     <>
-      <h2 id="accessibilityTitle" aria-label="Accessibilité de l'interface">Accessibilité de l'interface</h2>
-      <div id="accessibilityArea">
-        <button id="increase-font-size" aria-label="Augmenter la taille de la police"><img src={loupeIncrease} alt="Bouton d'augmentation de la taille de la police" /></button>
-        <button id="decrease-font-size" aria-label="Réduire la taille de la police"><img src={loupeDecrease} alt="Bouton de réduction de la taille de la police" /></button>
+      <div
+        id="hiddenOrShowAccessibility"
+        className="displayAccess"
+        onClick={toggleDisplayAccessibility}
+      >
+        <h2 id="accessibilityTitle" aria-label="Accessibilité de l'interface">
+          Accessibilité de l'interface
+        </h2>
+        <div id="accessibilityArea">
+          <button
+            id="increase-font-size"
+            aria-label="Augmenter la taille de la police"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src={loupeIncrease} alt="Bouton d'augmentation de la taille de la police" aria-label="augmenter la taille de la police"/>
+          </button>
+          <button
+            id="decrease-font-size"
+            aria-label="Réduire la taille de la police"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src={loupeDecrease} alt="Bouton de réduction de la taille de la police" aria-label="reduire la taille de la police" />
+          </button>
+          <img src={loupeIncrease} id="iconAccessDeploy" alt="click_for_help" aria-label="deploiement au click pour ameliorer la visibilité"/>
+        </div>
       </div>
 
       <div className="reinsurrance">
         <figure>
-          <img src={refundSecure} alt="remboursement possible" />
+          <img src={refundSecure} alt="logo representatnt un process de remboursement" />
           <figcaption aria-label="Remboursement possible">Remboursement possible</figcaption>
         </figure>
         <figure>
-          <img src={noDataStolen} alt="aucun stockage de données tierce" />
+          <img src={noDataStolen} alt="logo aucun stockage de données tierce" />
           <figcaption aria-label="Confidentialité préservée">Confidentialité préservée</figcaption>
         </figure>
         <figure>
-          <img src={safeTransaction} alt="Paiement sécurisé" />
+          <img src={safeTransaction} alt="logo représentant une transaction séurisée" />
           <figcaption aria-label="Paiement sécurisé">Paiement sécurisé</figcaption>
         </figure>
         <figure>
-          <img src={charityReinsurrance} alt="5% reversé*" />
+          <img src={charityReinsurrance} alt="logo représentant la charité" />
           <figcaption aria-label="5% reversé*">5% reversé*</figcaption>
         </figure>
       </div>
@@ -129,50 +155,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-// import charityReinsurrance from "../assets/charityReinsurrance.svg"
-// import safeTransaction from "../assets/safeTransaction.svg"
-// import refundSecure from "../assets/refundSecure.svg"
-// import noDataStolen from "../assets/noDataStolen.svg"
-// import {addToNewsletter} from "../api/newsletter/"
-
-
-// const footer = () => {
-
-//   return (
-//     <>
-//     <div className="reinsurrance">
-//         <figure>
-//           <img src={refundSecure} alt="remboursement possible" />
-//           <figcaption>Remboursement possible</figcaption>
-//         </figure>
-//         <figure>
-//           <img src={noDataStolen} alt="aucun stockage de données tierce" />
-//           <figcaption>confidentialité préservées</figcaption>
-//         </figure>
-//         <figure>
-//           <img src={safeTransaction} alt="Paiement securisé" />
-//           <figcaption>Paiement securisé</figcaption>
-//         </figure>
-//         <figure>
-//           <img src={charityReinsurrance} alt="5% reversé*" />
-//           <figcaption>5% reversé*</figcaption>
-//         </figure>
-//       </div>
-//     <footer>
-//       <form onSubmit={addToNewsletter(data)}>
-//         <label htmlFor="newsletter">Inscription à la newsletter</label>
-//         <input type="text" name="newsletter" id="newsletter" placeholder="Votre email" />
-//         <input type="submit" value="Valider" />
-//       </form>
-//       <a href="/contact">Contact</a>
-//       <a href="/faq">FAQ</a>
-//       <a href="/cgv">Conditions générales de ventes</a>
-//       <a href="/mentions">Mention Légal</a>
-//     </footer>
-//     </>
-//   )
-// }
-
-// export default footer

@@ -1,0 +1,19 @@
+#successEvent {
+  text-align: center;
+  font-size: 2em;
+}
+
+#successEvent h2 {
+  margin: 2em;
+}
+
+#successEvent p:nth-last-child(3) {
+  margin-bottom: 2em;
+}
+
+
+#successEvent img {
+  display: block;
+  height: 250px;
+  margin: 2em auto;
+}

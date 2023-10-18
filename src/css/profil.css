@@ -33,6 +33,7 @@
 }
 
 .my-ticket-passed {
+  color:white;
   text-decoration: line-through;
   line-height: 24px;
   min-width: 200px;
@@ -49,5 +50,5 @@
 .my-ticket-list {
   display: flex;
   flex-wrap: nowrap;
-  overflow: scroll;
+  overflow-x: scroll;
 }

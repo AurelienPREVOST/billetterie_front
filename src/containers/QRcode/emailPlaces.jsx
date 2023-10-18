@@ -6,6 +6,7 @@ import QRCode from "qrcode.react";
 
 const EmailPlaces = () => {
   const { code } = useParams();
+  const usableCode = code.split("=")[1]
   console.log(code)
 
     useEffect(() => {
@@ -22,7 +23,7 @@ const EmailPlaces = () => {
     <div id="emailPlaces">
       <h1>Veuillez faire flasher ce QRCode à l'entrée de votre évènement</h1>
       <h3>ajustant la luminosité de votre smartphone au maximum</h3>
-      <QRCode value={code} id="QrCodeReadyFromEmailChecking"/>
+      <QRCode value={usableCode} id="QrCodeReadyFromEmailChecking"/>
     </div>
   );
 };

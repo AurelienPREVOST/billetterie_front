@@ -57,7 +57,7 @@ const Product = () => {
   };
 
   return (
-    <div className="minHeightFullpage productType">
+    <div className="productType">
       <QuickButtonMenu/>
       <section>
         <h1>Categorie : {type}</h1>

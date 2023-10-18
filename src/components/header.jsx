@@ -82,15 +82,17 @@ const Header = () => {
       <Link to="/"><img src={iconHome} alt="home" aria-label="Accueil" /></Link>
         <img src={iconSearch} onClick={toggleDisplaySearchBar} alt="loupeClickable" aria-label="Rechercher" />
       <div id="searchBarDiv" className="initialTopPositon">
+      <label htmlFor="inputSearch">Rechercher</label>
         <input
           id="inputSearch"
+          placeholder="Rechercher un évènement"
           type="text"
           className="borderR24px"
           onChange={(e) => {
             searchResultsPreview(e.currentTarget.value);
           }}
         />
-        <img id="hideSearchBar" src={iconClose} onClick={() => {
+        <img id="hideSearchBar" alt="Fermer la recherche" src={iconClose} onClick={() => {
           toggleDisplaySearchBar();
           onClickResultOrCloseSearchBar();
         }}/>

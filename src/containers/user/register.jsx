@@ -63,9 +63,9 @@ const Register = (props) => {
 
   return (
     <section>
-      <h2>S'enregistrer</h2>
       {error !== null && <p>{error}</p>}
       <form className="b-form" onSubmit={onSubmitForm}>
+      <h2>S'enregistrer</h2>
         <input
           type="text"
           placeholder="Votre prénom"

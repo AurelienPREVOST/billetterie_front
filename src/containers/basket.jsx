@@ -1,11 +1,10 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {useSelector, useDispatch} from 'react-redux'
 import {selectUser} from '../slices/userSlice'
 import {selectBasket, modifyBasket, cleanBasket} from '../slices/basketSlice'
 import {Navigate, Link} from 'react-router-dom'
 import {saveOneOrder} from '../api/order'
 import {config} from '../../config'
-import { divIcon } from "leaflet"
 import trashIcon from "../assets/trash.svg"
 import deleteIcon from "../assets/close.svg"
 import ticketsSVG from "../assets/tickets.svg"
@@ -18,8 +17,18 @@ const Basket = (props)=>{
     const [redirect2, setRedirect2] = useState(false)
     const [orderId, setOrderId] = useState(null)
     const [redirect, setRedirect] = useState(false)
+    const [acceptCGV, setAcceptCGV] = useState(false);
+
+
+    useEffect(() => {
+      window.scrollTo(0, 0) // Remonte le scroll sinon on ne vois pas forcément la zone de paiement
+    }, []);
 
     console.log("BASKET =>", basket)
+
+    const handleAcceptCGVChange = () => {
+      setAcceptCGV(!acceptCGV); // Inverser l'état actuel
+    };
 
       //au click enregistre une commande
       const onClickSaveOrder = (e)=>{
@@ -132,14 +141,8 @@ const Basket = (props)=>{
     }
 
     return (<section className="myBasket">
-      <p className="buyingStep"> Etape 1 sur 2</p>
-      <h3 className="buyingStepTitle">1. Panier en cours</h3>
-
-      <h1>JAI LU ET JACCEPTE LES CGV</h1>
-      <h1>JAI LU ET JACCEPTE LES CGV</h1>
-      <h1>JAI LU ET JACCEPTE LES CGV</h1>
-      <h1>JAI LU ET JACCEPTE LES CGV</h1>
-      <h1>JAI LU ET JACCEPTE LES CGV</h1>
+      <h1 className="buyingStep"> Etape 1 sur 2</h1>
+      <h2 className="buyingStepTitle">1. Panier en cours</h2>
 
       {basket.basket.length > 0 ?
           <table>
@@ -168,6 +171,7 @@ const Basket = (props)=>{
                       <img
                         className="icon trash"
                         src={trashIcon}
+                        alt="supprimer toute les places pour cet evenement"
                         onClick={() => {
                           removeToBasket(basket.basket, product);
                         }}
@@ -183,6 +187,7 @@ const Basket = (props)=>{
                           <img
                             className="icon remove"
                             src={deleteIcon}
+                            alt="supprimer cette place pour cet evenement"
                             onClick={() => removeThisSeat(product.id, seatId)}
                           />
                         </p>
@@ -198,9 +203,25 @@ const Basket = (props)=>{
               <button><Link to="/">Voir les evenements du moment</Link></button>
             </div>}
           {basket.basket.length > 0 && (
-            <div>
-              <button onClick={onClickSaveOrder} className="goStripe"><b>Valider ma commande : </b><i>{(basket.totalPrice).toFixed(2)} €</i></button>
-            </div>
+            <>
+              <form id="CGVform">
+                <input
+                  type="checkbox"
+                  id="acceptCGV"
+                  checked={acceptCGV}
+                  onChange={handleAcceptCGVChange}
+                />
+                <label htmlFor="acceptCGV">J'ai lu et j'accepte les <Link to="/cgv" id="cgvlink">conditions generales de ventes</Link></label>
+              </form>
+              <button
+                onClick={onClickSaveOrder}
+                className="goStripe"
+                disabled={!acceptCGV} // Désactive le bouton si acceptCGV est faux
+              >
+                <b>Valider ma commande : </b>
+                <i>{(basket.totalPrice).toFixed(2)} €</i>
+              </button>
+            </>
           )}
 
     </section>)

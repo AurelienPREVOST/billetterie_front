@@ -27,7 +27,7 @@
   height:24px;
   border-radius:12px;
   box-shadow: 0 0 2px 0;
-  color:white;
+  color:black;
   background: rgb(138, 224, 135);
   box-shadow: 0 0 4px 0 grey;
   border: 2px solid rgba(138, 224, 135, 0.426);
@@ -35,6 +35,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.quickButtonMenu a:hover {
+  background: rgb(43, 71, 42);
+  color:white
 }
 
 .mainEvent {
