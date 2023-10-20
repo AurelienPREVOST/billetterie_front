@@ -44,14 +44,14 @@ const Admin = (props) => {
     <section>
         <Link to="/logout"><button>Me déconnecter</button></Link>
       <div>
-        <h2>Administration</h2>
+        <h1>Administration</h1>
         <Link to="/qrcodescanner">
           <button>CONTROLE DES BILLETS</button>
         </Link>
         <Link to="/addProduct">
           <button>Ajouter un produit</button>
         </Link>
-        <h3>Produits disponibles</h3>
+        <h2>Produits disponibles</h2>
         <div className="product-cards">
           {product.products.length > 0 ? (
             product.products.map((product) => (
@@ -59,7 +59,7 @@ const Admin = (props) => {
                 <div className="product-image">
                   <img
                     src={config.pict_url + product.photo}
-                    alt={product.name}
+                    alt={`affiche de l'événement ${product.name}`}
                   />
                 </div>
                 <div className="product-details">

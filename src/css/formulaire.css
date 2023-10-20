@@ -40,14 +40,14 @@
 
 .b-form input[type="submit"], .b-form button {
   cursor:pointer;
-  background-color: #007BFF;
+  background-color: #005bbc;
   width: 35%;
   color: white;
   text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
 }
 
 .b-form input[type="submit"]:hover, .b-form button:hover {
-  background-color: #0056b3;
+  background-color: #58a0ed;
 }
 
 @media screen and (min-width: 719px) {

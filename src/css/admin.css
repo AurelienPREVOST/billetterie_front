@@ -1,11 +1,17 @@
 /* //// Admin */
 
 .product-cards {
-  background:yellow
+  background:rgba(0,0,0,0);
+  display:flex;
+  flex-flow: row;
+  overflow-x: scroll;
+  justify-content: center;
 }
 
 .product-card {
-  background:cyan;
+  min-width: 350px;
+  max-width: 350px;
+  background:rgb(243, 243, 243);
   margin:1rem;
   box-shadow: 0px 1px 5px 2px grey;
   border-radius:5px;
@@ -36,13 +42,24 @@
 }
 
 .product-actions{
-display: flex;
-justify-content:space-evenly
+  display: flex;
+  justify-content:space-evenly
 }
 
 .product-actions a, .product-actions button {
-  background:orange;
+  cursor:pointer;
+  background:rgb(237, 171, 48);
   border: 2px solid grey;
   padding: 1rem;
   margin: 1rem;
+}
+.product-actions a:hover, .product-actions button:hover {
+  background:rgb(179, 129, 37);
+}
+
+@media screen and (min-width: 949px) {
+  .product-cards {
+    flex-flow: wrap;
+    flex-wrap: wrap;
+    overflow: visible;  }
 }

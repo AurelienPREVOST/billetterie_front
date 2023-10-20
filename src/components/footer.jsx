@@ -86,7 +86,7 @@ const Footer = () => {
     <>
       <div
         id="hiddenOrShowAccessibility"
-        className="displayAccess"
+        className="hiddenAccess"
         onClick={toggleDisplayAccessibility}
       >
         <h2 id="accessibilityTitle" aria-label="Accessibilité de l'interface">

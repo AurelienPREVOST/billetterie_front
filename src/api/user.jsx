@@ -2,13 +2,27 @@ import axios from 'axios'
 import {config} from '../../config'
 const token = window.localStorage.getItem('tutorial-token')
 
-export function addOneUser(datas){
+// export function addOneUser(datas){
+//   console.log("je passe par addOneUser, voici datas=>", datas) // PASSE PAR LA
+//   console.log("config.api_url==>", config.api_url) // retourne bien http://localhost:9000
+//   return axios.post(`${config.api_url}/user/save`, datas)
+//   .then((res)=>{
+//     console.log("je passe dans le then de addOneUser, voici res.data=>", res.data)
+//       return res.data
+//   })
+//   .catch((err) => {
+//     console.log("je tombe dans le catch voici err =>", err)  // PASSE PAR LA
+//       return err
+//   })
+// }
+
+export const addOneUser = (datas) => {
   return axios.post(`${config.api_url}/user/save`, datas)
   .then((res)=>{
       return res.data
   })
-  .catch((err) => {
-      return err
+  .catch((err)=>{
+      return err.response.data
   })
 }
 

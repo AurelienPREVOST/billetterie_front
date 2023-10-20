@@ -97,7 +97,7 @@ const EditProduct = (props)=>{
                         description: description,
                         latitude: parseFloat(latitude),
                         longitude: parseFloat(longitude),
-                        ville: ville,
+                        ville: ville.toUpperCase(),
                         lieu: lieu,
                         date: date,
                         price: price,
@@ -132,103 +132,120 @@ const EditProduct = (props)=>{
     if(redirect){
         return <Navigate to="/admin"/>
     }
-    return(<section>
-        <h2>Modifier un produit</h2>
-        {error !== null && <p>{error}</p>}
-        <form
-            className="b-form"
-            onSubmit={onSubmitForm}
-        >
-            <input
-                type="text"
-                defaultValue={name}
-                onChange={(e)=>{
-                    setName(e.currentTarget.value)
-                }}
-            />
-            <select
-              defaultValue={type}
-              onChange={(e) => {
-                setType(e.currentTarget.value);
-              }}
-            >
-              <option value="theatre">Théâtre</option>
-              <option value="opera">Opéra</option>
-              <option value="concert">Concert</option>
-              <option value="onemanshow">One-Man-Show</option>
-              <option value="sportevent">Événement sportif</option>
-              <option value="enfants">Spectacle pour enfants</option>
-              <option value="cabaret">Cabaret</option>
-            </select>
-            <input
-                type="file"
-                onChange={(e)=>{
-                    setFile(e.currentTarget.files[0])
-                }}
-            />
-            <textarea
-                name="description"
-                defaultValue={description}
-                onChange={(e)=>{
-                    setDescription(e.currentTarget.value)
-                }}
-            ></textarea>
-            <input
-                type="text"
-                defaultValue={latitude}
-                onChange={(e)=>{
-                  setLatitude(e.currentTarget.value)
-                }}
-            />
-            <input
-                type="text"
-                defaultValue={longitude}
-                onChange={(e)=>{
-                  setLongitude(e.currentTarget.value)
-                }}
-            />
-            <input
-                type="text"
-                defaultValue={ville}
-                onChange={(e)=>{
-                  setVille(e.currentTarget.value)
-                }}
-            />
-            <input
-                type="text"
-                defaultValue={lieu}
-                onChange={(e)=>{
-                  setLieu(e.currentTarget.value)
-                }}
-            />
-            <input
-              type="datetime-local"
-              defaultValue={date}
-              min="2023-09-04T00:00"
-              max="2035-12-31T00:00"
-                onChange={(e)=>{
-                  setDate(e.currentTarget.value)
-                }}
-            />
-            <input
-                type="text"
-                placeholder="Quantité disponible"
-                defaultValue={quantity}
-                onChange={(e)=>{
-                    setQuantity(e.currentTarget.value)
-                }}
-            />
-            <input
-                type="text"
-                placeholder="Prix de vente"
-                defaultValue={price}
-                onChange={(e)=>{
-                    setPrice(e.currentTarget.value)
-                }}
-            />
-            <button>Enregistrer</button>
+    return (
+      <section>
+        <form className="b-form" onSubmit={onSubmitForm}>
+          <h1>Modifer un produit</h1>
+          <label htmlFor="productName">Nom du produit:</label>
+          <input
+            type="text"
+            id="productName"
+            placeholder="Nom du produit"
+            onChange={(e) => {
+              setName(e.currentTarget.value);
+            }}
+          />
+          <label htmlFor="productImage">Image du produit:</label>
+          <input
+            type="file"
+            id="productImage"
+            onChange={(e) => {
+              setFile(e.currentTarget.files[0]);
+            }}
+          />
+          <label htmlFor="productType">Type de produit:</label>
+          <select
+            id="productType"
+            onChange={(e) => {
+              setType(e.currentTarget.value);
+            }}
+          >
+            <option value="theatre">Théâtre</option>
+            <option value="opera">Opéra</option>
+            <option value="concert">Concert</option>
+            <option value="onemanshow">One-Man-Show</option>
+            <option value="sportevent">Événement sportif</option>
+            <option value="enfants">Spectacle pour enfants</option>
+            <option value="cabaret">Cabaret</option>
+          </select>
+          <label htmlFor="productDescription">Description du produit:</label>
+          <textarea
+            id="productDescription"
+            name="description"
+            onChange={(e) => {
+              setDescription(e.currentTarget.value);
+            }}
+          ></textarea>
+          <label htmlFor="productLatitude">Latitude:</label>
+          <input
+            type="text"
+            id="productLatitude"
+            placeholder="Latitude"
+            onChange={(e) => {
+              setLatitude(e.currentTarget.value);
+            }}
+          />
+          <label htmlFor="productLongitude">Longitude:</label>
+          <input
+            type="text"
+            id="productLongitude"
+            placeholder="Longitude"
+            onChange={(e) => {
+              setLongitude(e.currentTarget.value);
+            }}
+          />
+          <label htmlFor="productCity">Ville:</label>
+          <input
+            type="text"
+            id="productCity"
+            placeholder="Ville"
+            onChange={(e) => {
+              setVille(e.currentTarget.value);
+            }}
+          />
+          <label htmlFor="productLocation">Lieu:</label>
+          <input
+            type="text"
+            id="productLocation"
+            placeholder="Lieu"
+            onChange={(e) => {
+              setLieu(e.currentTarget.value);
+            }}
+          />
+          <label htmlFor="productDate">Date:</label>
+          <input
+            type="datetime-local"
+            id="productDate"
+            value={date}
+            min="2023-09-04T00:00"
+            max="2035-12-31T00:00"
+            onChange={(e) => {
+              setDate(e.currentTarget.value);
+            }}
+          />
+          <label htmlFor="productQuantity">Nombre de places disponibles:</label>
+          <input
+            type="text"
+            id="productQuantity"
+            placeholder="Nombre de places disponibles"
+            onChange={(e) => {
+              setQuantity(e.currentTarget.value);
+            }}
+          />
+          <label htmlFor="productPrice">Prix de vente:</label>
+          <input
+            type="text"
+            id="productPrice"
+            placeholder="Prix de vente"
+            onChange={(e) => {
+              setPrice(e.currentTarget.value);
+            }}
+          />
+          <button>Enregistrer</button>
         </form>
-    </section>)
-}
+        {error !== null && <p>{error}</p>}
+      </section>
+    );
+  }
 
-export default EditProduct
+  export default EditProduct
