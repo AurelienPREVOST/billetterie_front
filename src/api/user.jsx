@@ -94,3 +94,34 @@ export function getUserPlaces(userId) {
       return err;
     });
 }
+
+export function checkIfValidateIsYes(email) {
+  console.log("email de api/user.jsx", email)
+  return axios.get(`${config.api_url}/user/checkMailValidation?email=${email}`)
+    .then((res) => {
+      console.log("checkIfValidateIsYes api/user front => res =>", res)
+      return res.data;
+    })
+    .catch((err) => {
+      console.log("checkIfValidateIsYes api/user front => err =>", err);
+      return err;
+    });
+}
+
+export function sendMail(myContact, subject, message) {
+  const data = {
+    myContact: myContact,
+    subject: subject,
+    message: message
+  };
+
+  return axios.post(`${config.api_url}/envoiMailFormContact`, data)
+    .then((res) => {
+      console.log("sendmail res =>", res);
+      return res.data;
+    })
+    .catch((err) => {
+      console.log("sendmail err =>", err);
+      return err;
+    });
+}

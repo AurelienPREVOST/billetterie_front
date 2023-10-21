@@ -47,7 +47,6 @@ const Register = (props) => {
         addOneUser(datas)
           .then((res) => {
             if (res.status === 200) {
-              console.log("status de redirect=>", redirect)
               setRedirect(true);
             } else {
               setError(res.msg);

@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import { loginUser } from "../../api/user";
 import { useDispatch } from "react-redux";
 import { connectUser } from "../../slices/userSlice";
+import { checkIfValidateIsYes } from "../../api/user"
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const Login = (props) => {
   const [connexionTry, setConnexionTry] = useState(0);
   const [connexionBlocked, setConnexionBlocked] = useState(false);
   const [remainingDelay, setRemainingDelay] = useState(0);
+  const [validateError, setValidateError] = useState(null)
 
   const onSubmitForm = (e) => {
     e.preventDefault();
@@ -29,59 +31,75 @@ const Login = (props) => {
       password: password,
     };
 
-    loginUser(datas)
-      .then((res) => {
-        if (res.status === 200) {
-          // Réinitialiser le nombre de tentatives en cas de connexion réussie
-          setConnexionTry(0);
+    //Dans un premier temps on verifie que le client a validé son mail via le mail de confirmation reçu
+    checkIfValidateIsYes(datas.email)
+    .then((res) => {
+      console.log("checkIfValidateIsYes res", res.result[0].validate)
+      if (res.result[0].validate === 'no') {
+        setValidateError("Vous n'avez pas valider votre adresse email. Consultez votre messagerie")
+        return
+      } else {
+        //Si il a validé et que en BDD il a validate === yes alors on essai de le connecter en verifiant son mot de passe
+        setValidateError(null)
+        loginUser(datas)
+        .then((res) => {
+          if (res.status === 200) {
+            // Réinitialiser le nombre de tentatives en cas de connexion réussie
+            setConnexionTry(0);
+            // Je stocke le token dans le localStorage
+            window.localStorage.setItem("tutorial-token", res.token);
+            // Je crée un objet d'utilisateur à pousser dans le store de Redux
+            let newUser = res.user;
+            newUser.token = res.token;
 
-          // Je stocke le token dans le localStorage
-          window.localStorage.setItem("tutorial-token", res.token);
+            // J'ordonne la connexion à Redux
+            dispatch(connectUser(newUser));
 
-          // Je crée un objet d'utilisateur à pousser dans le store de Redux
-          let newUser = res.user;
-          newUser.token = res.token;
+            // Redirection vers l'accueil
+            setRedirect(true);
+          } else {
+            setError(res.msg);
 
-          // J'ordonne la connexion à Redux
-          dispatch(connectUser(newUser));
+            if (connexionTry >= 3) {
+              // Appliquer le blocage de la connexion après 3 tentatives infructueuses
+              setConnexionBlocked(true);
 
-          // Redirection vers l'accueil
-          setRedirect(true);
-        } else {
-          setError(res.msg);
-
-          if (connexionTry >= 3) {
-            // Appliquer le blocage de la connexion après 3 tentatives infructueuses
-            setConnexionBlocked(true);
-
-            // Définir le délai de blocage (en millisecondes)
-            const blockingDelay =
+              // Définir le délai de blocage (en millisecondes)
+              const blockingDelay =
               connexionTry === 3
-                ? 5000 // Délai de 5 secondes après 3 tentatives
-                : connexionTry === 4
-                ? 15000 // Délai de 15 secondes après 4 tentatives
-                : connexionTry === 5
-                ? 60000 // Délai de 1 minute après 5 tentatives
-                : 1800000; // Délai de 30 minutes après 6 tentatives
+              ? 5000 // Délai de 5 secondes après 3 tentatives
+              : connexionTry === 4
+              ? 15000 // Délai de 15 secondes après 4 tentatives
+              : connexionTry === 5
+              ? 60000 // Délai de 1 minute après 5 tentatives
+              : 1800000; // Délai de 30 minutes après 6 tentatives
 
-            // Décompte du délai restant
-            setRemainingDelay(blockingDelay);
+              // Décompte du délai restant
+              setRemainingDelay(blockingDelay);
 
-            // Démarrer un compte à rebours
-            const interval = setInterval(() => {
-              setRemainingDelay((prevRemaining) => prevRemaining - 1000);
-            }, 1000);
+              // Démarrer un compte à rebours
+              const interval = setInterval(() => {
+                setRemainingDelay((prevRemaining) => prevRemaining - 1000);
+              }, 1000);
 
-            // Effacer le compte à rebours après le délai de blocage
-            setTimeout(() => {
-              setConnexionBlocked(false);
-              setRemainingDelay(0);
-              clearInterval(interval);
-            }, blockingDelay);
+              // Effacer le compte à rebours après le délai de blocage
+              setTimeout(() => {
+                setConnexionBlocked(false);
+                setRemainingDelay(0);
+                clearInterval(interval);
+              }, blockingDelay);
+            }
           }
-        }
-      })
-      .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+      setValidateError("Aucun Email reconnu. Erreur lors du controle de validation mail")
+    });
+
+
   };
 
   if (redirect) {
@@ -117,85 +135,9 @@ const Login = (props) => {
           <Link to="/register" className="formLink">Pas encore de compte?</Link>
         </form>
       )}
+      {validateError !== null && <p>{validateError}</p>}
     </section>
   );
 };
 
 export default Login;
-
-
-// import {useState} from "react"
-// import {Link, Navigate} from "react-router-dom"
-// import {loginUser} from "../../api/user"
-// import {useDispatch} from "react-redux"
-// import {connectUser} from "../../slices/userSlice"
-
-// const Login = (props) => {
-//     const dispatch = useDispatch()
-//     const [email, setEmail] = useState("")
-//     const [password, setPassword] = useState("")
-//     const [redirect, setRedirect] = useState(false)
-//     const [error, setError] = useState(null)
-
-//     const onSubmitForm = (e) => {
-//         e.preventDefault()
-//         setError(null)
-
-//         let datas = {
-//             email: email,
-//             password: password
-//         }
-//         loginUser(datas)
-//         .then((res)=>{
-//             if(res.status === 200){
-//                 //je stock le token dans le localStorage
-//                 window.localStorage.setItem('tutorial-token', res.token)
-//                 //je crée un objet d'user à pousser dans le store de redux
-//                 let newUser = res.user
-//                 newUser.token = res.token
-//                 //j'ordonne la connexion à redux
-//                 dispatch(connectUser(newUser))
-//                 //redirection vers l'accueil
-//                 setRedirect(true)
-//             } else {
-//                 setError(res.msg)
-//             }
-//         })
-//         .catch(err=>console.log(err))
-//     }
-
-//     if(redirect){
-//         return <Navigate to="/"/>
-//     }
-//     return (
-//         <section id="login">
-//             <h2>Se connecter</h2>
-//             {error !== null && <p>{error}</p>}
-//             <form
-//                 className="b-form"
-//                 onSubmit={onSubmitForm}
-//             >
-//                 <input type="email"
-//                     placeholder="Votre mail"
-//                     onChange={(e)=>{
-//                         setEmail(e.currentTarget.value)
-//                     }}
-//                     required
-//                 />
-//                 <input type="password"
-//                     placeholder="Votre mot de passe"
-//                     onChange={(e)=>{
-//                         setPassword(e.currentTarget.value)
-//                     }}
-//                     required
-//                 />
-//                 <input type="submit" name="Se connecter"/>
-//               <Link to="/register">Pas encore de compte?</Link>
-//               <Link to="/forgot">Mot de passe oublié?</Link>
-//             </form>
-
-//         </section>
-//     )
-// }
-
-// export default Login
