@@ -24,7 +24,7 @@ const Forgot = () => {
     }
     return (
       <div>
-      {redirect && <Navigate to="/login" />}
+      {redirect && <Navigate to="/user/passwordLostCheckMail" />}
       {error !== null && <p className="">{error}</p>}
         <form
         className="b-form"
