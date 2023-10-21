@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { sendMail } from "../api/user"
 
 function contact() {
   const [subject, setSubject] = useState('Besoin d\'assistance pour acheter une ou des places');
+  const [myContact, setMyContact] = useState('')
   const [message, setMessage] = useState('');
   const maxMessageLength = 3500;
 
@@ -20,8 +22,10 @@ function contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    sendMail(subject, myContact, message )
     // Vous pouvez traiter les données du formulaire ici
     console.log('Sujet :', subject);
+    console.log('myContact :', myContact)
     console.log('Message :', message);
   }
 
@@ -47,6 +51,17 @@ function contact() {
           </select>
         </div>
         <div>
+          <label htmlFor="Mon adresse mail">Mon adresse email :</label>
+          <input
+            type="text"
+            placeholder="monmail@gmail.com"
+            onChange={(e) => {
+              setMyContact(e.currentTarget.value);
+            }}
+            required
+          />
+        </div>
+        <div>
           <label htmlFor="message">Message :</label>
           <textarea
             id="message"
@@ -54,6 +69,7 @@ function contact() {
             onChange={handleMessageChange}
             maxLength={3500}
             rows="6"
+            required
           />
           <div className="character-count">
             Caractères restants : {remainingCharacters} / 3500

@@ -28,6 +28,9 @@ import EmailPlaces from "./containers/QRcode/emailPlaces"
 import AccountValidate from "./containers/user/accountValidate"
 import ChangePassword from "./containers/user/changePassword"
 import ChangePasswordSuccess from "./containers/user/changePasswordSuccess"
+import PasswordLostCheckMail from "./containers/user/passwordLostCheckMail"
+import RegisterWaiting from "./containers/user/registerWaiting"
+
 
 function App() {
   const navigate = useNavigate();
@@ -59,6 +62,8 @@ function App() {
       currentPath !== '/accountValidate' &&
       currentPath !== '/mentions' &&
       currentPath !== '/user/changePasswordSuccess' &&
+      currentPath !== '/user/passwordLostCheckMail' &&
+      currentPath !== '/user/registerWaiting' &&
       !productIdPattern.test(currentPath) &&
       !productTypePattern.test(currentPath) &&
       !emailPlacesPattern.test(currentPath) &&
@@ -158,7 +163,14 @@ function App() {
         <Route
           path="/user/changePassword/:key_id"
           element={<RequireDataAuth child={ChangePassword} auth={false} admin={false} />}
-          // ICI JE N'AI PAS ENCORE FAIT LE TEMPLATE CONTAINERS POUR CHANGER UN MDP, FORMULAIRE AVEC MDP ET CONFIRM MDP
+        />
+        <Route
+          path="/user/passwordLostCheckMail"
+          element={<RequireDataAuth child={PasswordLostCheckMail} auth={false} admin={false} />}
+        />
+        <Route
+          path="/user/registerWaiting"
+          element={<RequireDataAuth child={RegisterWaiting} auth={false} admin={false} />}
         />
         <Route
           path="/user/changePasswordSuccess"

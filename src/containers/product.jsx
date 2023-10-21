@@ -62,7 +62,8 @@ const Product = () => {
       <section>
         <h1>Categorie : {type}</h1>
         <div className="cityAndSortFilterContainer">
-          <select onChange={handleCityChange} value={selectedCity}>
+          <label htmlFor="citySelect">Sélectionnez une ville :</label>
+          <select id="citySelect" onChange={handleCityChange} value={selectedCity}>
             <option value="">Toutes les villes</option>
             {uniqueCities.map((city) => (
               <option key={city} value={city}>
@@ -70,14 +71,15 @@ const Product = () => {
               </option>
             ))}
           </select>
-          <select onChange={handleSortChange} value={sortOrder}>
+          <label htmlFor="sortOrderSelect">Sélectionnez l'ordre de tri :</label>
+          <select id="sortOrderSelect" onChange={handleSortChange} value={sortOrder}>
             <option value="asc">A - Z</option>
             <option value="desc">Z - A</option>
           </select>
         </div>
 
         <div className="rangeFilterContainer">
-          <label>Gamme de prix:</label>
+          <p>Gamme de prix:</p>
           <Slider
             range
             min={fixedMinMax[0]}

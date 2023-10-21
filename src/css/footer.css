@@ -19,9 +19,8 @@ footer form input[type=submit] {
   margin:1em auto;
 }
 
-
-
 #hiddenOrShowAccessibility {
+  height:15vh;
   position:fixed;
   top:70vh;
   width:100vw;
@@ -31,35 +30,37 @@ footer form input[type=submit] {
   z-index: 1000;
 }
 
-#iconAccessDeploy {
-  position: absolute;
-  right: 2vw;
-  height: 70px;
-  font-size: 18.956px;
-  top: 35%;
-}
-
 .hiddenAccess {
-  transition:250ms;
-  right:0;
-}
-
-.displayAccess {
   transition:250ms;
   right:90vw;
 }
 
+.displayAccess {
+  transition:250ms;
+  right:0vw;
+}
+
+#iconAccessDeploy {
+  position: absolute;
+  right: 2vw;
+  height: 30px;
+  font-size: 18.956px;
+  top: 35%;
+}
+
+
+
 #accessibilityTitle{
   padding-top:1rem;
-  text-indent: 1rem;
+  text-indent: 4rem;
 }
 
 #accessibilityArea {
-  height:12vh;
+  height:50%;
   width:100%;
   padding:1rem 0;
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 #accessibilityArea h2 {
@@ -71,8 +72,11 @@ footer form input[type=submit] {
   background:transparent;
   border:none;
   cursor:pointer;
-  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2)
+  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
+  margin-right:15vw
 }
+
+
 
 #accessibilityArea button img{
   border:none;
@@ -196,26 +200,28 @@ footer input[type="submit"] {
 
   #iconAccessDeploy {
     position: absolute;
-    right: 2vw;
-    height: 50px;
+    right: 0.5vw;
+    height: 40%;
     font-size: 18.956px;
-    top: 35%;
+    top: 30%;
+  }
+
+  #hiddenOrShowAccessibility {
+    width:50vw;
   }
 
   .hiddenAccess {
-    transition:250ms;
-    left:-35vw;
+    right:95vw;
   }
+
   .displayAccess {
-    transition:250ms;
-    left:0;
+    right:50vw;
   }
+
   #accessibilityArea {
-    height:12vh;
     width:100%;
     padding:1rem 0;
     display:flex;
-    justify-content: space-around;
   }
 
   footer form input[type=submit] {

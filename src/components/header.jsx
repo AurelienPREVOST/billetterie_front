@@ -82,7 +82,7 @@ const Header = () => {
       <Link to="/"><img src={iconHome} alt="home" aria-label="Accueil" /></Link>
         <img src={iconSearch} onClick={toggleDisplaySearchBar} alt="loupeClickable" aria-label="Rechercher" />
       <div id="searchBarDiv" className="initialTopPositon">
-      <label htmlFor="inputSearch">Rechercher</label>
+      <label htmlFor="inputSearch" className="hidden">Rechercher</label>
         <input
           id="inputSearch"
           placeholder="Rechercher un évènement"

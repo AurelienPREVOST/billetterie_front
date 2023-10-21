@@ -101,7 +101,7 @@ const Profil = (props) => {
 
   return (
     <section>
-      <h2>Mon profil</h2>
+      <h1>Mon profil</h1>
       <Link to="/logout" className="logoutHref"><button>Me déconnecter</button></Link>
       {msg !== null && <p>{msg}</p>}
       <form className="b-form" onSubmit={onSubmitForm}>
@@ -119,7 +119,6 @@ const Profil = (props) => {
             setLastName(e.currentTarget.value);
           }}
         />
-
         <input
           type="text"
           defaultValue={user.infos.address}
@@ -127,7 +126,6 @@ const Profil = (props) => {
             setAddress(e.currentTarget.value);
           }}
         />
-
         <input
           type="text"
           defaultValue={user.infos.zip}
@@ -135,7 +133,6 @@ const Profil = (props) => {
             setZip(e.currentTarget.value);
           }}
         />
-
         <input
           type="text"
           defaultValue={user.infos.city}
@@ -143,7 +140,6 @@ const Profil = (props) => {
             setCity(e.currentTarget.value);
           }}
         />
-
         <input
           type="text"
           defaultValue={user.infos.phone}
@@ -151,7 +147,6 @@ const Profil = (props) => {
             setPhone(e.currentTarget.value);
           }}
         />
-
         <input type="submit" name="Enregistrer" />
       </form>
 

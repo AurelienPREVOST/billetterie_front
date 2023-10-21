@@ -8,8 +8,9 @@
   text-align: left;
   min-width: 150px;
   max-width: 150px;
-  height: 500px;
+  height: 420px;
   transition:250ms;
+  /* font-size: smaller; */
 }
 
 .eventCard:hover {
@@ -29,7 +30,7 @@
 }
 
 .eventCard h2 {
-  height:90px;
+  height:70px;
   overflow-y: hidden;
 }
 
@@ -44,9 +45,13 @@
   height:40px;
   /* font-size: 1.2rem; */
   margin-top:25px;
-
 }
 
+.eventCard p:nth-last-child(1) {
+  font-style:italic;
+  color:darkblue;
+  text-align:right;
+}
 
 @media screen and (min-width: 719px) {
 

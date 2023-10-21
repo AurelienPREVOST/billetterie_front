@@ -18,11 +18,10 @@
 
 * {
   font-family: 'Roboto', sans-serif;
-  /* font-size: 18px; */
+  font-size: 1.01em;
   margin:0;
   padding:0;
 }
-
 
 
 #root {
@@ -44,18 +43,11 @@ a {
   min-height: 75vh;
 }
 
-
-@media screen and (min-width: 719px) {
-  * {
-    /* font-size: 24px */
-  }
+h1{
+  font-size: 2em;
 }
 
 @media screen and (min-width: 949px) {
-  * {
-    /* font-size: 14px */
-  }
-
   #app {
     /* font-size: 16px; */
     margin: 0 5vw;

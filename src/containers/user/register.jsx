@@ -54,8 +54,8 @@ const Register = (props) => {
           })
           .catch((err) => console.log(err));
       }
-    };
-  }
+    }
+  };
 
   if (redirect) {
     return <Navigate to="/login" />;
@@ -63,7 +63,6 @@ const Register = (props) => {
 
   return (
     <section>
-      {error !== null && <p>{error}</p>}
       <form className="b-form" onSubmit={onSubmitForm}>
       <h2>S'enregistrer</h2>
         <input
@@ -106,6 +105,7 @@ const Register = (props) => {
           }}
           required
         />
+        {error !== null && <p>{error}</p>}
         <input
           type="text"
           placeholder="Votre adresse"

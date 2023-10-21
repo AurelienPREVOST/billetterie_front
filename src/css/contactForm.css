@@ -24,7 +24,9 @@
 
 /* Style for input fields and select */
 #contact-form select, #contact-form textarea {
-  width: 80%;
+  max-width: 95%;
+  width:95%;
+  min-width: 95%;
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;

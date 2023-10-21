@@ -2,13 +2,27 @@ import axios from 'axios'
 import {config} from '../../config'
 const token = window.localStorage.getItem('tutorial-token')
 
-export function addOneUser(datas){
+// export function addOneUser(datas){
+//   console.log("je passe par addOneUser, voici datas=>", datas) // PASSE PAR LA
+//   console.log("config.api_url==>", config.api_url) // retourne bien http://localhost:9000
+//   return axios.post(`${config.api_url}/user/save`, datas)
+//   .then((res)=>{
+//     console.log("je passe dans le then de addOneUser, voici res.data=>", res.data)
+//       return res.data
+//   })
+//   .catch((err) => {
+//     console.log("je tombe dans le catch voici err =>", err)  // PASSE PAR LA
+//       return err
+//   })
+// }
+
+export const addOneUser = (datas) => {
   return axios.post(`${config.api_url}/user/save`, datas)
   .then((res)=>{
       return res.data
   })
-  .catch((err) => {
-      return err
+  .catch((err)=>{
+      return err.response.data
   })
 }
 
@@ -77,6 +91,37 @@ export function getUserPlaces(userId) {
       return res.data;
     })
     .catch((err) => {
+      return err;
+    });
+}
+
+export function checkIfValidateIsYes(email) {
+  console.log("email de api/user.jsx", email)
+  return axios.get(`${config.api_url}/user/checkMailValidation?email=${email}`)
+    .then((res) => {
+      console.log("checkIfValidateIsYes api/user front => res =>", res)
+      return res.data;
+    })
+    .catch((err) => {
+      console.log("checkIfValidateIsYes api/user front => err =>", err);
+      return err;
+    });
+}
+
+export function sendMail(myContact, subject, message) {
+  const data = {
+    myContact: myContact,
+    subject: subject,
+    message: message
+  };
+
+  return axios.post(`${config.api_url}/envoiMailFormContact`, data)
+    .then((res) => {
+      console.log("sendmail res =>", res);
+      return res.data;
+    })
+    .catch((err) => {
+      console.log("sendmail err =>", err);
       return err;
     });
 }

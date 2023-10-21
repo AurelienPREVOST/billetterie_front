@@ -171,7 +171,7 @@ const Detail = () => {
   <>
     {product ? (
       <div className={`bannerDetail ${product.type || 'loading'}`}>
-        <h2>{product.name}</h2>
+        <h1>{product.name}</h1>
         <img src={config.pict_url + product.photo} alt={product.name} />
       </div>
     ) : null }
@@ -195,14 +195,11 @@ const Detail = () => {
           <p>{product.description}</p>
           <hr></hr>
           <p>Prix unitaire: {product.price} € TTC</p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
-          <p>Nombre de place séléctionée:</p>
+          <form>
+            <label htmlFor="quantity">Nombre de places sélectionnées:</label>
             <input
               type="text"
+              id="quantity"
               disabled={true}
               value={quantity}
               onChange={(e) => {
@@ -218,6 +215,7 @@ const Detail = () => {
               }}
             />
           </form>
+          {/* </form> <div> a la place cause accessibility */}
           {error2 ? (
             <p style={errorMessageStyle}>
               Cliquez sur les sièges pour sélectionner vos places
@@ -232,7 +230,7 @@ const Detail = () => {
       {places ? (
       <div className="spectacleSchema" >
       <h2>{isfull ? "SPECTACLE COMPLET" : "PLACES DISPONIBLE"}</h2>
-        <img src={scene} style={{ width: '100%' }} />
+        <img src={scene} alt="illustration d'un rideau de scene de spectacle" style={{ width: '100%' }} />
         {places.result.map((place, index) => {
           const currentProductBasket = basket.basket.find((item) => item.id === product.id);
           const selectedSeatIds = currentProductBasket ? currentProductBasket.selectedSeatIds : [];
