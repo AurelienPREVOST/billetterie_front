@@ -1,4 +1,4 @@
-@import './header.css';
+/* @import './header.css';
 @import './footer.css';
 @import './detail.css';
 @import './basket.css';
@@ -14,7 +14,8 @@
 @import './success.css';
 @import '../assets/fonts/roboto.css';
 
-/* HTML OR ANYWHERE */
+@import './styles.css';
+
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -49,7 +50,6 @@ h1{
 
 @media screen and (min-width: 949px) {
   #app {
-    /* font-size: 16px; */
     margin: 0 5vw;
   }
-}
+} */
