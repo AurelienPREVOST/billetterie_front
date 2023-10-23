@@ -8,6 +8,7 @@ import { getAllOrders } from "../../api/order";
 import moment from "moment";
 import ScanBarcode from "../../assets/scanBarcode.svg"
 import NewProduct from "../../assets/newProduct.svg"
+import LogOut from "../../assets/logout.svg"
 
 const Admin = (props) => {
   const product = useSelector(selectProducts);
@@ -44,15 +45,15 @@ const Admin = (props) => {
 
   return (
     <section>
-        <Link to="/logout"><button>Me déconnecter</button></Link>
+        <Link to="/logout" id="logOut"><img src={LogOut} alt="deconnexion" aria-label="bouton de deconnexion"/></Link>
       <div>
         <h1>Administration</h1>
         <div id="adminMainAction">
           <Link to="/qrcodescanner">
-            <button id="scanCheck"><img src={ScanBarcode}/></button>
+            <img id="scanCheck" alt="ScannerQRCODE" aria-label="Acceder au scanner" src={ScanBarcode}/>
           </Link>
           <Link to="/addProduct">
-            <button id="addProduct"><img src={NewProduct}/></button>
+            <img id="addProduct" alt="nouveau produit" aria-label="Ajouter un evenement" src={NewProduct}/>
           </Link>
         </div>
         <h2>Produits disponibles</h2>

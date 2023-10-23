@@ -1,0 +1,37 @@
+//INDEX
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.01em;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  font-family: 'Gilroy', sans-serif;
+  padding-top: 6vh;
+  min-height: 90vh;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#app {
+  min-height: 75vh;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+@media screen and (min-width: 949px) {
+  #app {
+    margin: 0 5vw;
+  }
+}
