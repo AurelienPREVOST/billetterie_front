@@ -1,9 +1,4 @@
-/* /////////// */
-/* //profil// */
-/* //////////: */
-
-
-.logoutHref {
+/* .logoutHref {
   display: flex;
   justify-content: end;
   margin: 1rem;
@@ -51,4 +46,4 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
-}
+} */

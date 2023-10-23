@@ -1,4 +1,4 @@
-
+/*
   header {
     transform: translateY(-6vh);
     position: fixed;
@@ -48,7 +48,6 @@
     align-items: center;
     width: 90%;
     transition: 500ms;
-    /* padding: 1px; */
     border-radius: 30px;
     border: none;
     box-shadow: 0px 0px 2px grey;
@@ -65,7 +64,6 @@
     text-indent: 10%;
     width: 70vw;
     border:none;
-    /* font-size: 24px; */
     height: 100%;
   }
 
@@ -87,11 +85,9 @@
     top:48px;
     left:0;
     width:70vw;
-    /* font-size: 24px; */
     background: white;
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
-    /* padding-left:5%; */
   }
 
   #searchResultList tbody tr td p {
@@ -164,7 +160,6 @@
       align-items: center;
       width: 800px;
       transition: 500ms;
-      /* padding: 1px; */
       border-radius: 30px;
       border: none;
       box-shadow: 0px 0px 0px rgba(0,0,0,0);
@@ -207,9 +202,4 @@
       text-indent: 5%;
     }
 
-    /* header {
-      transform: translateX(-10vw) translateY(-6vh);
-    } */
-
-
-  }
+  } */

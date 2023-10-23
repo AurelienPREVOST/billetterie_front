@@ -1,0 +1,1647 @@
+//ADMIN
+#adminMainAction {
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    background: rgb(210, 210, 210);
+
+    &:hover {
+      background: yellow;
+    }
+  }
+}
+
+#scanCheck, #addProduct {
+  width: 25vw;
+  border-radius: 10px;
+  height: auto;
+  padding:5%;
+
+  img {
+    width:100%;
+  }
+}
+
+
+
+
+.product-cards {
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-flow: row;
+  overflow-x: scroll;
+
+  @media screen and (min-width: 949px) {
+    flex-flow: wrap;
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: center;
+  }
+}
+
+.product-card {
+  min-width: 350px;
+  max-width: 350px;
+  background: rgb(243, 243, 243);
+  margin: 1rem;
+  box-shadow: 0px 1px 5px 2px grey;
+  border-radius: 5px;
+
+  .product-image {
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Utilisez "contain" pour conserver le ratio sans déformation */
+    }
+  }
+
+  .product-details {
+    text-align: center;
+
+    h3, p {
+      margin: 0.5rem;
+    }
+  }
+
+  .product-actions {
+    display: flex;
+    justify-content: space-evenly;
+
+    a, button {
+      cursor: pointer;
+      background: rgb(237, 171, 48);
+      border: 2px solid grey;
+      padding: 1rem;
+      margin: 1rem;
+
+      &:hover {
+        background: rgb(179, 129, 37);
+      }
+    }
+  }
+}
+
+
+//BASKET
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.remove {
+  background: red;
+  padding: 2px;
+  border-radius: 50%;
+  margin-left: 1.5rem;
+}
+
+.goStripe {
+  cursor: pointer;
+  position: fixed;
+  padding: 0.5em;
+  top: 85vh;
+  left: 15vw;
+  width: 70vw;
+  height: auto;
+  box-shadow: 0px 2px 10px grey;
+  border-radius: 5vh;
+  background: #efa6fb;
+  border: none;
+  transition: 250ms;
+
+  &:hover {
+    background: #e880f8;
+    transition: 250ms;
+  }
+}
+
+.basketEvent {
+  padding: 2.5vw;
+  position: relative;
+  margin: 2.5vw;
+  width: 90vw;
+  border-radius: 10px;
+
+  td:first-child {
+    width: 30vw;
+
+    img {
+      margin-left:1em;
+      width: 100%;
+    }
+  }
+
+  td:nth-child(2) {
+    width: 70%;
+
+    a {
+      position: absolute;
+      top: 5px;
+      left: 40%;
+      width: 50%;
+    }
+  }
+
+  .trash {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+
+
+  }
+}
+
+.uniquePlaceContainer {
+  padding-bottom: 4rem;
+
+  p {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0px 0px 2px grey;
+    padding: 0.5rem;
+    margin: 0.5rem 0.2rem;
+    text-align: right;
+
+    span:first-child {
+      font-style: italic;
+    }
+
+    span:nth-child(2) {
+      color: darkred;
+      margin: auto 1rem;
+    }
+
+    span:nth-child(3) {
+      font-weight: bolder;
+    }
+  }
+}
+
+.buyingStep, .buyingStepTitle {
+  padding: 1rem;
+}
+
+.myBasket table tfoot tr td p {
+  text-decoration: underline;
+  font-style: italic;
+  text-align: right;
+  padding: 1rem;
+}
+
+.emptyCart {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    /* font-size: larger; */
+  }
+
+  button {
+    margin: 1.5rem 0.2rem;
+    padding: 0.5rem;
+    /* font-size: 18px; */
+    border-radius: 36px;
+  }
+}
+
+#CGVform {
+  border: 2px solid blue;
+  padding: 1rem;
+  text-align: center;
+  margin: 2rem;
+  border-radius: 20px;
+
+  label {
+    margin-left: 1rem;
+  }
+
+  input {
+    transform: scale(2);
+  }
+
+  #cgvlink {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .alertcgv {
+    background: red;
+  }
+}
+
+@media screen and (min-width: 719px) {
+  .myBasket table {
+    margin: 0 10vw;
+    /* font-size: 2rem */
+  }
+
+  .basketEvent td:first-child img {
+    transform: translate(1rem) perspective(100px) rotateY(4deg);
+    width: 50%;
+    margin-top:5%;
+    height: auto;
+    box-shadow: -6px 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .basketEvent td:nth-child(2) a {
+    margin-left: 5vw;
+  }
+
+  .uniquePlaceContainer {
+    padding-bottom: 8rem;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+
+//CGV_FAQ
+
+.cgv-container, .faq-container, .mentions-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 600px;
+  margin: 1em auto;
+  padding: 2rem;
+  text-align: left;
+
+  h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 2em;
+  }
+
+  li {
+    list-style: decimal;
+    margin: 10px 0;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+}
+
+.faq-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+//CONTACTFORM
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+
+  form {
+    width: 100%;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  select, textarea, input {
+    max-width: 95%;
+    width: 95%;
+    min-width: 95%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #004996;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #042c5b;
+    }
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}
+
+
+//DETAIL
+
+.leaflet-container {
+  height: 30vh;
+}
+
+.seat-container {
+  position: relative;
+  width: 50px;
+
+  .seat-label {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: blue;
+    font-weight: bold;
+  }
+
+  .various-seat {
+    width: 100%;
+  }
+}
+
+.spectacleSchema {
+  padding: 4vh 0;
+  background: rgb(247, 221, 248);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.bannerDetail {
+  width: 100%;
+  height: 30vh;
+  position: relative;
+  margin-bottom: 15vh;
+
+  h2 {
+    text-align: center;
+    padding-top: 5%;
+  }
+
+  &.opera::before,
+  &.concert::before,
+  &.theatre::before,
+  &.sportevent::before,
+  &.onemanshow::before,
+  &.cabaret::before,
+  &.enfants::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 20%;
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  &.opera::before {
+    background-image: url("../assets/opera.png");
+  }
+
+  &.concert::before {
+    background-image: url("../assets/concert.png");
+  }
+
+  &.theatre::before {
+    background-image: url("../assets/theatre.jpg");
+  }
+
+  &.sportevent::before {
+    background-image: url("../assets/sportevent.png");
+  }
+
+  &.onemanshow::before {
+    background-image: url("../assets/onemanshow.jpg");
+  }
+
+  &.cabaret::before {
+    background-image: url("../assets/cabaret.png");
+  }
+
+  &.enfants::before {
+    background-image: url("../assets/enfants.jpg");
+  }
+
+  img {
+    transform: translate(1rem) perspective(100px) rotateY(4deg);
+    width: 35%;
+    height: auto;
+    position: absolute;
+    left: 8vw;
+    bottom: -12vh;
+    box-shadow: -6px 4px 6px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.theatreDetail {
+  text-align: center;
+
+  h2 {
+    padding: 1rem;
+  }
+
+  p:nth-child(3),
+  p:nth-child(4) {
+    font-weight: bold;
+  }
+
+  p:nth-child(9) {
+    color: purple;
+    font-weight: bold;
+    margin: 1rem;
+  }
+
+  p:nth-child(5) {
+    color: grey;
+    margin: 1.5rem;
+  }
+
+  hr {
+    margin: 1.5rem;
+  }
+
+  form {
+    input[type=submit] {
+      margin: 1rem auto;
+      display: block;
+      padding: 1rem;
+    }
+
+    input[type=text] {
+      border: none;
+      background: none;
+      text-align: center;
+    }
+  }
+}
+
+.advertising {
+  margin-top: 2rem;
+  font-style: oblique;
+}
+
+.popUpBasketConfirmation {
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  height: 40%;
+  background: rgba(188, 94, 193, 0.961);
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px grey;
+  z-index: 1002;
+
+  h4{
+    margin-top: 25%;
+  }
+
+  p {
+    text-align: center;
+    padding: 10% 0;
+    margin: 0 auto;
+    max-width: 70%;
+  }
+
+  img:nth-child(1) {
+    margin: 5%;
+    width: 10%;
+    height: 10%;
+  }
+
+  a {
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid grey;
+    background: rgb(237, 237, 237);
+    padding: 1.5rem;
+    cursor: pointer;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .closePopUp {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+}
+
+@media screen and (min-width: 719px) {
+
+  .popUpBasketConfirmation {
+    top: 40%;
+    width: 50%;
+    left: 25%;
+    height: auto;
+    padding: 1em 0;
+
+    h4{
+      margin-top: 2%;
+    }
+
+    p {
+      text-align: center;
+      padding: 5% 0;
+      max-width: 70%;
+    }
+
+    img:nth-child(1) {
+      margin: 5%;
+      width: 10%;
+      height: 10%;
+    }
+
+    a {
+      padding: 1rem;
+      border-radius: 20px;
+      border: 1px solid grey;
+      background: rgb(237, 237, 237);
+      padding: 1.5rem;
+      cursor: pointer;
+      display: block;
+      width: 50%;
+      margin: 0 auto;
+    }
+    .closePopUp {
+      position: absolute;
+      top: 1%;
+      right: 1%;
+    }
+
+  }
+
+  .bannerDetail {
+    margin-bottom: 5vh;
+
+    h2 {
+      text-align: left;
+      width: 45%;
+      transform: translateX(115%);
+      padding-top: 5%;
+    }
+
+    img {
+      width: 20%;
+      bottom: -3vh;
+    }
+
+    img:nth-child(1) {
+      margin: 2%;
+    }
+
+    .seat-container {
+      width: 80px;
+    }
+
+    .spectacleSchema {
+      padding-top: 5vh;
+      padding-bottom: 10vh;
+    }
+
+    .theatreDetail h2 {
+      margin-bottom: 5rem;
+    }
+
+    .leaflet-container {
+      height: 40vh;
+      margin-bottom: 10vh;
+    }
+
+  }
+  @media screen and (min-width: 949px) {
+    .bannerDetail {
+      height: 40vh;
+
+      img {
+        height:30vh;
+        width:auto;
+      }
+    }
+
+    img {
+      width: 12vw;
+    }
+
+    .theatreDetail {
+      display: flex;
+      flex-flow: wrap;
+
+      .theatreInformations {
+        width: 50%;
+      }
+
+      .spectacleSchema {
+        width: 50%;
+
+        h2 {
+          margin-bottom: 1rem;
+        }
+      }
+
+      .mapDetail {
+        width: 100%;
+      }
+
+      .spectacleSchema {
+        padding-top: 3vh;
+      }
+
+      .seat-container {
+        width: 50px;
+      }
+    }
+  }
+}
+
+//FOOTER
+
+#newsletter, footer form input[type="submit"] {
+  width: 50vw;
+  padding: 0.5rem;
+  font-size: 1.7em;
+  border-radius: 40px;
+}
+
+#newsletter {
+  display: flex;
+  width: 70vw;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+footer form input[type="submit"]  {
+  transition: 150ms;
+  cursor: pointer;
+  width: 40vw;
+  margin: 1em auto;
+}
+
+#hiddenOrShowAccessibility {
+  height: 15vh;
+  position: fixed;
+  top: 70vh;
+  width: 100vw;
+  background: rgb(128, 227, 128);
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  z-index: 1000;
+}
+
+.hiddenAccess {
+  transition: 250ms;
+  right: 90vw;
+}
+
+.displayAccess {
+  transition: 250ms;
+  right: 0vw;
+}
+
+#iconAccessDeploy {
+  position: absolute;
+  right: 2vw;
+  height: 30px;
+  font-size: 18.956px;
+  top: 35%;
+}
+
+#accessibilityTitle {
+  padding-top: 1rem;
+  text-indent: 4rem;
+}
+
+#accessibilityArea {
+  height: 50%;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    width: 100%;
+  }
+
+  button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-right: 15vw;
+
+    img {
+      border: none;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 719px){
+  #iconAccessDeploy {
+    position: absolute;
+    right: 3vw;
+  }
+}
+
+.reinsurrance {
+  background: white;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  figure {
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 5%;
+
+    img {
+      width: 25vw;
+      padding: 5%;
+    }
+
+    figcaption {
+      color: black;
+      font-style: italic;
+    }
+  }
+}
+
+footer {
+  padding: 0 0 5% 0;
+  margin: 5% 0 0 0;
+  width: 100%;
+  background: black;
+  text-align: center;
+  color: white;
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 4% auto;
+
+    &:hover {
+      color: grey;
+      text-decoration: wavy;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 2% 0;
+    width: 100%;
+    margin: 0 auto;
+
+    label {
+      margin: 4% auto;
+    }
+
+    input[type="submit"] {
+      margin: 5% auto;
+    }
+  }
+}
+
+@media screen and (min-width: 719px) {
+  .reinsurrance figure {
+    width: 15%;
+    padding: 3%;
+  }
+
+  #newsletter {
+    width:45vw;
+  }
+
+  .reinsurrance figure img {
+    width: 15vw;
+    padding: 3%;
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+      width: 18%;
+      margin: 0 auto;
+    }
+
+    form {
+      width: 100%;
+      margin: 0 auto;
+
+      label {
+        margin: 1em auto;
+        font-size: 1.7em;
+      }
+    }
+  }
+
+  .hiddenAccess {
+    right: 90vw;
+  }
+}
+
+
+
+@media screen and (min-width: 949px) {
+
+  .hiddenAccess {
+    right: 97vw;
+  }
+
+  .reinsurrance {
+    width: 70%;
+    margin: 0 auto;
+
+    figure img {
+      width: 10vw;
+    }
+
+    #hiddenOrShowAccessibility {
+      position: fixed;
+      top: 70vh;
+      width: 40vw;
+      background: rgb(128, 227, 128);
+      border-top-right-radius: 80px;
+      border-bottom-right-radius: 80px;
+      z-index: 1000;
+    }
+
+    #iconAccessDeploy {
+      position: absolute;
+      right: 0.5vw;
+      height: 40%;
+      font-size: 18.956px;
+      top: 30%;
+    }
+
+    #hiddenOrShowAccessibility {
+      width: 50vw;
+    }
+
+    .displayAccess {
+      right: 50vw;
+    }
+
+    #accessibilityArea {
+      width: 100%;
+      padding: 1rem 0;
+      display: flex;
+    }
+
+    #newsletter, footer form input[type="submit"] {
+      font-size: 1.2em;
+    }
+
+  }
+
+  #newsletter {
+    width:30vw;
+  }
+
+  footer form input[type="submit"] {
+    transition: 150ms;
+    background: rgb(235, 235, 235);
+    width: 15vw;
+    margin:0.5em auto;
+
+    &:hover {
+      transition: 150ms;
+      background: grey;
+      width: 20vw;
+    }
+  }
+}
+
+
+
+//FORMULAIRE
+
+.b-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 600px;
+  margin: 1em auto;
+  padding: 3rem 4em;
+  text-align: center;
+
+  .formLink {
+    display: block;
+    margin: 1rem;
+  }
+
+  input, select, button {
+    display: block;
+    width: 100%;
+    margin: 1em auto;
+    height: 2.5em;
+    border-radius: 12px;
+    border: 1px solid #c4c3c2;
+    text-indent: 5%;
+    outline: none;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    margin: 1em auto;
+    min-height: 70px;
+    border-radius: 12px;
+    border: 1px solid #c4c3c2;
+    text-indent: 5%;
+    outline: none;
+  }
+
+  input[type="submit"], button {
+    cursor: pointer;
+    background-color: #005bbc;
+    width: 35%;
+    color: white;
+    text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
+
+    &:hover {
+      background-color: #58a0ed;
+    }
+  }
+
+  @media screen and (min-width: 719px) {
+    width: 50vw;
+  }
+
+  @media screen and (min-width: 949px) {
+    width: 30vw;
+  }
+}
+
+//HEADER
+
+header {
+  transform: translateY(-6vh);
+  position: fixed;
+  z-index: 3;
+  width: 100vw;
+  height: 6vh;
+  background: linear-gradient(120deg, rgba(147, 0, 142, 1) 17%, rgba(210, 108, 240, 1) 69%, rgba(236, 76, 235, 1) 86%);
+  box-shadow: 0 0 2px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  a, img {
+    margin: 1vh 2vh;
+    width: 3.5vh;
+    height: 3.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+  }
+}
+
+#searchResultList tr td a {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  margin: 0.5rem;
+}
+
+#searchBarDiv {
+  height: 50px;
+  position: absolute;
+  z-index: 1003;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  transition: 500ms;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0px 0px 2px grey;
+  justify-content: space-between;
+  margin: 0 auto;
+  background: rgb(184, 110, 184);
+
+  label {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  input {
+    text-indent: 10%;
+    width: 70vw;
+    border: none;
+    height: 100%;
+  }
+
+  img {
+    width: 10%;
+  }
+}
+
+#searchResultList, .noResult {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 70vw;
+  background: white;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+
+  tbody tr td p {
+    text-indent: 10%;
+    height: 50px;
+  }
+}
+
+.initialTopPositon {
+  transform: translateY(-10vh);
+}
+
+.usefullPosition {
+  transform: translateY(10vh);
+}
+
+#screenCoveringFilter {
+  position: absolute;
+  z-index: 1002;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.opacityNone {
+  background: rgba(0, 0, 0, 0);
+  transition: 500ms;
+}
+
+.opacity {
+  background: rgba(0, 0, 0, 0.5);
+  transition: 500ms;
+}
+
+#inputSearch {
+  outline: none;
+}
+
+.borderR24px {
+  border-radius: 24px;
+}
+
+.borderR24pxTLandTR {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+@media screen and (min-width: 719px) {
+  header img[alt="loupeClickable"] {
+    margin-right: 40vw;
+  }
+
+  #searchBarDiv {
+    height: 70px;
+    border-radius: 40px;
+  }
+
+  .borderR24px {
+    border-radius: 40px;
+  }
+
+  .borderR24pxTLandTR {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+}
+
+@media screen and (min-width: 949px) {
+  #hideSearchBar, header img[alt="loupeClickable"] {
+    display: none;
+  }
+
+  #searchBarDiv {
+    position: static;
+    height: 85%;
+    z-index: 1003;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    transition: 500ms;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    justify-content: space-between;
+    margin: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+
+  .initialTopPositon {
+    transform: none;
+  }
+
+  .borderR24pxTLandTR {
+    border-radius: 30px;
+  }
+
+  #searchBarDiv input {
+    width: 100%;
+  }
+
+  #searchResultList {
+    width: 50%;
+    position: absolute;
+    top: 6.1vh;
+    transform: translateX(40%);
+    box-shadow: 0px 1px 5px grey;
+  }
+
+  .opacity, #screenCoveringFilter {
+    display: none;
+  }
+
+  .usefullPosition {
+    transform: translateY(0);
+  }
+
+  #searchResultList tbody tr td a {
+    text-indent: 5%;
+  }
+}
+
+//HOME
+
+.homeBanner {
+  width: 100%;
+  height: 30vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url('https://parisjetaime.com/data/layout_image/fr-FR/La-Seine-Musicale-Show-630x405-C-Sebastien-d-Halloy.jpg');
+}
+
+h1 {
+  text-indent: 1em;
+  padding-top: 1em;
+}
+
+.quickButtonMenu {
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.quickButtonMenu a:nth-child(1) {
+  margin: 2px 10px 0px 100px;
+}
+
+.quickButtonMenu a {
+  transition: 250ms;
+  min-width: 120px;
+  height: 24px;
+  border-radius: 12px;
+  box-shadow: 0 0 2px 0;
+  color: black;
+  background: rgb(138, 224, 135);
+  box-shadow: 0 0 4px 0 grey;
+  border: 2px solid rgba(138, 224, 135, 0.426);
+  margin: 2px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transition: 250ms;
+    background: rgb(43, 71, 42);
+    color: white;
+  }
+}
+
+.mainEvent {
+  overflow-x: scroll;
+  display: flex;
+  flex-flow: nowrap;
+}
+
+@media screen and (min-width: 719px) {
+  .quickButtonMenu a {
+    min-width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 2px 30px;
+  }
+
+  .quickButtonMenu a:nth-child(1) {
+    margin: 2px 30px 0px 100px;
+  }
+
+  .bannerDetail h1 {
+    width: 50%;
+    text-align: right;
+    margin-left: 45%;
+  }
+
+  @media screen and (min-width: 949px) {
+    .quickButtonMenu {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .mainEvent {
+      padding-top: 5vh;
+      flex-flow: wrap;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .quickButtonMenu::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    .quickButtonMenu::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0);
+    }
+
+    .quickButtonMenu::-webkit-scrollbar-thumb {
+      background: rgb(236, 174, 236);
+      border-radius: 10px;
+    }
+
+    .quickButtonMenu::-webkit-scrollbar-thumb:hover {
+      background: rgb(182, 101, 182);
+    }
+  }
+}
+
+//INDEX
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.01em;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  font-family: 'Gilroy', sans-serif;
+  padding-top: 6vh;
+  min-height: 90vh;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#app {
+  min-height: 75vh;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+@media screen and (min-width: 949px) {
+  #app {
+    margin: 0 5vw;
+  }
+}
+
+//PRODUCT
+
+.rangeFilterContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.cityAndSortFilterContainer {
+  display: grid;
+  justify-content: center;
+}
+
+.cityAndSortFilterContainer select {
+
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.productType h1 {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.productType label {
+  display: block;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.productType section:first-of-type {
+  background: rgba(77, 24, 97, 0.916);
+  padding: 0.5rem;
+  color: white;
+}
+
+@media screen and (min-width: 949px) {
+  .cityAndSortFilterContainer {
+    display: flex;
+  }
+}
+
+//PRODUCTCARD
+
+.eventCard {
+  color: black;
+  border-radius: 4px;
+  box-shadow: 0px 0px 2px 2px rgb(224, 223, 223);
+  padding: 10px;
+  margin: 50px 30px;
+  background: rgb(211, 150, 211);
+  text-align: left;
+  min-width: 150px;
+  max-width: 150px;
+  height: 420px;
+  transition: 250ms;
+}
+
+.eventCard:hover {
+  box-shadow: 0px 10px 2px 2px rgb(207, 207, 207);
+  transform: translateY(-10px) scale(1.02);
+}
+
+.eventCard img {
+  height: 225px;
+  width: 150px;
+  transform: translate(-20px, -20px);
+}
+
+.eventCard h2, .eventCard p {
+  color: black;
+  overflow-y: hidden;
+}
+
+.eventCard h2 {
+  height: 70px;
+  overflow-y: hidden;
+}
+
+.eventCard p:nth-child(2),
+.eventCard p:nth-child(3) {
+  height: 20px;
+  margin-top: 10px;
+  overflow-y: hidden;
+}
+
+.eventCard p:nth-child(4) {
+  height: 40px;
+  margin-top: 25px;
+}
+
+.eventCard p:nth-last-child(1) {
+  font-style: italic;
+  color: darkblue;
+  text-align: right;
+}
+
+@media screen and (min-width: 719px) {
+  .eventCard {
+    border-radius: 6px;
+    min-width: 200px;
+    height: 510px;
+    padding: 12px;
+  }
+
+  .eventCard img {
+    height: 280px;
+    width: 188px;
+    transform: translate(-25px, -25px);
+  }
+}
+
+@media screen and (min-width: 949px) {
+  .eventCard {
+    margin: 20px;
+  }
+}
+
+//PROFIL
+
+.logoutHref {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+  height: 50px;
+}
+
+.my-ticket {
+  line-height: 24px;
+  min-width: 200px;
+  max-width: 200px;
+  height: 320px;
+  padding: 1rem;
+  margin: 2.5rem;
+  border-style: dashed;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px grey;
+}
+
+.my-ticket p {
+  margin: 0.2rem;
+}
+
+.my-ticket h3 {
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+.my-ticket-passed {
+  color: white;
+  text-decoration: line-through;
+  line-height: 24px;
+  min-width: 200px;
+  max-width: 200px;
+  height: 320px;
+  padding: 1rem;
+  margin: 2.5rem;
+  border-style: dashed;
+  text-align: center;
+  background: #626262;
+  box-shadow: 0px 0px 4px grey;
+}
+
+.my-ticket-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+//QRCODE
+
+.QRCODEAREA {
+  background: rgb(113, 86, 122);
+  margin: 0 auto;
+  width: 95%;
+}
+
+.green {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background: rgba(0, 255, 0, 0.6);
+}
+
+.red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background: rgba(255, 0, 0, 0.6);
+}
+
+.yellow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background: rgba(255, 255, 0, 0.6);
+}
+
+.QRCODEAREA h1 {
+  text-align: center;
+  color: black;
+  padding: 0.5rem;
+}
+
+.reportContainer {
+  height: 60px;
+  width: 100%;
+}
+
+.QRCODEAREA h2 {
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+}
+
+#emailPlaces {
+  width: 90vw;
+  margin: 1rem auto;
+  text-align: center;
+  border: 4px dashed purple;
+}
+
+#emailPlaces input {
+  width: 70%;
+  height: 5vh;
+}
+
+#QrCodeReadyFromEmailChecking {
+  margin: 3rem 0;
+  width: 70%;
+}
+
+//SUCCESS
+
+#successEvent {
+  text-align: center;
+  font-size: 2em;
+}
+
+#successEvent h2 {
+  margin: 2em;
+}
+
+#successEvent p:nth-last-child(3) {
+  margin-bottom: 2em;
+}
+
+#successEvent img {
+  display: block;
+  height: 250px;
+  margin: 2em auto;
+}

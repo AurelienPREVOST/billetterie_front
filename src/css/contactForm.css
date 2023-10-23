@@ -1,4 +1,4 @@
-#contact-form {
+/* #contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,17 +12,14 @@
   background-color: #f9f9f9;
 }
 
-/* Style for the form */
 #contact-form form {
   width: 100%;
 }
 
-/* Style for labels */
 #contact-form label {
   font-weight: bold;
 }
 
-/* Style for input fields and select */
 #contact-form select, #contact-form textarea {
   max-width: 95%;
   width:95%;
@@ -33,7 +30,6 @@
   border-radius: 5px;
 }
 
-/* Style for the submit button */
 #contact-form button {
   background-color: #004996;
   color: #fff;
@@ -44,14 +40,12 @@
   cursor: pointer;
 }
 
-/* Hover effect for the submit button */
 #contact-form button:hover {
   background-color: #042c5b;
 }
 
-/* Style for the error message if needed */
 #contact-form .error-message {
   color: red;
   font-size: 14px;
   margin-top: 5px;
-}
+} */

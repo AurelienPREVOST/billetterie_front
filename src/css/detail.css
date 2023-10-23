@@ -1,4 +1,4 @@
-
+/*
 
 .leaflet-container {
   height: 140px;
@@ -35,11 +35,9 @@
 }
 
 
-/* ///////////DETAIL */
 
 .bannerDetail {
   width:100%;
-  /* background:rgb(249, 173, 173); */
   height:30vh;
   position:relative;
   margin-bottom: 15vh;
@@ -48,7 +46,6 @@
 .bannerDetail h2 {
   text-align: center;
   padding-top: 5%;
-  /* font-size:2rem; */
 }
 
 .opera, .concert, .theatre, .sportevent, .onemanshow, .cabaret, .enfants {
@@ -162,11 +159,6 @@
 }
 
 
-/* .bannerDetail img {
-  transform: translateY(1rem);
-  width: 150px;
-  height: 200px;
-} */
 
 .bannerDetail img {
   transform: translate(1rem) perspective(100px) rotateY(4deg);
@@ -195,7 +187,6 @@
 .theatreDetail p:nth-child(9) {
   color:purple;
   font-weight: bold;
-  /* font-size: larger; */
   margin: 1rem;
 }
 
@@ -218,18 +209,14 @@
 .theatreDetail form input[type=text] {
   border:none;
   background:none;
-  /* display:flex */
   text-align: center;
-  /* font-size: larger; */
 }
 
 .advertising {
   margin-top: 2rem;
-  /* font-size: 12px; */
   font-style: oblique;
 }
 
-/* //////POPUPCONFIRMATION */
 .popUpBasketConfirmation {
   position: fixed;
   top: 30%;
@@ -241,7 +228,7 @@
   box-shadow: 0px 0px 5px grey;
   z-index: 1002;
   display: flex;
-  flex-direction: column; /* Empiler les éléments les uns en dessous des autres */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -283,7 +270,6 @@
 
   .bannerDetail h2 {
     text-align: left;
-    /* font-size: 2rem; */
     width: 45%;
     transform: translateX(115%);
     padding-top: 5%;
@@ -294,11 +280,6 @@
     bottom: -3vh;
   }
 
-  /* .theatreDetail {
-    font-size: 24px;
-  } */
-
-
   .popUpBasketConfirmation img:nth-child(1) {
     margin:2%;
   }
@@ -307,31 +288,9 @@
     width:80px
   }
 
-  .theatreDetail {
-    /* font-size: 1.8rem; */
-  }
-
-  /* .bannerDetail h2 {
-    position: absolute;
-    top: 30%;
-    right: 5%;
-    left:50%;
-    width: 45%;
-    text-align: left;
-    text-shadow: white 0 0 50px
-  } */
-
-  .advertising {
-    /* font-size:1.8rem; */
-  }
-
   .spectacleSchema {
     padding-top: 5vh;
     padding-bottom: 10vh;
-  }
-
-  .spectacleSchema h2 {
-    /* font-size: 1.8rem */
   }
 
   .theatreDetail h2 {
@@ -365,10 +324,6 @@
       width:50%
     }
 
-    .XXX {
-      background:yellow;
-    }
-
     .mapDetail {
       width:100%;
     }
@@ -384,13 +339,5 @@
     .seat-container {
       width: 50px;
     }
-
-    .spectacleSchema h2 {
-      /* font-size: 1.4rem; */
-    }
-
-    .advertising {
-      /* font-size: 1rem; */
-    }
   }
-}
+} */

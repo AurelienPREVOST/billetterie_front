@@ -1,4 +1,4 @@
-.eventCard {
+/* .eventCard {
   color:black;
   border-radius: 4px;
   box-shadow: 0px 0px 2px 2px rgb(224, 223, 223);
@@ -10,7 +10,6 @@
   max-width: 150px;
   height: 420px;
   transition:250ms;
-  /* font-size: smaller; */
 }
 
 .eventCard:hover {
@@ -43,7 +42,6 @@
 
 .eventCard p:nth-child(4) {
   height:40px;
-  /* font-size: 1.2rem; */
   margin-top:25px;
 }
 
@@ -74,4 +72,4 @@
   .eventCard {
     margin: 20px
   }
-}
+} */

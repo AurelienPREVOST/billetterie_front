@@ -1,4 +1,4 @@
-.goStripe {
+/* .goStripe {
   cursor:pointer;
   position: fixed;
   top: 88vh;
@@ -10,7 +10,6 @@
   background: #efa6fb;
   border: none;
   transition: 250ms;
-  /* font-size: 1.8vh; */
 }
 
 .goStripe:hover {
@@ -67,7 +66,6 @@
 
 .uniquePlaceContainer {
   padding-bottom:4rem;
-  /* border-bottom:1px solid grey; */
 }
 
 .uniquePlaceContainer p {
@@ -115,13 +113,11 @@ font-weight: bolder;
 }
 
 .emptyCart p {
-  /* font-size: larger; */
 }
 
 .emptyCart button{
   margin:1.5rem 0.2rem;
   padding:0.5rem;
-  /* font-size: 18px; */
   border-radius: 36px;
 }
 
@@ -154,7 +150,6 @@ border: 2px solid blue;
 @media screen and (min-width: 719px) {
   .myBasket table {
     margin: 0 10vw;
-    /* font-size: 2rem */
   }
 
   .basketEvent td:first-child img {
@@ -176,4 +171,4 @@ border: 2px solid blue;
     width: 2rem;
     height: 2rem;
   }
-}
+} */

@@ -1,13 +1,7 @@
-/* ///QRCODE */
-
-.QRCODEAREA{
+/* .QRCODEAREA{
   background:rgb(113, 86, 122);
   margin: 0 auto;
   width:95%;
-}
-
-#flash {
-
 }
 
 .green {
@@ -42,7 +36,6 @@
 
 .QRCODEAREA h1 {
   text-align: center;
-  /* font-size: 28px; */
   color:black;
   padding:0.5rem;
 }
@@ -54,7 +47,6 @@
 
 .QRCODEAREA h2 {
   text-align: center;
-  /* font-size: 40px; */
   color:white;
   padding:0.5rem;
 }
@@ -75,4 +67,4 @@
 #QrCodeReadyFromEmailChecking {
   margin:3rem 0;
   width:70%;
-}
+} */
