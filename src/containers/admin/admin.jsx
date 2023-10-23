@@ -15,6 +15,8 @@ const Admin = (props) => {
   const dispatch = useDispatch();
   const [orders, setOrders] = useState([]);
 
+  console.log('orders=>', orders)
+
   //suppression d'un produit
   const onClickDeleteProduct = (id) => {
     deleteOneProduct(id)
@@ -105,42 +107,41 @@ const Admin = (props) => {
       </div>
       <hr />
       <article>
-        <h3>Commande payée</h3>
+        <h2>Commande payée</h2>
         <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Numéro</th>
-                <th>Prix total</th>
-                <th>Date de confirmation</th>
-                <th>Etat</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.length > 0
-                ? orders.map((o) => {
+          {orders.length > 0 ? (
+            <div className="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Numéro</th>
+                    <th>Prix total</th>
+                    <th>Date de confirmation</th>
+                    <th>Etat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map((o) => {
                     if (o.status === "payed") {
                       return (
                         <tr key={o.id}>
                           <td>
-                            <Link to={`/orderDetail/${o.id}`}>{o.id}</Link>
+                            <Link to={`/order/placesInformations/${o.id}`}>{o.id}</Link>
                           </td>
                           <td>{o.totalAmount} euros</td>
-                          <td>
-                            {moment(o.creationTimestamp).format("DD-MM-YYYY")}
-                          </td>
+                          <td>{moment(o.creationTimestamp).format("DD-MM-YYYY")}</td>
                           <td>{o.status}</td>
                         </tr>
                       );
                     }
-                  })
-                : (
-                  <tr>
-                    <td colSpan="3"></td>
-                  </tr>
-                )}
-            </tbody>
-          </table>
+                    return null;
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p>Aucune commande disponible</p>
+          )}
         </div>
       </article>
     </section>
