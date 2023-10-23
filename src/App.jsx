@@ -41,6 +41,7 @@ function App() {
     const productTypePattern = /^\/product\/(theatre|opera|concert|onemanshow|sportevent|enfants|cabaret)$/
     const emailPlacesPattern = /^\/emailPlaces\/code=[A-Za-z0-9]{8}$/
     const resetPasswordPattern = /^\/user\/changePassword\/[A-Za-z0-9]+$/
+    const placesInformationsPattern = /^\/order\/placesInformations\/[0-9]+$/
 
     if (
       currentPath !== '/' &&
@@ -67,7 +68,8 @@ function App() {
       !productIdPattern.test(currentPath) &&
       !productTypePattern.test(currentPath) &&
       !emailPlacesPattern.test(currentPath) &&
-      !resetPasswordPattern.test(currentPath)
+      !resetPasswordPattern.test(currentPath) &&
+      !placesInformationsPattern.test(currentPath)
     ) {
       navigate("/")
     }
@@ -113,7 +115,7 @@ function App() {
           element={<RequireDataAuth child={EditProduct} auth={true} admin={true} />}
         />
         <Route
-          path="/orderDetail/:id"
+          path="/order/placesInformations/:id"
           element={<RequireDataAuth child={OrderDetail} auth={true} admin={true} />}
         />
         <Route

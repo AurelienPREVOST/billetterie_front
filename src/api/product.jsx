@@ -13,9 +13,6 @@ export function displayProducts(){
   })
 }
 
-
-/////TEST
-
 export function testProductSql(type){
   return axios.get(`${config.api_url}/product/type/${type}`)
   .then((res)=>{
@@ -25,6 +22,7 @@ export function testProductSql(type){
       return err
   })
 }
+
 export function takeOneProduct(id){
   return axios.get(`${config.api_url}/product/${id}`)
   .then((res)=>{

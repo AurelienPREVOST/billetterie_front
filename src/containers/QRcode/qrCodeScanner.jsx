@@ -8,6 +8,7 @@ const qrCodeScanner = ()=>{
   const [report, setReport] = useState("")
 
   const checkConformity = () => {
+    console.log("checkConformity")
     removeOneVideo()
     if (scanResult) {
       qrCodeChecking(scanResult)
@@ -82,6 +83,7 @@ const qrCodeScanner = ()=>{
   // EN PRODUCTION LE TIMEOUT DEVRA PEUT ETRE ETE ALLONGE. SANS LE TIMEOUT LA WEBCAM APPARAIT 2
   // FOIS SI LE NAVIGATEUR A DEJA DONNE L'ACCES A LA WEBCAM
   const removeOneVideo = () => {
+    console.log("removeOneVideo")
     setTimeout(() => {
       const videos = document.querySelectorAll('video');
       if (videos.length > 1) {
