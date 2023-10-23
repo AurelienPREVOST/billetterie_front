@@ -211,7 +211,7 @@ const Basket = (props)=>{
                   checked={acceptCGV}
                   onChange={handleAcceptCGVChange}
                 />
-                <label htmlFor="acceptCGV">J'ai lu et j'accepte les <Link to="/cgv" id="cgvlink">conditions generales de ventes</Link></label>
+                <label htmlFor="acceptCGV">J'ai lu et j'accepte les <Link to="/cgv" target="_blank" id="cgvlink">conditions générales de ventes</Link></label>
               </form>
               <button
                 onClick={onClickSaveOrder}

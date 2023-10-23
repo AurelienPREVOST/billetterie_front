@@ -1,16 +1,42 @@
 //ADMIN
+#adminMainAction {
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    background: rgb(210, 210, 210);
+
+    &:hover {
+      background: yellow;
+    }
+  }
+}
+
+#scanCheck, #addProduct {
+  width: 25vw;
+  border-radius: 10px;
+  height: auto;
+  padding:5%;
+
+  img {
+    width:100%;
+  }
+}
+
+
+
 
 .product-cards {
   background: rgba(0, 0, 0, 0);
   display: flex;
   flex-flow: row;
   overflow-x: scroll;
-  justify-content: center;
 
   @media screen and (min-width: 949px) {
     flex-flow: wrap;
     flex-wrap: wrap;
     overflow: visible;
+    justify-content: center;
   }
 }
 
@@ -66,20 +92,31 @@
 
 
 //BASKET
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.remove {
+  background: red;
+  padding: 2px;
+  border-radius: 50%;
+  margin-left: 1.5rem;
+}
 
 .goStripe {
   cursor: pointer;
   position: fixed;
-  top: 88vh;
+  padding: 0.5em;
+  top: 85vh;
   left: 15vw;
   width: 70vw;
-  height: 8vh;
+  height: auto;
   box-shadow: 0px 2px 10px grey;
   border-radius: 5vh;
   background: #efa6fb;
   border: none;
   transition: 250ms;
-  /* font-size: 1.8vh; */
 
   &:hover {
     background: #e880f8;
@@ -95,9 +132,10 @@
   border-radius: 10px;
 
   td:first-child {
-    width: 30;
+    width: 30vw;
 
     img {
+      margin-left:1em;
       width: 100%;
     }
   }
@@ -108,8 +146,8 @@
     a {
       position: absolute;
       top: 5px;
-      left: 32%;
-      width: 60%;
+      left: 40%;
+      width: 50%;
     }
   }
 
@@ -118,17 +156,7 @@
     top: 0.5rem;
     right: 0.5rem;
 
-    .remove {
-      background: red;
-      padding: 2px;
-      border-radius: 50%;
-      margin-left: 1.5rem;
-    }
 
-    .icon {
-      width: 1rem;
-      height: 1rem;
-    }
   }
 }
 
@@ -226,7 +254,8 @@
 
   .basketEvent td:first-child img {
     transform: translate(1rem) perspective(100px) rotateY(4deg);
-    width: 100%;
+    width: 50%;
+    margin-top:5%;
     height: auto;
     box-shadow: -6px 4px 6px rgba(0, 0, 0, 0.5);
   }
@@ -257,7 +286,7 @@
   text-align: center;
   max-width: 600px;
   margin: 1em auto;
-  padding: 5rem;
+  padding: 2rem;
   text-align: left;
 
   h1 {
@@ -323,7 +352,7 @@
     font-weight: bold;
   }
 
-  select, textarea {
+  select, textarea, input {
     max-width: 95%;
     width: 95%;
     min-width: 95%;
@@ -358,7 +387,7 @@
 //DETAIL
 
 .leaflet-container {
-  height: 140px;
+  height: 30vh;
 }
 
 .seat-container {
@@ -400,57 +429,52 @@
     padding-top: 5%;
   }
 
-  &.opera,
-  &.concert,
-  &.theatre,
-  &.sportevent,
-  &.onemanshow,
-  &.cabaret,
-  &.enfants {
-    position: relative;
-    background-color: rgba(250, 250, 250, 0.5);
+  &.opera::before,
+  &.concert::before,
+  &.theatre::before,
+  &.sportevent::before,
+  &.onemanshow::before,
+  &.cabaret::before,
+  &.enfants::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 20%;
+    opacity: 0.5;
+    z-index: -1;
+  }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: 0 20%;
-      opacity: 0.5;
-      z-index: -1;
+  &.opera::before {
+    background-image: url("../assets/opera.png");
+  }
 
-      &.opera {
-        background-image: url("../assets/opera.png");
-      }
+  &.concert::before {
+    background-image: url("../assets/concert.png");
+  }
 
-      &.concert {
-        background-image: url("../assets/concert.png");
-      }
+  &.theatre::before {
+    background-image: url("../assets/theatre.jpg");
+  }
 
-      &.theatre {
-        background-image: url("../assets/theatre.jpg");
-      }
+  &.sportevent::before {
+    background-image: url("../assets/sportevent.png");
+  }
 
-      &.sportevent {
-        background-image: url("../assets/sportevent.png");
-      }
+  &.onemanshow::before {
+    background-image: url("../assets/onemanshow.jpg");
+  }
 
-      &.onemanshow {
-        background-image: url("../assets/onemanshow.jpg");
-      }
+  &.cabaret::before {
+    background-image: url("../assets/cabaret.png");
+  }
 
-      &.cabaret {
-        background-image: url("../assets/cabaret.png");
-      }
-
-      &.enfants {
-        background-image: url("../assets/enfants.jpg");
-      }
-    }
+  &.enfants::before {
+    background-image: url("../assets/enfants.jpg");
   }
 
   img {
@@ -522,9 +546,15 @@
   box-shadow: 0px 0px 5px grey;
   z-index: 1002;
 
+  h4{
+    margin-top: 25%;
+  }
+
   p {
     text-align: center;
-    margin: 20px;
+    padding: 10% 0;
+    margin: 0 auto;
+    max-width: 70%;
   }
 
   img:nth-child(1) {
@@ -538,9 +568,11 @@
     border-radius: 20px;
     border: 1px solid grey;
     background: rgb(237, 237, 237);
-    margin-top: 2rem;
     padding: 1.5rem;
     cursor: pointer;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
   }
 
   .closePopUp {
@@ -548,9 +580,53 @@
     top: 5px;
     right: 5px;
   }
+
 }
 
 @media screen and (min-width: 719px) {
+
+  .popUpBasketConfirmation {
+    top: 40%;
+    width: 50%;
+    left: 25%;
+    height: auto;
+    padding: 1em 0;
+
+    h4{
+      margin-top: 2%;
+    }
+
+    p {
+      text-align: center;
+      padding: 5% 0;
+      max-width: 70%;
+    }
+
+    img:nth-child(1) {
+      margin: 5%;
+      width: 10%;
+      height: 10%;
+    }
+
+    a {
+      padding: 1rem;
+      border-radius: 20px;
+      border: 1px solid grey;
+      background: rgb(237, 237, 237);
+      padding: 1.5rem;
+      cursor: pointer;
+      display: block;
+      width: 50%;
+      margin: 0 auto;
+    }
+    .closePopUp {
+      position: absolute;
+      top: 1%;
+      right: 1%;
+    }
+
+  }
+
   .bannerDetail {
     margin-bottom: 5vh;
 
@@ -562,7 +638,7 @@
     }
 
     img {
-      width: 30%;
+      width: 20%;
       bottom: -3vh;
     }
 
@@ -588,42 +664,47 @@
       margin-bottom: 10vh;
     }
 
-    @media screen and (min-width: 949px) {
-      .bannerDetail {
-        height: 40vh;
-      }
+  }
+  @media screen and (min-width: 949px) {
+    .bannerDetail {
+      height: 40vh;
 
       img {
-        width: 12vw;
+        height:30vh;
+        width:auto;
+      }
+    }
+
+    img {
+      width: 12vw;
+    }
+
+    .theatreDetail {
+      display: flex;
+      flex-flow: wrap;
+
+      .theatreInformations {
+        width: 50%;
       }
 
-      .theatreDetail {
-        display: flex;
-        flex-wrap: wrap;
+      .spectacleSchema {
+        width: 50%;
 
-        .theatreInformations {
-          width: 50%;
+        h2 {
+          margin-bottom: 1rem;
         }
+      }
 
-        .spectacleSchema {
-          width: 50%;
+      .mapDetail {
+        width: 100%;
+      }
 
-          h2 {
-            margin-bottom: 1rem;
-          }
-        }
+      .spectacleSchema {
+        padding-top: 3vh;
+      }
 
-        .mapDetail {
-          width: 100%;
-        }
-
-        .spectacleSchema {
-          padding-top: 3vh;
-        }
-
-        .seat-container {
-          width: 50px;
-        }
+      .seat-container {
+        width: 50px;
       }
     }
   }
@@ -645,7 +726,7 @@
   justify-content: center;
 }
 
-footer form input[type="submit"] {
+footer form input[type="submit"]  {
   transition: 150ms;
   cursor: pointer;
   width: 40vw;
@@ -712,6 +793,13 @@ footer form input[type="submit"] {
   }
 }
 
+@media screen and (min-width: 719px){
+  #iconAccessDeploy {
+    position: absolute;
+    right: 3vw;
+  }
+}
+
 .reinsurrance {
   background: white;
   width: 100%;
@@ -769,7 +857,7 @@ footer {
     }
 
     input[type="submit"] {
-      margin: 5%;
+      margin: 5% auto;
     }
   }
 }
@@ -778,6 +866,10 @@ footer {
   .reinsurrance figure {
     width: 15%;
     padding: 3%;
+  }
+
+  #newsletter {
+    width:45vw;
   }
 
   .reinsurrance figure img {
@@ -804,9 +896,20 @@ footer {
       }
     }
   }
+
+  .hiddenAccess {
+    right: 90vw;
+  }
 }
 
+
+
 @media screen and (min-width: 949px) {
+
+  .hiddenAccess {
+    right: 97vw;
+  }
+
   .reinsurrance {
     width: 70%;
     margin: 0 auto;
@@ -837,10 +940,6 @@ footer {
       width: 50vw;
     }
 
-    .hiddenAccess {
-      right: 95vw;
-    }
-
     .displayAccess {
       right: 50vw;
     }
@@ -851,27 +950,31 @@ footer {
       display: flex;
     }
 
-    footer form input[type="submit"] {
-      transition: 150ms;
-      background: rgb(235, 235, 235);
-      width: 15vw;
-
-      &:hover {
-        transition: 150ms;
-        background: grey;
-        width: 20vw;
-      }
-    }
-
     #newsletter, footer form input[type="submit"] {
       font-size: 1.2em;
     }
 
-    #newsletter {
-      width: 30vw;
+  }
+
+  #newsletter {
+    width:30vw;
+  }
+
+  footer form input[type="submit"] {
+    transition: 150ms;
+    background: rgb(235, 235, 235);
+    width: 15vw;
+    margin:0.5em auto;
+
+    &:hover {
+      transition: 150ms;
+      background: grey;
+      width: 20vw;
     }
   }
 }
+
+
 
 //FORMULAIRE
 
@@ -1049,6 +1152,15 @@ header {
 
 #inputSearch {
   outline: none;
+}
+
+.borderR24px {
+  border-radius: 24px;
+}
+
+.borderR24pxTLandTR {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 }
 
 @media screen and (min-width: 719px) {
@@ -1278,12 +1390,16 @@ h1 {
 }
 
 .cityAndSortFilterContainer {
-  display: flex;
+  display: grid;
   justify-content: center;
 }
 
 .cityAndSortFilterContainer select {
-  margin: 0.5rem;
+
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .productType h1 {
@@ -1301,6 +1417,12 @@ h1 {
   background: rgba(77, 24, 97, 0.916);
   padding: 0.5rem;
   color: white;
+}
+
+@media screen and (min-width: 949px) {
+  .cityAndSortFilterContainer {
+    display: flex;
+  }
 }
 
 //PRODUCTCARD

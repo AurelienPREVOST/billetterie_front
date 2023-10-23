@@ -6,6 +6,8 @@ import { config } from "../../../config";
 import { deleteOneProduct, displayProducts } from "../../api/product";
 import { getAllOrders } from "../../api/order";
 import moment from "moment";
+import ScanBarcode from "../../assets/scanBarcode.svg"
+import NewProduct from "../../assets/newProduct.svg"
 
 const Admin = (props) => {
   const product = useSelector(selectProducts);
@@ -45,12 +47,14 @@ const Admin = (props) => {
         <Link to="/logout"><button>Me déconnecter</button></Link>
       <div>
         <h1>Administration</h1>
-        <Link to="/qrcodescanner">
-          <button>CONTROLE DES BILLETS</button>
-        </Link>
-        <Link to="/addProduct">
-          <button>Ajouter un produit</button>
-        </Link>
+        <div id="adminMainAction">
+          <Link to="/qrcodescanner">
+            <button id="scanCheck"><img src={ScanBarcode}/></button>
+          </Link>
+          <Link to="/addProduct">
+            <button id="addProduct"><img src={NewProduct}/></button>
+          </Link>
+        </div>
         <h2>Produits disponibles</h2>
         <div className="product-cards">
           {product.products.length > 0 ? (
