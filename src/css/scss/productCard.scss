@@ -1,0 +1,75 @@
+//PRODUCTCARD
+
+.eventCard {
+  color: black;
+  border-radius: 4px;
+  box-shadow: 0px 0px 2px 2px rgb(224, 223, 223);
+  padding: 10px;
+  margin: 50px 30px;
+  background: rgb(211, 150, 211);
+  text-align: left;
+  min-width: 150px;
+  max-width: 150px;
+  height: 420px;
+  transition: 250ms;
+}
+
+.eventCard:hover {
+  box-shadow: 0px 10px 2px 2px rgb(207, 207, 207);
+  transform: translateY(-10px) scale(1.02);
+}
+
+.eventCard img {
+  height: 225px;
+  width: 150px;
+  transform: translate(-20px, -20px);
+}
+
+.eventCard h2, .eventCard p {
+  color: black;
+  overflow-y: hidden;
+}
+
+.eventCard h2 {
+  height: 70px;
+  overflow-y: hidden;
+}
+
+.eventCard p:nth-child(2),
+.eventCard p:nth-child(3) {
+  height: 20px;
+  margin-top: 10px;
+  overflow-y: hidden;
+}
+
+.eventCard p:nth-child(4) {
+  height: 40px;
+  margin-top: 25px;
+}
+
+.eventCard p:nth-last-child(1) {
+  font-style: italic;
+  color: darkblue;
+  text-align: right;
+}
+
+@media screen and (min-width: 719px) {
+  .eventCard {
+    border-radius: 6px;
+    min-width: 200px;
+    height: 510px;
+    padding: 12px;
+  }
+
+  .eventCard img {
+    height: 280px;
+    width: 188px;
+    transform: translate(-25px, -25px);
+  }
+}
+
+@media screen and (min-width: 949px) {
+  .eventCard {
+    margin: 20px;
+  }
+}

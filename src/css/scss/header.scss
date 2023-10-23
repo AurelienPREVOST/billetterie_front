@@ -1,0 +1,198 @@
+//HEADER
+
+header {
+  transform: translateY(-6vh);
+  position: fixed;
+  z-index: 3;
+  width: 100vw;
+  height: 6vh;
+  background: linear-gradient(120deg, rgba(147, 0, 142, 1) 17%, rgba(210, 108, 240, 1) 69%, rgba(236, 76, 235, 1) 86%);
+  box-shadow: 0 0 2px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  a, img {
+    margin: 1vh 2vh;
+    width: 3.5vh;
+    height: 3.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+  }
+}
+
+#searchResultList tr td a {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  margin: 0.5rem;
+}
+
+#searchBarDiv {
+  height: 50px;
+  position: absolute;
+  z-index: 1003;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  transition: 500ms;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0px 0px 2px grey;
+  justify-content: space-between;
+  margin: 0 auto;
+  background: rgb(184, 110, 184);
+
+  label {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  input {
+    text-indent: 10%;
+    width: 70vw;
+    border: none;
+    height: 100%;
+  }
+
+  img {
+    width: 10%;
+  }
+}
+
+#searchResultList, .noResult {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 70vw;
+  background: white;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+
+  tbody tr td p {
+    text-indent: 10%;
+    height: 50px;
+  }
+}
+
+.initialTopPositon {
+  transform: translateY(-10vh);
+}
+
+.usefullPosition {
+  transform: translateY(10vh);
+}
+
+#screenCoveringFilter {
+  position: absolute;
+  z-index: 1002;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.opacityNone {
+  background: rgba(0, 0, 0, 0);
+  transition: 500ms;
+}
+
+.opacity {
+  background: rgba(0, 0, 0, 0.5);
+  transition: 500ms;
+}
+
+#inputSearch {
+  outline: none;
+}
+
+.borderR24px {
+  border-radius: 24px;
+}
+
+.borderR24pxTLandTR {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+@media screen and (min-width: 719px) {
+  header img[alt="loupeClickable"] {
+    margin-right: 40vw;
+  }
+
+  #searchBarDiv {
+    height: 70px;
+    border-radius: 40px;
+  }
+
+  .borderR24px {
+    border-radius: 40px;
+  }
+
+  .borderR24pxTLandTR {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+}
+
+@media screen and (min-width: 949px) {
+  #hideSearchBar, header img[alt="loupeClickable"] {
+    display: none;
+  }
+
+  #searchBarDiv {
+    position: static;
+    height: 85%;
+    z-index: 1003;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    transition: 500ms;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    justify-content: space-between;
+    margin: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+
+  .initialTopPositon {
+    transform: none;
+  }
+
+  .borderR24pxTLandTR {
+    border-radius: 30px;
+  }
+
+  #searchBarDiv input {
+    width: 100%;
+  }
+
+  #searchResultList {
+    width: 50%;
+    position: absolute;
+    top: 6.1vh;
+    transform: translateX(40%);
+    box-shadow: 0px 1px 5px grey;
+  }
+
+  .opacity, #screenCoveringFilter {
+    display: none;
+  }
+
+  .usefullPosition {
+    transform: translateY(0);
+  }
+
+  #searchResultList tbody tr td a {
+    text-indent: 5%;
+  }
+}

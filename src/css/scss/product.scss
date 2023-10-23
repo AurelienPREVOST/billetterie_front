@@ -1,0 +1,42 @@
+//PRODUCT
+
+.rangeFilterContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.cityAndSortFilterContainer {
+  display: grid;
+  justify-content: center;
+}
+
+.cityAndSortFilterContainer select {
+
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.productType h1 {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.productType label {
+  display: block;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.productType section:first-of-type {
+  background: rgba(77, 24, 97, 0.916);
+  padding: 0.5rem;
+  color: white;
+}
+
+@media screen and (min-width: 949px) {
+  .cityAndSortFilterContainer {
+    display: flex;
+  }
+}
