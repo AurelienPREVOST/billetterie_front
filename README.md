@@ -27,6 +27,17 @@ projet/config.js
 
 Dans ce projet les images sont herbergées directement sans cloud sur le serveur Node(back). Verifier que la route d'accès est correct entre votre back et front (notamment en production)
 
+
+```plaintext
+projet/src/containers/payment.jsx
+```
+![image](https://github.com/AurelienPREVOST/billetterie_front/assets/102169301/b6cb8786-fdfa-4a7c-8478-5b28991e99b6)
+
+On modifie ici la clé publique en mettant celle de test disponible sur son profil stripe . Si pas de profil, créez un profil stripe gratuitement sur https://dashboard.stripe.com/register
+
+
+
+
 ## Etape 4 - Lancer le serveur front
 
 ```bash
