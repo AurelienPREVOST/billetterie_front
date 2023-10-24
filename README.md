@@ -19,9 +19,9 @@ npm i @fortawesome/fontawesome-svg-core @fortawesome/free-regular-svg-icons @for
 
 ## Etape 3 - Modifier l'existant:
 
-<pre>
-  project/config.js
-</pre>
+```plaintext
+projet/config.js
+```
 ![image](https://github.com/AurelienPREVOST/billetterie_front/assets/102169301/3477c05d-7c14-48b4-b37c-d7682d7f10b0)
 
 
