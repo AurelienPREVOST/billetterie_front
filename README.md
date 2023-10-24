@@ -7,9 +7,13 @@ Uniquement la partie front-end se trouve ici, codé en REACT 18.
 
 Etape 1 - instancier un nouveau projet sous vite (React, Javascript):
 
-```npm create vite@latest```
+```bash
+npm create vite@latest
+```
 
 Etape 2 - installer les dependances suivantes :
 
-``npm i @fortawesome/fontawesome-svg-core @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @reduxjs/toolkit @stripe/react-stripe-js @stripe/stripe-js axios moment react-redux react-router-dom redux redux-thunk html5-qrcode qrcode qrcode.react chai mocha sinon sinon-chai``
+````bash
+npm i @fortawesome/fontawesome-svg-core @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @reduxjs/toolkit @stripe/react-stripe-js @stripe/stripe-js axios moment react-redux react-router-dom redux redux-thunk html5-qrcode qrcode qrcode.react chai mocha sinon sinon-chai
+````
 
