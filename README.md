@@ -26,3 +26,9 @@ projet/config.js
 
 
 Dans ce projet les images sont herbergées directement sans cloud sur le serveur Node(back). Verifier que la route d'accès est correct entre votre back et front (notamment en production)
+
+## Etape 4 - Lancer le serveur front
+
+```bash
+npm run dev
+```
