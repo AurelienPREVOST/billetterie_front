@@ -5,6 +5,7 @@ function contact() {
   const [subject, setSubject] = useState('Besoin d\'assistance pour acheter une ou des places');
   const [myContact, setMyContact] = useState('')
   const [message, setMessage] = useState('');
+  const [mailSent, setMailSent] = useState(false);
   const maxMessageLength = 3500;
 
   const handleSubjectChange = (e) => {
@@ -23,9 +24,8 @@ function contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendMail(subject, myContact, message )
-    console.log('Sujet :', subject);
-    console.log('myContact :', myContact)
-    console.log('Message :', message);
+    setMailSent(true)
+
   }
 
   return (
@@ -75,6 +75,7 @@ function contact() {
           </div>
         </div>
         <button type="submit">Envoyer</button>
+        {mailSent ? <p>Votre mail à bien été transmis vous pouvez continuer votre navigation</p> : null}
       </form>
     </div>
   );
