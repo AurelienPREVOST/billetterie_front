@@ -148,53 +148,52 @@ const Profil = (props) => {
         <input type="submit" name="Enregistrer" />
       </form>
 
-
-
-      <h3>Mes evenements prochains :</h3>
-      <div className="my-ticket-list">
-        {userPlaces.map((place, index) => {
-          if (new Date(place.date) - new Date(dateActuelle) > 0) {
-            return (
-              <div key={index} className="my-ticket">
-                <h3>{place.name}</h3>
-                <p>{place.price} € TTC</p>
-                <p>{place.lieu}</p>
-                <p><b>Le {new Date(place.date).toISOString().split("T")[0].substring(0, 10)}</b></p>
-                <p><b>à {new Date(place.date).toISOString().split("T")[1].substring(0, 5)}</b></p>
-                {/* <p><b>à {new Date(place.date).toISOString().split("T")[1].substring(0, 5)}</b></p> */}
-                <QRCode value={place.code} />
-                <p><i>{place.code}</i></p>
-              </div>
-            );
-          }
-          return null
-        })}
-      </div>
-      <h3>Mes évenements passés :</h3>
-      <div className="my-ticket-list">
-          {userPlaces.map((place, index) => {
-            if (new Date(place.date) - new Date(dateActuelle) < 0) {
-              return (
-                <div key={index} className="my-ticket-passed">
-                  <h3>{place.name}</h3>
-                  <p>{place.price} € TTC</p>
-                  <p>{place.lieu}</p>
-                  <p><b>Le {new Date(place.date).toISOString().split("T")[0].substring(0, 10)}</b></p>
-                  <p><b>à {new Date(place.date).toISOString().split("T")[1].substring(0, 5)}</b></p>
-                  <QRCode value={place.code} />
-                  <p><i>{place.code}</i></p>
-                </div>
-              );
-            }
-            return null
-          })}
-      </div>
-
+      {userPlaces.length > 0 && (
+        <>
+          <h3>Mes événements prochains :</h3>
+          <div className="my-ticket-list">
+            {userPlaces.map((place, index) => {
+              if (new Date(place.date) - new Date(dateActuelle) > 0) {
+                return (
+                  <div key={index} className="my-ticket">
+                    <h3>{place.name}</h3>
+                    <p>{place.price} € TTC</p>
+                    <p>{place.lieu}</p>
+                    <p><b>Le {new Date(place.date).toISOString().split("T")[0].substring(0, 10)}</b></p>
+                    <p><b>à {new Date(place.date).toISOString().split("T")[1].substring(0, 5)}</b></p>
+                    <QRCode value={place.code} />
+                    <p><i>{place.code}</i></p>
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </div>
+          <h3>Mes événements passés :</h3>
+          <div className="my-ticket-list">
+            {userPlaces.map((place, index) => {
+              if (new Date(place.date) - new Date(dateActuelle) < 0) {
+                return (
+                  <div key={index} className="my-ticket-passed">
+                    <h3>{place.name}</h3>
+                    <p>{place.price} € TTC</p>
+                    <p>{place.lieu}</p>
+                    <p><b>Le {new Date(place.date).toISOString().split("T")[0].substring(0, 10)}</b></p>
+                    <p><b>à {new Date(place.date).toISOString().split("T")[1].substring(0, 5)}</b></p>
+                    <QRCode value={place.code} />
+                    <p><i>{place.code}</i></p>
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </div>
+        </>
+      )}
 
       <OrderList userId={user.infos.id} />
-
     </section>
   );
-};
+}
 
 export default Profil;
