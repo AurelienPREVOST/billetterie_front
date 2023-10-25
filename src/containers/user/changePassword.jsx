@@ -15,7 +15,6 @@ const ChangePassword = () => {
         password: password,
         key_id: key_id
       };
-//password et key_id sont okay et bien tranmis au back
 
       changePassword(mdp)
         .then((response) => {

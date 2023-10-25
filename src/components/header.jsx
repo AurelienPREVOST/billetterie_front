@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import iconMenu from '../assets/menu.svg';
 import iconSearch from '../assets/loupe.svg';
 import iconProfil from '../assets/avatar.svg';
 import iconBasket from '../assets/ticket.svg';
@@ -15,61 +14,54 @@ import { searchEventsWithKeyWord } from '../api/product';
 const Header = () => {
   const user = useSelector(selectUser);
   const [searchResult, setSearchResult] = useState([]);
-  const searchBarRef = useRef(null); // Create a ref for searchBar
-  const inputSearchRef = useRef(null); // Create a ref for inputSearch
+  const searchBarRef = useRef(null)
+  const inputSearchRef = useRef(null)
 
   useEffect(() => {
-    // Access the DOM elements in the useEffect hook after the component has rendered
-    searchBarRef.current = document.querySelector('#searchBarDiv');
-    inputSearchRef.current = document.querySelector('#inputSearch');
-  }, []); // Empty dependency array ensures this runs after the initial render
+    searchBarRef.current = document.querySelector('#searchBarDiv')
+    inputSearchRef.current = document.querySelector('#inputSearch')
+  }, [])
 
   const toggleDisplaySearchBar = () => {
-    const screenCoveringFilter = document.querySelector('#screenCoveringFilter');
-    screenCoveringFilter.classList.toggle("hidden");
-    screenCoveringFilter.classList.toggle("opacity");
+    const screenCoveringFilter = document.querySelector('#screenCoveringFilter')
+    screenCoveringFilter.classList.toggle("hidden")
+    screenCoveringFilter.classList.toggle("opacity")
 
-
-    // Use the ref to access searchBar
     if (searchBarRef.current) {
-      searchBarRef.current.classList.toggle("initialTopPositon");
-      searchBarRef.current.classList.toggle("usefullPosition");
+      searchBarRef.current.classList.toggle("initialTopPositon")
+      searchBarRef.current.classList.toggle("usefullPosition")
     }
-  };
+  }
 
   const onClickResultOrCloseSearchBar = () => {
-    let searchResultList = document.querySelector('#searchResultList');
-    searchResultList.classList.add("hidden");
+    let searchResultList = document.querySelector('#searchResultList')
+    searchResultList.classList.add("hidden")
 
-    // Use the ref to access inputSearch
     if (inputSearchRef.current) {
-      inputSearchRef.current.value = "";
+      inputSearchRef.current.value = ""
     }
 
     setSearchResult([]);
-    inputSearchRef.current.classList.remove("borderR24pxTLandTR");
-    inputSearchRef.current.classList.add("borderR24px");
+    inputSearchRef.current.classList.remove("borderR24pxTLandTR")
+    inputSearchRef.current.classList.add("borderR24px")
   };
 
   const searchResultsPreview = (keyword) => {
-    console.log("KEYWORD => ", keyword);
+    console.log("KEYWORD => ", keyword)
     if (keyword.length === 0) {
-      // Use the ref to access inputSearch
       if (inputSearchRef.current) {
-        inputSearchRef.current.classList.add("borderR24px");
-        inputSearchRef.current.classList.remove("borderR24pxTLandTR");
+        inputSearchRef.current.classList.add("borderR24px")
+        inputSearchRef.current.classList.remove("borderR24pxTLandTR")
       }
     }
     if (keyword.length > 0) {
-      // Use the ref to access inputSearch
       if (inputSearchRef.current) {
-        inputSearchRef.current.classList.remove("borderR24px");
-        inputSearchRef.current.classList.add("borderR24pxTLandTR");
+        inputSearchRef.current.classList.remove("borderR24px")
+        inputSearchRef.current.classList.add("borderR24pxTLandTR")
       }
     }
     searchEventsWithKeyWord(keyword)
       .then((res) => {
-        console.log("voici la longueur du tableau", res.result.length);
         setSearchResult(res.result);
       })
       .catch((err) => {

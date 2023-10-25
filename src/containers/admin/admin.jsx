@@ -17,7 +17,6 @@ const Admin = (props) => {
 
   console.log('orders=>', orders)
 
-  //suppression d'un produit
   const onClickDeleteProduct = (id) => {
     deleteOneProduct(id)
       .then((res) => {

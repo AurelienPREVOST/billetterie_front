@@ -21,7 +21,7 @@ const Login = (props) => {
     setError(null);
 
     if (connexionBlocked) {
-      return; // Ne pas soumettre la requête si la connexion est bloquée
+      return
     }
 
     setConnexionTry((prevConnexionTry) => prevConnexionTry + 1);
@@ -31,7 +31,6 @@ const Login = (props) => {
       password: password,
     };
 
-    //Dans un premier temps on verifie que le client a validé son mail via le mail de confirmation reçu
     checkIfValidateIsYes(datas.email)
     .then((res) => {
       console.log("checkIfValidateIsYes res", res.result[0].validate)
@@ -39,32 +38,21 @@ const Login = (props) => {
         setValidateError("Vous n'avez pas valider votre adresse email. Consultez votre messagerie")
         return
       } else {
-        //Si il a validé et que en BDD il a validate === yes alors on essai de le connecter en verifiant son mot de passe
         setValidateError(null)
         loginUser(datas)
         .then((res) => {
           if (res.status === 200) {
-            // Réinitialiser le nombre de tentatives en cas de connexion réussie
             setConnexionTry(0);
-            // Je stocke le token dans le localStorage
             window.localStorage.setItem("tutorial-token", res.token);
-            // Je crée un objet d'utilisateur à pousser dans le store de Redux
             let newUser = res.user;
             newUser.token = res.token;
-
-            // J'ordonne la connexion à Redux
             dispatch(connectUser(newUser));
-
-            // Redirection vers l'accueil
             setRedirect(true);
           } else {
             setError(res.msg);
 
             if (connexionTry >= 3) {
-              // Appliquer le blocage de la connexion après 3 tentatives infructueuses
               setConnexionBlocked(true);
-
-              // Définir le délai de blocage (en millisecondes)
               const blockingDelay =
               connexionTry === 3
               ? 5000 // Délai de 5 secondes après 3 tentatives

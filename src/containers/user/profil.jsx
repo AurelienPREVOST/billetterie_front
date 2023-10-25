@@ -3,9 +3,7 @@ import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, connectUser } from "../../slices/userSlice";
 import { getUserPlaces, updateProfil, checkMyToken } from "../../api/user";
-import { takeOneProduct } from "../../api/product";
 import OrderList from "../../components/orderList";
-import Logout from "../../assets/logout.svg";
 import QRCode from "qrcode.react";
 
 
@@ -169,7 +167,7 @@ const Profil = (props) => {
               </div>
             );
           }
-          return null; // Retourne null pour les éléments qui ne satisfont pas la condition
+          return null
         })}
       </div>
       <h3>Mes évenements passés :</h3>
@@ -188,7 +186,7 @@ const Profil = (props) => {
                 </div>
               );
             }
-            return null; // Retourne null pour les éléments qui ne satisfont pas la condition
+            return null
           })}
       </div>
 

@@ -3,8 +3,6 @@ import {config} from '../../config'
 const token = window.localStorage.getItem('tutorial-token')
 
 export function saveOneOrder(datas){
-  console.log("export function saveOneOrder(datas")
-  console.log("DATAS DE SAVEONEORDER=>", datas)
   return axios.post(`${config.api_url}/order/save`, datas, {headers: {"x-access-token": token}})
   .then((res)=>{
       return res.data
@@ -77,16 +75,9 @@ export function getOrderByUserId(user_id){
 export function getPlacesFromOrder(orderId) {
   return axios.get(`${config.api_url}/order/placesInformations/${orderId}`, {headers: {"x-access-token": token}})
   .then((res)=>{
-    console.log("************************")
-    console.log(orderId)
-    console.log("************************")
-
-    console.log("passe apr getPlacesFromOrder(orderId)")
-    console.log("res.data",res.data)
     return res.data
   })
   .catch((err) => {
-    console.log("err", err)
     return err
   })
 }
