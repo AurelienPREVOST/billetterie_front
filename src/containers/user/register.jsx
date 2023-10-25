@@ -14,6 +14,7 @@ const Register = (props) => {
   const [phone, setPhone] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState(null);
+  const [passwordStrength, setPasswordStrength] = useState("Mot de passe - Faible");
 
 
   useEffect(()=> {
@@ -21,7 +22,21 @@ const Register = (props) => {
     if(password !== "" && confirmPassword !== "" && password !== confirmPassword) {
       setError("les mots de passes ne sont pas identiques")
     }
+    updatePasswordStrength(password);
   }, [password, confirmPassword])
+
+  const updatePasswordStrength = (password) => {
+    const regexDigits = /^\d+$/;
+    const regexLetters = /^[a-zA-Z]+$/;
+
+    if (password.length < 5 || regexDigits.test(password) || regexLetters.test(password)) {
+      setPasswordStrength("faible");
+    } else if (password.length >= 7 && /[0-9]/.test(password) && /[a-zA-Z]/.test(password) && /[!@#$%^&*]/.test(password)) {
+      setPasswordStrength("fort");
+    } else {
+      setPasswordStrength("moyen");
+    }
+  };
 
   const onSubmitForm = (e) => {
       e.preventDefault();
@@ -38,7 +53,6 @@ const Register = (props) => {
           phone: phone,
         }
 
-      // Utilisez window.confirm() pour afficher la boîte de dialogue de confirmation
       const isConfirmed = window.confirm(
         "Attention! En cas de perte de vos billets ses informations seront necessaire pour retrouver vos places lors des évènements, veillez à saisir des informations factuelle. Cliquez sur confirmer si c'est le cas sinon merci de saisir de nouveaux vos informations pour enregistrement"
       );
@@ -58,7 +72,7 @@ const Register = (props) => {
   };
 
   if (redirect) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/user/registerWaiting" />;
   }
 
   return (
@@ -97,6 +111,7 @@ const Register = (props) => {
           }}
           required
         />
+        {passwordStrength !== null && <p class={passwordStrength}>Mot de passe : {passwordStrength}</p>}
         <input
           type="password"
           placeholder="Confirmer votre mot de passe"

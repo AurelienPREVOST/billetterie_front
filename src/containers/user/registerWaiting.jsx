@@ -13,7 +13,7 @@ const RegisterWaiting = () => {
   }, []);
 
   if (redirect) {
-    return <Navigate to="/login" />; // Retournez Navigate pour déclencher la redirection
+    return <Navigate to="/login" />
   }
 
   return (

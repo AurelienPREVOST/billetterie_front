@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import { testProductSql } from '../api/product';
-import QuickButtonMenu from '../components/quickButtonMenu';
-import ProductCard from '../components/productCard';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { testProductSql } from '../api/product'
+import QuickButtonMenu from '../components/quickButtonMenu'
+import ProductCard from '../components/productCard'
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
 
 const Product = () => {
-  const { type } = useParams();
-  const location = useLocation();
-  const [typeProducts, setTypeProducts] = useState(null);
-  const [selectedCity, setSelectedCity] = useState('');
-  const [uniqueCities, setUniqueCities] = useState([]);
-  const [sortOrder, setSortOrder] = useState('asc');
-  const [priceRange, setPriceRange] = useState([0, 500]); // Prix minimum et maximum
+  const { type } = useParams()
+  // const location = useLocation()
+  const [typeProducts, setTypeProducts] = useState(null)
+  const [selectedCity, setSelectedCity] = useState('')
+  const [uniqueCities, setUniqueCities] = useState([])
+  const [sortOrder, setSortOrder] = useState('asc')
+  const [priceRange, setPriceRange] = useState([0, 500])
 
   const [fixedMinMax, setFixedMinMax] = useState([0, 500])
   const [firstSetting, setFirstSetting] = useState(true)
@@ -25,12 +25,12 @@ const Product = () => {
       .then((res) => {
         if (res.status === 200) {
           setTypeProducts(res.result);
-          const citiesSet = new Set(res.result.map((product) => product.ville));
-          const citiesArray = Array.from(citiesSet);
-          setUniqueCities(citiesArray);
+          const citiesSet = new Set(res.result.map((product) => product.ville))
+          const citiesArray = Array.from(citiesSet)
+          setUniqueCities(citiesArray)
 
-          const minProductPrice = Math.min(...res.result.map((product) => product.price));
-          const maxProductPrice = Math.max(...res.result.map((product) => product.price));
+          const minProductPrice = Math.min(...res.result.map((product) => product.price))
+          const maxProductPrice = Math.max(...res.result.map((product) => product.price))
           setPriceRange([minProductPrice, maxProductPrice]);
           if (firstSetting) {
             setFixedMinMax([minProductPrice, maxProductPrice])
@@ -44,15 +44,14 @@ const Product = () => {
   }, [type]);
 
   const handleCityChange = (event) => {
-    setSelectedCity(event.target.value);
+    setSelectedCity(event.target.value)
   };
 
   const handleSortChange = (event) => {
-    setSortOrder(event.target.value);
+    setSortOrder(event.target.value)
   };
 
   const handlePriceRangeChange = (value) => {
-    // Mettez à jour les valeurs du curseur à chaque changement
     setPriceRange(value);
   };
 

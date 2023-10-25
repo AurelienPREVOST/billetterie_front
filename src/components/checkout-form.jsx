@@ -66,8 +66,9 @@ const CheckoutForm = (props) => {
             b.selectedSeatIds.forEach((seatId) => {
               updateStatusSeat(seatId, user.infos.id, numOrder);
             });
-            // PROBLEME CA ENVOI AUTANT DE MAIL QUE DE PLACE VENDU
-          });
+            // PROBLEME CA ENVOI AUTANT DE MAIL QUE DE PLACE VENDU,
+            // A corriger ultérieurement en le sortant de l'iteration
+          })
           const data = {
             orderId: props.orderId,
             status: 'payed',

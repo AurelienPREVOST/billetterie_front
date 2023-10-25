@@ -12,7 +12,7 @@ function contact() {
   }
 
   const handleMessageChange = (e) => {
-    // Supprime les balises "<" ou ">"
+    // Supprime les balises "<" ou ">"(securité light)
     const newMessage = e.target.value.replace(/[<>]/g, '');
     setMessage(newMessage);
   }
@@ -23,7 +23,6 @@ function contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendMail(subject, myContact, message )
-    // Vous pouvez traiter les données du formulaire ici
     console.log('Sujet :', subject);
     console.log('myContact :', myContact)
     console.log('Message :', message);

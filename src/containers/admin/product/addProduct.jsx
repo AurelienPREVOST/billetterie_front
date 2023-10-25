@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {selectUser} from '../../../slices/userSlice'
 import {loadProducts} from '../../../slices/productSlice'
@@ -25,6 +25,20 @@ const AddProduct = (props)=>{
     const [redirect, setRedirect] = useState(false)
     const [error, setError] = useState(null)
 
+    const [address, setAddress] = useState('')
+    const [apiResponse, setApiResponse] = useState(null)
+    const [addressVerified, setAddressVerified] = useState(false);
+
+
+    useEffect(() => {
+      if (apiResponse) {
+        // Si la réponse de l'API a été reçue, mettez à jour la latitude et la longitude
+        setLatitude(apiResponse.features[0].geometry.coordinates[1]);
+        setLongitude(apiResponse.features[0].geometry.coordinates[0]);
+      }
+    }, [apiResponse]);
+
+
     const onSubmitForm = (e) => {
         e.preventDefault()
         setError(null)
@@ -37,12 +51,41 @@ const AddProduct = (props)=>{
         }
     }
 
+
+
+    // Fonction pour envoyer la requête à l'API
+    const verifyAddress = () => {
+    // Remplacez les espaces par des "+" dans l'adresse
+      const formattedAddress = encodeURIComponent(address);
+
+    // Envoyez la requête à l'API
+    axios.get(`https://api-adresse.data.gouv.fr/search/?q=${formattedAddress}`)
+    .then((response) => {
+      if (response.data.features[0].geometry) {
+        setApiResponse(response.data); // Stockez la réponse de l'API dans l'état
+        console.log(response.data);
+        console.log(response.data.features[0].geometry.coordinates[0]);
+        console.log(response.data.features[0].geometry.coordinates[1]);
+        if (response.data.features.length === 1) {
+          setAddressVerified(true);
+        } else {
+          setAddressVerified(false);
+        }
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+
+
     const saveCompleteProduct = ()=>{
         if(selectedFile === null){
             let datas = {
                 name: name,
                 type: type,
                 description: description,
+                address: address, // aucun usage en DB pour l'instant
                 latitude: parseFloat(latitude),
                 longitude: parseFloat(longitude),
                 ville: ville,
@@ -54,10 +97,8 @@ const AddProduct = (props)=>{
               }
             addProd(datas)
         } else {
-            //on prépare l'objet formData qui permet le transport dans la requète ajax
             let formData = new FormData()
             formData.append("image", selectedFile)
-            //requète d'ajout d'une image
             axios({
               method: "post",
               url: `${config.api_url}/api/v1/product/pict`,
@@ -73,6 +114,7 @@ const AddProduct = (props)=>{
                         name: name,
                         type: type,
                         description: description,
+                        address: address, // aucun usage en DB pour l'instant
                         latitude: parseFloat(latitude),
                         longitude: parseFloat(longitude),
                         ville: ville.toUpperCase(),
@@ -80,7 +122,6 @@ const AddProduct = (props)=>{
                         date: date,
                         price: price,
                         quantity: quantity,
-                        // codedPlaces: buildCodedPlaces(quantity),
                         photo: res.data.url
                     }
                     addProd(datas)
@@ -93,7 +134,6 @@ const AddProduct = (props)=>{
     const addProd = (datas) =>{
         addOneProduct(datas)
         .then((res)=>{
-            //si il a rajouté une produit on met immédiatement à jour notre store de redux
             if(res.status === 200){
                 displayProducts()
                 .then((response)=>{
@@ -155,7 +195,22 @@ const AddProduct = (props)=>{
               setDescription(e.currentTarget.value);
             }}
           ></textarea>
-          <label htmlFor="productLatitude">Latitude:</label>
+          <label htmlFor="address">Adresse de l'événement:</label>
+          <input
+            type="text"
+            id="address"
+            placeholder="Adresse de l'événement"
+            value={address}
+            onChange={(e) => {
+            setAddress(e.currentTarget.value);
+            }}
+          />
+          {addressVerified ? <p style={{ color: 'green' }}>Adresse trouvée</p> : <p style={{ color: 'red' }}>Précisez mieux l'adresse</p>}
+          <button type="button" onClick={verifyAddress}>
+            Vérifier
+          </button>
+      {/* // PLUS BESOIN LA RECHERCHE D'ADRESSE REMPLI LES 2 CHAMPS */}
+      {/* <label htmlFor="productLatitude">Latitude:</label>
           <input
             type="text"
             id="productLatitude"
@@ -172,7 +227,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setLongitude(e.currentTarget.value);
             }}
-          />
+          /> */}
           <label htmlFor="productCity">Ville:</label>
           <input
             type="text"

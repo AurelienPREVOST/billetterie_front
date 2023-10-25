@@ -44,7 +44,6 @@ const qrCodeScanner = ()=>{
                 setReport("Statut inconnu");
             }
             setTimeout(function() {
-              // Code à exécuter après 3 secondes
               console.log("********VEUILLEZ PATIENTEZ AVANT UNE NOUVELLE TENTATIVE*******");
               setScanResult(null)
             }, 3000);
@@ -69,7 +68,6 @@ const qrCodeScanner = ()=>{
     scanner.render(success, error);
 
     function success(result) {
-      // scanner.clear(); //
       setScanResult(result);
     }
     function error() {
@@ -77,8 +75,6 @@ const qrCodeScanner = ()=>{
     }
     removeOneVideo()
   }, []);
-
-
   //////TOUTE CETTE PARTIE LA EST UNE GROSSE BIDOUILLE POUR PALIER A UN DEFAUT DE LA LIBRAIRIE.
   // EN PRODUCTION LE TIMEOUT DEVRA PEUT ETRE ETE ALLONGE. SANS LE TIMEOUT LA WEBCAM APPARAIT 2
   // FOIS SI LE NAVIGATEUR A DEJA DONNE L'ACCES A LA WEBCAM
@@ -117,8 +113,6 @@ const qrCodeScanner = ()=>{
         {scanResult ? (
           <div>
             <p>Code: {scanResult}</p>
-            {/* <h2>{report}</h2> */}
-            {/* <button onClick={checkConformity}>VERIFIER</button> */}
           </div>
         ) : (
           <div id="reader"></div>
