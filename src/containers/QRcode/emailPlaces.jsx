@@ -22,7 +22,7 @@ const EmailPlaces = () => {
   return (
     <div id="emailPlaces">
       <h1>Veuillez faire flasher ce QRCode à l'entrée de votre évènement</h1>
-      <h3>ajustant la luminosité de votre smartphone au maximum</h3>
+      <h2>En ajustant la luminosité de votre smartphone au maximum</h2>
       <QRCode value={usableCode} id="QrCodeReadyFromEmailChecking"/>
     </div>
   );

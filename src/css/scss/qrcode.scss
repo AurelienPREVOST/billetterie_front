@@ -67,5 +67,19 @@
 
 #QrCodeReadyFromEmailChecking {
   margin: 3rem 0;
-  width: 70%;
+  height: auto;
+  width:90%;
+}
+
+@media screen and (min-width: 719px) {
+  #QrCodeReadyFromEmailChecking {
+    width:50%;
+  }
+}
+
+@media screen and (min-width: 949px) {
+  #QrCodeReadyFromEmailChecking {
+    width:auto;
+    height:50vh;
+  }
 }

@@ -21,19 +21,17 @@ const OrderList = ({ userId }) => {
   return (
     <div>
       <h3>Mes Commandes</h3>
-      <ul>
-        {orders === undefined || orders.length === 0 ? (
-          <li>
-            <button onClick={refreshOrders}>Voir mes commandes</button>
-          </li>
-        ) : (
-          orders.map((order) => (
+      {orders === undefined || orders.length === 0 ? (
+        <p>Aucune commandes en mémoire</p>
+      ) : (
+        <ul>
+          {orders.map((order) => (
             <li key={order.id}>
               Commande #{order.id} - Date: {order.creationTimestamp}
             </li>
-          ))
-        )}
-      </ul>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

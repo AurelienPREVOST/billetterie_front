@@ -17,7 +17,7 @@ const Product = () => {
   const [priceRange, setPriceRange] = useState([0, 500])
 
   const [fixedMinMax, setFixedMinMax] = useState([0, 500])
-  const [firstSetting, setFirstSetting] = useState(true)
+  // const [firstSetting, setFirstSetting] = useState(true)
 
 
   useEffect(() => {
@@ -28,14 +28,15 @@ const Product = () => {
           const citiesSet = new Set(res.result.map((product) => product.ville))
           const citiesArray = Array.from(citiesSet)
           setUniqueCities(citiesArray)
-
           const minProductPrice = Math.min(...res.result.map((product) => product.price))
           const maxProductPrice = Math.max(...res.result.map((product) => product.price))
           setPriceRange([minProductPrice, maxProductPrice]);
-          if (firstSetting) {
-            setFixedMinMax([minProductPrice, maxProductPrice])
-            setFirstSetting(false)
-          }
+          setFixedMinMax([minProductPrice, maxProductPrice])
+          // if (firstSetting) {
+          //   setFixedMinMax([minProductPrice, maxProductPrice])
+          //   setPriceRange([minProductPrice, maxProductPrice])
+          //   setFirstSetting(false)
+          // }
         } else {
           console.log("erreur dans testProductSql");
         }

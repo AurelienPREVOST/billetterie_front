@@ -12,6 +12,10 @@ const RegisterWaiting = () => {
     return () => clearTimeout(redirectTimeout); // Clear timeout lors du démontage du composant (bug fuite mémoire)
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0) // Remonte le scroll
+  }, []);
+
   if (redirect) {
     return <Navigate to="/login" />
   }
