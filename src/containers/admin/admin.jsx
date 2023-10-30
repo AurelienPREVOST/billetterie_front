@@ -15,8 +15,6 @@ const Admin = (props) => {
   const dispatch = useDispatch();
   const [orders, setOrders] = useState([]);
 
-  console.log('orders=>', orders)
-
   const onClickDeleteProduct = (id) => {
     deleteOneProduct(id)
       .then((res) => {

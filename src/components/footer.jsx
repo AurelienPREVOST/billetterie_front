@@ -114,19 +114,19 @@ const Footer = () => {
       <div className="reinsurrance">
         <figure>
           <img src={refundSecure} alt="logo representatnt un process de remboursement" />
-          <figcaption aria-label="Remboursement possible">Remboursement possible</figcaption>
+          <figcaption aria-label="Possibilité de remboursement sous conditions">Remboursement possible</figcaption>
         </figure>
         <figure>
           <img src={noDataStolen} alt="logo aucun stockage de données tierce" />
-          <figcaption aria-label="Confidentialité préservée">Confidentialité préservée</figcaption>
+          <figcaption aria-label="Confidentialité préservée lors de votre navigation en limitant les données colléctés au strict minimum">Confidentialité préservée</figcaption>
         </figure>
         <figure>
           <img src={safeTransaction} alt="logo représentant une transaction séurisée" />
-          <figcaption aria-label="Paiement sécurisé">Paiement sécurisé</figcaption>
+          <figcaption aria-label="Paiement sécurisé par un intermediaire de paiement certifié">Paiement sécurisé</figcaption>
         </figure>
         <figure>
           <img src={charityReinsurrance} alt="logo représentant la charité" />
-          <figcaption aria-label="5% reversé*">5% reversé*</figcaption>
+          <figcaption aria-label="5 pourcent reversé aux œuvres de charité">5% reversé*</figcaption>
         </figure>
       </div>
       <footer>

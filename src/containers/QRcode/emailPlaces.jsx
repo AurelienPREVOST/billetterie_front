@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
@@ -7,11 +6,9 @@ import QRCode from "qrcode.react";
 const EmailPlaces = () => {
   const { code } = useParams();
   const usableCode = code.split("=")[1]
-  console.log(code)
 
     useEffect(() => {
     const canvas = document.querySelector("#emailPlaces canvas");
-    console.log(canvas)
     if (canvas) {
       canvas.style.removeProperty('width');
       canvas.style.removeProperty('height');

@@ -36,11 +36,6 @@ const Detail = () => {
   const [spectacleWidth, setSpectacleWidth] = useState(null)
   const [seatImplementation, setSeatImplementation] = useState(null)
 
-  console.log(spectacleWidth)
-  console.log(seatImplementation)
-
-
-
   const errorMessageStyle = {
     width: '60%',
     padding: '0.2rem 1rem ',
@@ -78,8 +73,6 @@ const Detail = () => {
     }
     setPopUp(true);
   }
-
-
 
 
   const scrollToMap = () => {
@@ -180,7 +173,7 @@ const Detail = () => {
           />
           <p>Le {new Date(product.date).toISOString().split("T")[0]}</p>
           <p>à {new Date(product.date).toISOString().split("T")[1].substring(0, 5)}</p>
-          <p onClick={scrollToMap}>{product.lieu}</p>
+          <p id="goToMap" onClick={scrollToMap}>{product.lieu}</p>
           <hr></hr>
           <p>{product.description}</p>
           <hr></hr>

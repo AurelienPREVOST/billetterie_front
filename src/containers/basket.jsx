@@ -52,12 +52,12 @@ const Basket = (props)=>{
             }
             saveOneOrder(datas)
             .then((res)=>{
-                if(res.status === 200){
-                    setOrderId(res.orderId)
-                    setRedirect(true)
-                }else {
-                    console.log(res)
-                }
+              if(res.status === 200){
+                  setOrderId(res.orderId)
+                  setRedirect(true)
+              }else {
+                  console.log(res)
+              }
             })
             .catch(err=>console.log(err))
         } else {

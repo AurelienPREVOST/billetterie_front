@@ -47,7 +47,6 @@ const Header = () => {
   };
 
   const searchResultsPreview = (keyword) => {
-    console.log("KEYWORD => ", keyword)
     if (keyword.length === 0) {
       if (inputSearchRef.current) {
         inputSearchRef.current.classList.add("borderR24px")
@@ -65,7 +64,7 @@ const Header = () => {
         setSearchResult(res.result);
       })
       .catch((err) => {
-        console.log("bug==>", err);
+        console.log("bug=>", err);
       });
   };
 

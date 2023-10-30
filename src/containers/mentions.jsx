@@ -39,19 +39,18 @@ const Mentions = () => {
     </div>
     {/* //CETTE VIDEO A ETE INTEGREE DANS LE SEUL BUT DE COLLER A LA GRILLE DE NOTATION DE LA SOUTENANCE */}
     <iframe
-      style={{
-      display: "block",
-      margin: "0 auto",
-      width: "560px",
-      height: "315px"
-      }}
       src="https://www.youtube.com/embed/0_6IgX5Cy3o?si=B4l1pm-F1kuwcdK8"
       title="YouTube video player"
-      frameborder="0"
+      frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      >
-    </iframe>
+      allowFullScreen
+      style={{
+        display: "block",
+        margin: "0 auto",
+        width: "560px",
+        height: "315px",
+      }}
+    ></iframe>
   </>
   );
 }

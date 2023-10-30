@@ -76,9 +76,6 @@ const AddProduct = (props)=>{
     .then((response) => {
       if (response.data.features[0].geometry) {
         setApiResponse(response.data); // Stockez la réponse de l'API dans l'état
-        console.log(response.data);
-        console.log(response.data.features[0].geometry.coordinates[0]);
-        console.log(response.data.features[0].geometry.coordinates[1]);
         if (response.data.features.length === 1) {
           setAddressVerified(true);
         } else {

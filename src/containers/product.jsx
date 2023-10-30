@@ -32,11 +32,6 @@ const Product = () => {
           const maxProductPrice = Math.max(...res.result.map((product) => product.price))
           setPriceRange([minProductPrice, maxProductPrice]);
           setFixedMinMax([minProductPrice, maxProductPrice])
-          // if (firstSetting) {
-          //   setFixedMinMax([minProductPrice, maxProductPrice])
-          //   setPriceRange([minProductPrice, maxProductPrice])
-          //   setFirstSetting(false)
-          // }
         } else {
           console.log("erreur dans testProductSql");
         }

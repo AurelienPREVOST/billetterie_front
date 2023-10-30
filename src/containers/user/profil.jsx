@@ -52,7 +52,6 @@ const Profil = (props) => {
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    console.log("je soumet le formulaire")
 
     let datas = {
       firstName: firstName,
@@ -63,45 +62,27 @@ const Profil = (props) => {
       phone: phone,
     };
 
-    console.log("datas")
-    console.log("datas.firstName typeOf =>", typeof firstName)
-    console.log("datas.lastName typeOf =>", typeof lastName)
-    console.log("datas.address typeOf =>", typeof address)
-    console.log("datas.zip typeOf =>", typeof zip)
-    console.log("datas.city typeOf =>", typeof city)
-    console.log("datas.phone typeOf =>", typeof phone)
-
     updateProfil(datas, user.infos.id)
       .then((res) => {
-        console.log('j entre dans updateProfil')
-        console.log("datas =>", datas)
-        console.log("user.infos.id =>", user.infos.id)
         if (res.status !== 200) {
-          console.log("res.status=>", res.status)
           setMsg("Erreur lors de la modification!");
         } else {
-          console.log("avant checkMyToken()");
           checkMyToken()
             .then((response) => {
-              console.log("dans le then response =>", response);
               if (response.status !== 200) {
-                console.log("response.status2=>", response.status);
                 setMsg("Erreur lors de la modification!");
               } else {
                 const token = window.localStorage.getItem("tutorial-token");
-                console.log("token", token);
                 let newUser = res.newUser;
-                console.log("newUser=>", newUser);
                 newUser.token = token;
-                console.log("newUser.token=>", newUser.token);
                 dispatch(connectUser(newUser));
                 setMsg("Profil modifié avec succès!");
               }
             })
-            .catch((err) => console.log("ERROR DU CATCH===>", err));
+            .catch((err) => console.log("ERROR DU CATCH=>", err));
         }
       })
-      .catch((err) => console.log("ERROR DU CATCH NUMERO2 ===>", err));
+      .catch((err) => console.log("ERROR DU CATCH NUMERO2 =>", err));
   };
 
   return (

@@ -44,7 +44,7 @@ const qrCodeScanner = ()=>{
                 setReport("Statut inconnu");
             }
             setTimeout(function() {
-              console.log("********VEUILLEZ PATIENTEZ AVANT UNE NOUVELLE TENTATIVE*******");
+              console.log("***VEUILLEZ PATIENTEZ AVANT UNE NOUVELLE TENTATIVE***");
               setScanResult(null)
             }, 3000);
             console.log("=> NOUVEAU SCAN POSSIBLE <=")
@@ -75,11 +75,11 @@ const qrCodeScanner = ()=>{
     }
     removeOneVideo()
   }, []);
+
   //////TOUTE CETTE PARTIE LA EST UNE GROSSE BIDOUILLE POUR PALIER A UN DEFAUT DE LA LIBRAIRIE.
   // EN PRODUCTION LE TIMEOUT DEVRA PEUT ETRE ETE ALLONGE. SANS LE TIMEOUT LA WEBCAM APPARAIT 2
-  // FOIS SI LE NAVIGATEUR A DEJA DONNE L'ACCES A LA WEBCAM
+  // FOIS SI LE NAVIGATEUR A DEJA DONNE L'ACCES A LA WEBCAM (PAS SUR FIREFOX)
   const removeOneVideo = () => {
-    console.log("removeOneVideo")
     setTimeout(() => {
       const videos = document.querySelectorAll('video');
       if (videos.length > 1) {

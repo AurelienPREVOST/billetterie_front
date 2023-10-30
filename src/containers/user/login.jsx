@@ -33,7 +33,6 @@ const Login = (props) => {
 
     checkIfValidateIsYes(datas.email)
     .then((res) => {
-      console.log("checkIfValidateIsYes res", res.result[0].validate)
       if (res.result[0].validate === 'no') {
         setValidateError("Vous n'avez pas valider votre adresse email. Consultez votre messagerie")
         return

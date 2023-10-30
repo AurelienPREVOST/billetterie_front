@@ -61,7 +61,6 @@ const CheckoutForm = (props) => {
       } else {
         if (payment.paymentIntent.status === 'succeeded') {
           let numOrder = props.orderId
-          console.log("numOrder ==>", numOrder)
           basket.basket.forEach((b) => {
             b.selectedSeatIds.forEach((seatId) => {
               updateStatusSeat(seatId, user.infos.id, numOrder);
