@@ -195,7 +195,16 @@ const EditProduct = (props) => {
           type="file"
           id="productImage"
           onChange={(e) => {
-            setFile(e.currentTarget.files[0]);
+            const file = e.currentTarget.files[0];
+            if (file) {
+              // Vérifie que la taille du fichier fait moins de 1mo
+              if (file.size <= 1000000) {
+                setFile(file);
+              } else {
+                alert("Le fichier est trop volumineux. Veuillez sélectionner un fichier de moins de 1 Mo.");
+                e.currentTarget.value = null;
+              }
+            }
           }}
         />
         <label htmlFor="productType">Type de produit:</label>
