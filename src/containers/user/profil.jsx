@@ -19,8 +19,15 @@ const Profil = (props) => {
   const [city, setCity] = useState("");
   const [phone, setPhone] = useState("");
   const [userPlaces, setUserPlaces] = useState([]);
+  const [zoomPlace, setZoomPlace] = useState(false)
+  const [zoomPlaceCode, setZoomPlaceCode] = useState("")
 
 
+
+  const onClickQrCode = (code) => {
+    setZoomPlaceCode(code)
+    setZoomPlace(!zoomPlace)
+  }
 
 
   useEffect(() => {
@@ -103,54 +110,71 @@ const Profil = (props) => {
       <Link to="/logout" className="logoutHref"><button>Me déconnecter</button></Link>
       {msg !== null && <p>{msg}</p>}
       <form className="b-form" onSubmit={onSubmitForm}>
-        <input
-          type="text"
-          defaultValue={user.infos.firstName}
-          onChange={(e) => {
-            setFirstName(e.currentTarget.value);
-          }}
-        />
-        <input
-          type="text"
-          defaultValue={user.infos.lastName}
-          onChange={(e) => {
-            setLastName(e.currentTarget.value);
-          }}
-        />
-        <input
-          type="text"
-          defaultValue={user.infos.address}
-          onChange={(e) => {
-            setAddress(e.currentTarget.value);
-          }}
-        />
-        <input
-          type="text"
-          defaultValue={user.infos.zip}
-          onChange={(e) => {
-            setZip(e.currentTarget.value);
-          }}
-        />
-        <input
-          type="text"
-          defaultValue={user.infos.city}
-          onChange={(e) => {
-            setCity(e.currentTarget.value);
-          }}
-        />
-        <input
-          type="text"
-          defaultValue={user.infos.phone}
-          onChange={(e) => {
-            setPhone(e.currentTarget.value);
-          }}
-        />
-        <input type="submit" name="Enregistrer" />
-      </form>
+      <label htmlFor="firstName">Prénom :</label>
+      <input
+        type="text"
+        id="firstName"
+        defaultValue={user.infos.firstName}
+        onChange={(e) => {
+          setFirstName(e.currentTarget.value);
+        }}
+      />
+
+      <label htmlFor="lastName">Nom de famille :</label>
+      <input
+        type="text"
+        id="lastName"
+        defaultValue={user.infos.lastName}
+        onChange={(e) => {
+          setLastName(e.currentTarget.value);
+        }}
+      />
+
+      <label htmlFor="address">Adresse :</label>
+      <input
+        type="text"
+        id="address"
+        defaultValue={user.infos.address}
+        onChange={(e) => {
+          setAddress(e.currentTarget.value);
+        }}
+      />
+
+      <label htmlFor="zip">Code postal :</label>
+      <input
+        type="text"
+        id="zip"
+        defaultValue={user.infos.zip}
+        onChange={(e) => {
+          setZip(e.currentTarget.value);
+        }}
+      />
+
+      <label htmlFor="city">Ville :</label>
+      <input
+        type="text"
+        id="city"
+        defaultValue={user.infos.city}
+        onChange={(e) => {
+          setCity(e.currentTarget.value);
+        }}
+      />
+
+      <label htmlFor="phone">Téléphone :</label>
+      <input
+        type="text"
+        id="phone"
+        defaultValue={user.infos.phone}
+        onChange={(e) => {
+          setPhone(e.currentTarget.value);
+        }}
+      />
+      <input type="submit" value="Enregistrer" />
+    </form>
 
       {userPlaces.length > 0 && (
         <>
-          <h3>Mes événements prochains :</h3>
+          <h2>Mes évènements prochains :</h2>
           <div className="my-ticket-list">
             {userPlaces.map((place, index) => {
               if (new Date(place.date) - new Date(dateActuelle) > 0) {
@@ -161,7 +185,7 @@ const Profil = (props) => {
                     <p>{place.lieu}</p>
                     <p><b>Le {new Date(place.date).toISOString().split("T")[0].substring(0, 10)}</b></p>
                     <p><b>à {new Date(place.date).toISOString().split("T")[1].substring(0, 5)}</b></p>
-                    <QRCode value={place.code} />
+                    <QRCode value={place.code} onClick={() => onClickQrCode(place.code)} />
                     <p><i>{place.code}</i></p>
                   </div>
                 );
@@ -169,6 +193,11 @@ const Profil = (props) => {
               return null;
             })}
           </div>
+          {zoomPlace ? (
+            <div id="zoomPlaceQrCode" onClick={() => onClickQrCode("")}>
+              <QRCode value={zoomPlaceCode} style={{height:"50vh", width:"auto", padding:"2rem"}}/>
+            </div>
+          ) : null}
           <h3>Mes événements passés :</h3>
           <div className="my-ticket-list">
             {userPlaces.map((place, index) => {

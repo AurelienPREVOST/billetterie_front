@@ -1,5 +1,18 @@
 //PROFIL
 
+//TEST
+#zoomPlaceQrCode {
+  position:fixed;
+  width:100vw;
+  top:0;
+  left:0;
+  height:100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background:rgba(0,0,0,0.8)
+}
+
 .logoutHref {
   display: flex;
   justify-content: flex-end;

@@ -50,9 +50,11 @@ function contact() {
           </select>
         </div>
         <div>
-          <label htmlFor="Mon adresse mail">Mon adresse email :</label>
+          <label htmlFor="email">Mon adresse email :</label>
           <input
             type="text"
+            id="email"
+            name="email"
             placeholder="monmail@gmail.com"
             onChange={(e) => {
               setMyContact(e.currentTarget.value);

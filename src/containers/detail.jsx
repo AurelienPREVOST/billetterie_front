@@ -14,6 +14,7 @@ import scene from '../assets/scene.svg';
 import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { gridLayer } from "leaflet";
+import vr from "../assets/vr.svg"
 
 
 const Detail = () => {
@@ -30,8 +31,15 @@ const Detail = () => {
   const [error2, setError2] = useState(true)
   const [choosenSeat, setChoosenSeat] = useState([])
   const isfull = document.querySelectorAll(`img[src="${seat}"]`).length > 0 ? false : true;
-
   const locationMarker = {geocode: [latitude, longitude], popup: "spectacle ici"}
+  const [scrollMessage, setScrollMessage] = useState(false)
+  const [spectacleWidth, setSpectacleWidth] = useState(null)
+  const [seatImplementation, setSeatImplementation] = useState(null)
+
+  console.log(spectacleWidth)
+  console.log(seatImplementation)
+
+
 
   const errorMessageStyle = {
     width: '60%',
@@ -70,6 +78,8 @@ const Detail = () => {
     }
     setPopUp(true);
   }
+
+
 
 
   const scrollToMap = () => {
@@ -135,13 +145,17 @@ const Detail = () => {
               const currentProductBasket = basket.basket.find((item) => item.id === res.result.id);
               const selectedSeatIds = currentProductBasket ? currentProductBasket.selectedSeatIds : [];
               setChoosenSeat(selectedSeatIds);
-
+              setSpectacleWidth(document.querySelector(".spectacleSchema").clientWidth)
+              setSeatImplementation(document.querySelector("#seatImplementation").clientWidth)
+              if (seatImplementation > spectacleWidth) {
+                setScrollMessage(true)
+              }
             })
             .catch((err) => console.log(err));
         }
       })
       .catch((err) => console.log(err));
-  }, [params.id, basket.basket]);
+  }, [params.id, basket.basket, seatImplementation]);
 
   return (
   <>
@@ -191,6 +205,10 @@ const Detail = () => {
               }}
             />
           </form>
+          <button id="vrHeadsetPlace" disabled="true">
+            <img src={vr} alt="Boutton achat place en realité virtuelle" aria-label="bouton representant une personne portant un casque de realité virtuelle"/>
+            <p>Achetez une place en Realité virtuelle - Cette fonctionnalité sera prochainement disponible selon les evenements</p>
+          </button>
           {error2 ? (
             <p style={errorMessageStyle}>
               Cliquez sur les sièges pour sélectionner vos places
@@ -201,46 +219,53 @@ const Detail = () => {
         </div>
       ) : null}
 
-
+      {/* //Zone d'affichage des places */}
       {places ? (
       <div className="spectacleSchema" >
-      <h2>{isfull ? "SPECTACLE COMPLET" : "PLACES DISPONIBLE"}</h2>
-        <img src={scene} alt="illustration d'un rideau de scene de spectacle" style={{ width: '100%' }} />
-        {places.result.map((place, index) => {
-          const currentProductBasket = basket.basket.find((item) => item.id === product.id);
-          const selectedSeatIds = currentProductBasket ? currentProductBasket.selectedSeatIds : [];
+      <div id="seatImplementation" style={{ width: `${50 * product.rankwidth}px` }}>
+            <h2>{isfull ? "SPECTACLE COMPLET" : "PLACES DISPONIBLE:"}</h2>
+            {scrollMessage && <h3>Faites défiler le plan pour afficher toutes les places</h3>}
+              <img src={scene} alt="illustration d'un rideau de scene de spectacle" style={{ width: '100%' }} />
+              {places.result.map((place, index) => {
+                const currentProductBasket = basket.basket.find((item) => item.id === product.id);
+                const selectedSeatIds = currentProductBasket ? currentProductBasket.selectedSeatIds : [];
 
-          return (
-          <div key={place.id} className="seat-container">
-            <img
-              id={`seat-number-${index + 1}`}
-              className="various-seat"
-              src={
-                selectedSeatIds.includes(place.id)
-                  ? seatWaiting
-                  : place.status === "available"
-                  ? seat
-                  : seatUnavailable
-              }
-              alt={`Place ${place.id}`}
-              onClick={() => handleSeatClick(place.id, index)}
-              tabIndex={0}
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  handleSeatClick(place.id, index);
-                }
-              }}
-            />
-            <p className="seat-label">{index + 1}</p>
-          </div>
-        );
-        })}
-        <p className="advertising">Important: Une place en attente ne vous garantie pas sa disponibilité, pensez à valider votre achat rapidement</p>
-        <p>{error}</p>
+                return (
+                <div key={place.id} className="seat-container">
+                  <img
+                    id={`seat-number-${index + 1}`}
+                    className="various-seat"
+                    src={
+                      selectedSeatIds.includes(place.id)
+                        ? seatWaiting
+                        : place.status === "available"
+                        ? seat
+                        : seatUnavailable
+                    }
+                    alt={`Place ${place.id}`}
+                    onClick={() => handleSeatClick(place.id, index)}
+                    tabIndex={0}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        handleSeatClick(place.id, index);
+                      }
+                    }}
+                  />
+                  <p className="seat-label">{index + 1}</p>
+                </div>
+              );
+              })}
+              <p className="advertising">Important: Une place en attente ne vous garantie pas sa disponibilité, pensez à valider votre achat rapidement</p>
+              <p>{error}</p>
+
+        </div>
       </div>
-    ) : (
-      <p>Plan de salle en cours de chargement...</p>
-    )}
+      ) : (
+        <p>Plan de salle en cours de chargement...</p>
+      )}
+
+
+    {/* Carte de l'evenement */}
     {product ? (
     <div className='mapDetail'>
       <MapContainer center={[latitude, longitude]} zoom={13}>
@@ -254,6 +279,7 @@ const Detail = () => {
       </MapContainer>
     </div>
   ) : null}
+
     </section>
 </>
   );

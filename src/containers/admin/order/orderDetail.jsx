@@ -7,6 +7,10 @@ const OrderDetail = () => {
   const order = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0) // Remonte le scroll
+  }, []);
+
+  useEffect(() => {
     getPlacesFromOrder(order.id)
       .then((res) => {
         setOrderInfo(res.result);
