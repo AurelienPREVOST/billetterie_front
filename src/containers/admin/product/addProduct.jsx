@@ -21,6 +21,7 @@ const AddProduct = (props)=>{
     const [date, setDate] = useState("")
     const [quantity, setQuantity] = useState("")
     const [price, setPrice] = useState("")
+    const [rankWidth, setRankWidth] = useState("")
     const [selectedFile, setFile] = useState(null)
     const [redirect, setRedirect] = useState(false)
     const [error, setError] = useState(null)
@@ -40,16 +41,28 @@ const AddProduct = (props)=>{
 
 
     const onSubmitForm = (e) => {
-        e.preventDefault()
-        setError(null)
-        if(name === "" || description === "" || price === "" || quantity === ""){
-            setError("Tous les champs ne sont pas encore remplis!")
-        } else if(isNaN(quantity) || isNaN(price)){
-            setError("Les champs prix et quantité doivent obligatoirement être des chiffres!")
-        } else {
-            saveCompleteProduct()
-        }
-    }
+      e.preventDefault();
+      setError(null);
+      if (
+        name === '' ||
+        description === '' ||
+        price === '' ||
+        rankWidth === '' ||
+        date === '' ||
+        quantity === '' ||
+        address === '' ||
+        latitude === '' ||
+        longitude === '' ||
+        ville === '' ||
+        lieu === ''
+      ) {
+        setError('Tous les champs ne sont pas encore remplis!');
+      } else if (isNaN(quantity) || isNaN(price)) {
+        setError('Les champs prix et quantité doivent obligatoirement être des chiffres!');
+      } else {
+        saveCompleteProduct();
+      }
+    };
 
 
 
@@ -92,6 +105,7 @@ const AddProduct = (props)=>{
                 lieu: lieu,
                 date: date,
                 price: price,
+                rankWidth: rankWidth,
                 quantity: quantity,
                 photo: "no-pict.jpg"
               }
@@ -121,6 +135,7 @@ const AddProduct = (props)=>{
                         lieu: lieu,
                         date: date,
                         price: price,
+                        rankWidth: rankWidth,
                         quantity: quantity,
                         photo: res.data.url
                     }
@@ -163,6 +178,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setName(e.currentTarget.value);
             }}
+            required
           />
           <label htmlFor="productImage">Image du produit:</label>
           <input
@@ -178,6 +194,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setType(e.currentTarget.value);
             }}
+            required
           >
             <option value="theatre">Théâtre</option>
             <option value="opera">Opéra</option>
@@ -194,6 +211,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setDescription(e.currentTarget.value);
             }}
+            required
           ></textarea>
           <label htmlFor="address">Adresse de l'événement:</label>
           <input
@@ -204,6 +222,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
             setAddress(e.currentTarget.value);
             }}
+            required
           />
           {addressVerified ? <p style={{ color: 'green' }}>Adresse trouvée</p> : <p style={{ color: 'red' }}>Précisez mieux l'adresse</p>}
           <button type="button" onClick={verifyAddress}>
@@ -236,6 +255,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setVille(e.currentTarget.value);
             }}
+            required
           />
           <label htmlFor="productLocation">Lieu:</label>
           <input
@@ -245,6 +265,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setLieu(e.currentTarget.value);
             }}
+            required
           />
           <label htmlFor="productDate">Date:</label>
           <input
@@ -256,6 +277,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setDate(e.currentTarget.value);
             }}
+            required
           />
           <label htmlFor="productQuantity">Nombre de places disponibles:</label>
           <input
@@ -265,6 +287,7 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setQuantity(e.currentTarget.value);
             }}
+            required
           />
           <label htmlFor="productPrice">Prix de vente:</label>
           <input
@@ -274,6 +297,18 @@ const AddProduct = (props)=>{
             onChange={(e) => {
               setPrice(e.currentTarget.value);
             }}
+            required
+          />
+          <label htmlFor="rankWidth">Nombre de sieges par rangée:</label>
+          <input
+            type="number"
+            id="rankWidth"
+            placeholder="nbr de sièges par rang"
+            onChange={(e) => {
+              setRankWidth(parseInt(e.currentTarget.value, 10));
+            }}
+            step="1"
+            required
           />
           <button>Enregistrer</button>
         </form>

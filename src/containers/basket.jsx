@@ -18,11 +18,26 @@ const Basket = (props)=>{
     const [orderId, setOrderId] = useState(null)
     const [redirect, setRedirect] = useState(false)
     const [acceptCGV, setAcceptCGV] = useState(false);
+    const [cgvTips, setCgvTips] = useState(false)
 
 
     useEffect(() => {
       window.scrollTo(0, 0) // Remonte le scroll sinon on ne vois pas forcément la zone de paiement
     }, []);
+
+    const pleaseValidCgvFirst = (e) => {
+      e.preventDefault();
+      let cgv = document.querySelector("#CGVform");
+      const cgvRect = cgv.getBoundingClientRect();
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const targetY = cgvRect.top + scrollTop - (window.innerHeight - cgvRect.height) / 2;
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth"
+      });
+      cgv.style.border = "2px solid red";
+      setCgvTips(true)
+    }
 
     const handleAcceptCGVChange = () => {
       setAcceptCGV(!acceptCGV)
@@ -55,27 +70,27 @@ const Basket = (props)=>{
       dispatch(cleanBasket())
     }
 
-    const addQuantity = (oldBasket, myProduct) => {
-        let newBasket = JSON.parse(JSON.stringify(oldBasket))
-        let same = newBasket.findIndex((nb) => nb.id === myProduct.id)
-        if(same !== -1){
-            newBasket[same].quantityInCart += 1
-        }
-        let lsBasket = JSON.stringify(newBasket)
-        window.localStorage.setItem("ecommerce-tutorial-basket", lsBasket)
-        dispatch(modifyBasket(newBasket))
-    }
+    // const addQuantity = (oldBasket, myProduct) => {
+    //     let newBasket = JSON.parse(JSON.stringify(oldBasket))
+    //     let same = newBasket.findIndex((nb) => nb.id === myProduct.id)
+    //     if(same !== -1){
+    //         newBasket[same].quantityInCart += 1
+    //     }
+    //     let lsBasket = JSON.stringify(newBasket)
+    //     window.localStorage.setItem("ecommerce-tutorial-basket", lsBasket)
+    //     dispatch(modifyBasket(newBasket))
+    // }
 
-    const removeQuantity = (oldBasket, myProduct) => {
-      let newBasket = JSON.parse(JSON.stringify(oldBasket))
-        let same = newBasket.findIndex((nb) => nb.id === myProduct.id)
-        if(same !== -1){
-            newBasket[same].quantityInCart -= 1
-        }
-        let lsBasket = JSON.stringify(newBasket)
-        window.localStorage.setItem("ecommerce-tutorial-basket", lsBasket)
-        dispatch(modifyBasket(newBasket))
-    }
+    // const removeQuantity = (oldBasket, myProduct) => {
+    //   let newBasket = JSON.parse(JSON.stringify(oldBasket))
+    //     let same = newBasket.findIndex((nb) => nb.id === myProduct.id)
+    //     if(same !== -1){
+    //         newBasket[same].quantityInCart -= 1
+    //     }
+    //     let lsBasket = JSON.stringify(newBasket)
+    //     window.localStorage.setItem("ecommerce-tutorial-basket", lsBasket)
+    //     dispatch(modifyBasket(newBasket))
+    // }
 
     const removeThisSeat = (productId, seatIdToRemove) => {
       // Copiez le panier actuel depuis Redux
@@ -185,7 +200,7 @@ const Basket = (props)=>{
               </tbody>
           </table> :
             <div className="emptyCart">
-              <img src={ticketsSVG}/>
+              <img src={ticketsSVG} alt="tickets_spectacle" aria-label="tickets de spectacle invitant à selectionner un évènement"/>
               <p>Votre panier est vide.</p>
               <button><Link to="/">Voir les evenements du moment</Link></button>
             </div>}
@@ -200,14 +215,26 @@ const Basket = (props)=>{
                 />
                 <label htmlFor="acceptCGV">J'ai lu et j'accepte les <Link to="/cgv" target="_blank" id="cgvlink">conditions générales de ventes</Link></label>
               </form>
-              <button
-                onClick={onClickSaveOrder}
-                className="goStripe"
-                disabled={!acceptCGV} // Désactive le bouton si acceptCGV est faux
-              >
-                <b>Valider ma commande : </b>
-                <i>{(basket.totalPrice).toFixed(2)} €</i>
-              </button>
+              {cgvTips ? <p style={{ color: "red", margin: "10%", textAlign: "center" }}>Pour valider votre commande, vous devez accepter les conditions générales</p> : null}
+
+              {acceptCGV ?(
+                <button
+                  onClick={onClickSaveOrder}
+                  className="goStripe"
+                >
+                  <b>Valider ma commande : </b>
+                  <i>{(basket.totalPrice).toFixed(2)} €</i>
+                </button>
+                ) : (
+                <button
+                  onClick={pleaseValidCgvFirst}
+                  className="goStripe"
+                  >
+                  <b>Valider ma commande : </b>
+                  <i>{(basket.totalPrice).toFixed(2)} €</i>
+                </button>
+                )
+              }
             </>
           )}
 

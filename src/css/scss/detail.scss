@@ -1,7 +1,38 @@
 //DETAIL
 
+#vrHeadsetPlace{
+  width:95%;
+  display:flex;
+  margin:0 auto;
+  border-radius: 20px;
+  box-shadow: 0 0 2px 1px grey;
+  padding:1rem;
+  background:rgb(181, 242, 89);
+  border:1px solid rgb(200, 241, 138);
+  img{
+    height:100px;
+  }
+  &:hover {
+    background:greenyellow
+  }
+}
+
 .leaflet-container {
   height: 30vh;
+}
+
+.theatreDetail {
+  h2 {
+    width:100%;
+    text-align: left;
+    padding:1rem
+  }
+
+  h3 {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+  }
 }
 
 .seat-container {
@@ -23,9 +54,14 @@
 }
 
 .spectacleSchema {
-  padding: 4vh 0;
   background: rgb(247, 221, 248);
-  width: 100%;
+  overflow:auto;
+}
+
+.spectacleSchema div:nth-child(1) {
+  padding: 4vh 0;
+
+  // width: 100%;
   margin: 0 auto;
   display: flex;
   flex-flow: wrap;
@@ -198,7 +234,22 @@
 
 }
 
+@media screen and (min-width: 539px) {
+  .bannerDetail {
+    img {
+      width: 22%;
+    }
+  }
+}
+
 @media screen and (min-width: 719px) {
+
+  #vrHeadsetPlace{
+    width:50%;
+    img{
+      height:100px;
+    }
+  }
 
   .popUpBasketConfirmation {
     top: 40%;
@@ -261,11 +312,12 @@
       margin: 2%;
     }
 
-    .seat-container {
-      width: 80px;
-    }
+    // .seat-container {
+    //   width: 80px;
+    // }
 
     .spectacleSchema {
+
       padding-top: 5vh;
       padding-bottom: 10vh;
     }
@@ -318,9 +370,9 @@
         padding-top: 3vh;
       }
 
-      .seat-container {
-        width: 50px;
-      }
+      // .seat-container {
+      //   width: 50px;
+      // }
     }
   }
 }

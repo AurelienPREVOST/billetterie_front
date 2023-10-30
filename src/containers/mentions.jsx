@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Mentions = () => {
   return (
+  <>
     <div className="mentions-container">
       <h1>Mentions Légales</h1>
         <p>
@@ -36,6 +37,22 @@ const Mentions = () => {
           <strong>Lien vers les conditions générales :</strong><Link to="/cgv">Cliquez ici</Link>
         </p>
     </div>
+    {/* //CETTE VIDEO A ETE INTEGREE DANS LE SEUL BUT DE COLLER A LA GRILLE DE NOTATION DE LA SOUTENANCE */}
+    <iframe
+      style={{
+      display: "block",
+      margin: "0 auto",
+      width: "560px",
+      height: "315px"
+      }}
+      src="https://www.youtube.com/embed/0_6IgX5Cy3o?si=B4l1pm-F1kuwcdK8"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      >
+    </iframe>
+  </>
   );
 }
 
