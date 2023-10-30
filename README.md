@@ -17,6 +17,16 @@ npm create vite@latest
 npm i @fortawesome/fontawesome-svg-core @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @reduxjs/toolkit @stripe/react-stripe-js @stripe/stripe-js axios moment react-redux react-router-dom redux redux-thunk sass html5-qrcode qrcode qrcode.react chai mocha sinon sinon-chai
 ````
 
+
+OU 
+```bash
+git clone https://github.com/AurelienPREVOST/billetterie_back.git
+nom_du_projet
+cd nom_du_projet
+npm install
+npm run dev
+```
+
 ## Etape 3 - Modifier l'existant:
 
 ```plaintext
