@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getOrderByUserId } from "../api/order";
+import moment from "moment";
+
 
 const OrderList = ({ userId }) => {
   const [orders, setOrders] = useState([]);
@@ -24,13 +26,33 @@ const OrderList = ({ userId }) => {
       {orders === undefined || orders.length === 0 ? (
         <p>Aucune commandes en mémoire</p>
       ) : (
-        <ul>
-          {orders.map((order) => (
-            <li key={order.id}>
-              Commande #{order.id} - Date: {order.creationTimestamp}
-            </li>
-          ))}
-        </ul>
+        <div className="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Numéro</th>
+                    <th>Prix total</th>
+                    <th>Date de confirmation</th>
+                    <th>Etat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map((o) => {
+                    if (o.status === "payed") {
+                      return (
+                        <tr key={o.id}>
+                          <td>{o.id}</td>
+                          <td>{o.totalAmount} euros</td>
+                          <td>{moment(o.creationTimestamp).format("DD-MM-YYYY")}</td>
+                          <td>{o.status}</td>
+                        </tr>
+                      );
+                    }
+                    return null;
+                  })}
+                </tbody>
+              </table>
+            </div>
       )}
     </div>
   );
