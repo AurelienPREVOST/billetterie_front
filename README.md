@@ -2,7 +2,7 @@
 
 Bonjour,
 
-Cette application est une billetterie qui fonctionnera de concert avec le repo billetterie_back.
+Cette application est une billetterie qui fonctionnera de concert avec le repo billetterie_back accessible ici https://github.com/AurelienPREVOST/billetterie_back
 Uniquement la partie front-end se trouve ici, codé en REACT 18.
 
 ## Etape 1 - instancier un nouveau projet sous vite (React, Javascript):
