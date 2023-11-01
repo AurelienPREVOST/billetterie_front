@@ -14,6 +14,11 @@ const qrCodeScanner = ()=>{
       qrCodeChecking(scanResult)
         .then((res) => {
           if (res.result.length === 0) {
+            let flash = document.getElementById("flash")
+            flash.classList.add("red")
+            setTimeout(() => {
+              flash.classList.remove("red")
+            }, 700);
             setReport("Cette place n'existe pas en base de donnée");
           } else {
             let flash = document.getElementById("flash")
@@ -37,7 +42,7 @@ const qrCodeScanner = ()=>{
                 flash.classList.add("red")
                 setReport("CETTE PLACE N'A PAS ETE ACQUITEE");
                 setTimeout(() => {
-                  flash.classList.add("remove")
+                  flash.classList.remove("red")
                 }, 700);
                 break;
               default:
