@@ -198,7 +198,7 @@ const Detail = () => {
               }}
             />
           </form>
-          <button id="vrHeadsetPlace" disabled="true">
+          <button id="vrHeadsetPlace" disabled>
             <img src={vr} alt="Boutton achat place en realité virtuelle" aria-label="bouton representant une personne portant un casque de realité virtuelle"/>
             <p>Achetez une place en Realité virtuelle - Cette fonctionnalité sera prochainement disponible selon les evenements</p>
           </button>

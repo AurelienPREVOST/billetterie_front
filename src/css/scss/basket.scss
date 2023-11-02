@@ -154,6 +154,15 @@
 }
 
 @media screen and (min-width: 719px) {
+
+  .emptyCart {
+    width: 50%;
+
+    img {
+      width: 50%;
+    }
+  }
+
   .myBasket table {
     margin: 0 10vw;
     /* font-size: 2rem */
