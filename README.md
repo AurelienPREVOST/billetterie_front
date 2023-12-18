@@ -20,7 +20,7 @@ npm i @fortawesome/fontawesome-svg-core @fortawesome/free-regular-svg-icons @for
 
 OU 
 ```bash
-git clone https://github.com/AurelienPREVOST/billetterie_back.git
+git clone https://github.com/AurelienPREVOST/billetterie_front.git
 nom_du_projet
 cd nom_du_projet
 npm install
